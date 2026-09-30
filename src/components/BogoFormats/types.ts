@@ -32,9 +32,9 @@ export const RETAIL_FORMATS: RetailFormat[] = [
   {
     id: 'go',
     name: 'BOGO GO',
-    scaleLabel: '10-MINUTE INSTANT COMMERCE',
-    tagline: 'From shelf to doorstep.',
-    subtitle: '10-minute ultra-fast doorstep delivery dispatched directly from our local store network.',
+    scaleLabel: 'DISTRIBUTION & LOGISTICS',
+    tagline: 'Connecting products to people.',
+    subtitle: 'The integrated supply chain network moving goods seamlessly from suppliers to retail stores and partners.',
   },
 ];
 

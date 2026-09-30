@@ -37,7 +37,7 @@ const ROADMAP_PHASES: RoadmapPhase[] = [
     statements: [
       'Deploy BOGO Bazaar community supermarkets',
       'Establish BOGO Mini neighborhood express stores',
-      'Scale BOGO Go 10-minute instant delivery network',
+      'Scale BOGO Go supply chain & multi-tier distribution network',
       'Expand across key Tier-1 & Tier-2 urban clusters',
     ],
   },
@@ -571,7 +571,7 @@ export const GrowthRoadmap: React.FC = () => {
               <span className="bogo-closing-line bogo-closing-line-2">NEXT RETAIL ECOSYSTEM.</span>
             </h2>
             <p className="bogo-closing-sub">
-              11 in-house brands, physical experience superstores, and 10-minute doorstep delivery working as one.
+              11 in-house brands, multi-format retail stores, and a unified distribution network working as one.
             </p>
           </div>
         </div>

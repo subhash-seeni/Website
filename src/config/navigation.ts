@@ -72,7 +72,7 @@ export const navigationConfig: NavigationStructure = {
       label: 'BOGO GO',
       path: '/go',
       targetId: 'bogo-go-section',
-      subtitle: '10-Minute Doorstep Delivery',
+      subtitle: 'Distribution & Supply Chain Arm',
     },
     {
       id: 'programmes',

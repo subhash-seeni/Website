@@ -412,11 +412,11 @@ export const BogoTechnology: React.FC = () => {
               SHOPPING JOURNEY.
             </h2>
             <p className="bogo-tech-payoff-sub">
-              From in-store smart carts to autonomous home delivery, our technology keeps every touchpoint effortless.
+              From in-store smart carts to end-to-end supply chain orchestration, our technology keeps the entire retail journey connected.
             </p>
             <div className="bogo-tech-next-cue">
               <span className="bogo-tech-cue-dot" />
-              <span>NEXT &middot; BOGO GO &mdash; 10-MINUTE INSTANT DELIVERY</span>
+              <span>NEXT &middot; BOGO GO &mdash; DISTRIBUTION &amp; LOGISTICS</span>
             </div>
           </div>
         </div>

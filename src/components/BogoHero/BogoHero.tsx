@@ -170,9 +170,9 @@ export const BogoHero: React.FC = () => {
 
         {/* Unified Emotional Statement & Value Proposition */}
         <div className="bogo-supporting-copy">
-          <div className="bogo-copy-line accent">FROM DAILY ESSENTIALS TO 10-MINUTE DELIVERY</div>
+          <div className="bogo-copy-line accent">CONNECTING PRODUCTS, PLACES &amp; PEOPLE</div>
           <p className="bogo-hero-descriptor">
-            11 Curated In-House Brands &middot; Modern Experience Superstores &middot; Ultra-Fast Doorstep Delivery
+            11 Curated In-House Brands &middot; Multi-Format Retail Stores &middot; Integrated Supply Chain &amp; Logistics
           </p>
           <button
             type="button"
@@ -181,9 +181,9 @@ export const BogoHero: React.FC = () => {
               const el = document.getElementById('bogo-collection-section');
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }}
-            aria-label="Explore BOGO Brands and Stores"
+            aria-label="Explore the BOGO Ecosystem"
           >
-            <span>EXPLORE OUR BRANDS &amp; STORES</span>
+            <span>ENTER THE ECOSYSTEM</span>
             <span className="bogo-hero-cta-arrow" aria-hidden="true">&darr;</span>
           </button>
         </div>

@@ -175,13 +175,13 @@ export const BogoGo: React.FC = () => {
           <div className="bogo-go-content">
             <div className="bogo-go-kicker">
               <span className="bogo-go-kicker-dot" />
-              10-MINUTE DOORSTEP DELIVERY
+              DISTRIBUTION &amp; SUPPLY CHAIN
             </div>
 
             <h2 className="bogo-go-headline">
-              STORE TO DOORSTEP
+              CONNECTING PRODUCTS
               <br />
-              IN 10 MINUTES.
+              TO PEOPLE.
             </h2>
 
             <div className="bogo-go-logo-wrapper">
@@ -195,13 +195,13 @@ export const BogoGo: React.FC = () => {
             </div>
 
             <p className="bogo-go-subtext">
-              Picked fresh directly from climate-controlled BOGO stores—not distant warehouses. Zero surprise substitutions, delivered at genuine in-store prices.
+              The distribution and supply chain arm of the BOGO ecosystem. Moving products efficiently from manufacturers and suppliers to BOGO stores, retail partners, and customers.
             </p>
 
             <div className="bogo-go-cue">
               <div className="bogo-go-cue-badge">
                 <span className="bogo-go-cue-dot" />
-                <span className="bogo-go-cue-text">NEXT &middot; BOGO PROGRAMS &mdash; SPECIALISED INITIATIVES</span>
+                <span className="bogo-go-cue-text">NEXT &middot; BOGO PROGRAMS &mdash; COLLABORATIVE INITIATIVES</span>
               </div>
               <div className="bogo-go-hairline" />
             </div>

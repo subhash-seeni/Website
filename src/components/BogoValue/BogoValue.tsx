@@ -509,8 +509,8 @@ export const BogoValue: React.FC = () => {
                   </svg>
                 </div>
                 <div className="bogo-val-point-content">
-                  <h3 className="bogo-val-point-title">TOTAL FLEXIBILITY</h3>
-                  <p className="bogo-val-point-desc">Shop at flagship stores or order 10-minute doorstep delivery</p>
+                  <h3 className="bogo-val-point-title">SEAMLESS ACCESS</h3>
+                  <p className="bogo-val-point-desc">Shop across regional flagships, community supermarkets, and local outposts</p>
                 </div>
               </div>
             </div>
