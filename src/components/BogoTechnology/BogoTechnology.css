@@ -1,0 +1,652 @@
+/* ==========================================================================
+   BOGO TECHNOLOGY — "THE INTELLIGENCE BEHIND BOGO"
+   Editorial, Intelligent, Architectural, Cinematic Technology Storytelling
+   Matching the visual quality and design language of BogoValue
+   ========================================================================== */
+
+.bogo-tech-track {
+  position: relative;
+  width: 100%;
+  height: 540vh; /* Deliberate, spacious scroll progression */
+  background-color: #fbfbfd;
+}
+
+.bogo-tech-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fbfbfd;
+  user-select: none;
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: #0e294e;
+}
+
+/* Subtle organic paper texture overlay */
+.bogo-tech-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 25;
+}
+
+/* Transitional inlet from dark navy BOGO Go / Formats */
+.bogo-tech-inlet {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(6, 14, 26, 0.05) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* ==========================================================================
+   MINIMAL ARCHITECTURAL ALIGNMENT LINES
+   ========================================================================== */
+.bogo-tech-grid-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bogo-tech-grid-h {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(14, 41, 78, 0.05) 15%,
+    rgba(14, 41, 78, 0.05) 85%,
+    transparent 100%
+  );
+}
+
+.bogo-tech-grid-h.line-h1 {
+  top: 14%;
+}
+
+.bogo-tech-grid-h.line-h2 {
+  bottom: 14%;
+}
+
+.bogo-tech-grid-v {
+  position: absolute;
+  top: 8%;
+  bottom: 8%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(14, 41, 78, 0.04) 15%,
+    rgba(14, 41, 78, 0.04) 85%,
+    transparent 100%
+  );
+}
+
+.bogo-tech-grid-v.line-v1 {
+  left: 8%;
+}
+
+.bogo-tech-grid-v.line-v2 {
+  right: 8%;
+}
+
+/* ==========================================================================
+   MINIMAL EDITORIAL HEADER & TELEMETRY
+   ========================================================================== */
+.bogo-tech-header {
+  position: absolute;
+  top: 2rem;
+  left: 4%;
+  right: 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 28;
+  pointer-events: none;
+}
+
+.bogo-tech-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+}
+
+.bogo-tech-brand-mark {
+  color: #f78634;
+}
+
+.bogo-tech-brand-sep {
+  color: rgba(14, 41, 78, 0.25);
+}
+
+.bogo-tech-active-name {
+  color: rgba(14, 41, 78, 0.7);
+}
+
+.bogo-tech-telemetry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 9999px;
+  background: rgba(14, 41, 78, 0.03);
+  border: 1px solid rgba(14, 41, 78, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.bogo-tech-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f78634;
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.6);
+  animation: bogoTechDotPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes bogoTechDotPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.bogo-tech-telemetry-text {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #0e294e;
+  font-family: var(--font-family-mono, monospace);
+}
+
+/* ==========================================================================
+   STAGE CONTAINER — EXPANDED ARCHITECTURAL CANVAS
+   ========================================================================== */
+.bogo-tech-stage-container {
+  position: relative;
+  width: 94%;
+  max-width: 1400px;
+  height: 84vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bogo-tech-chapter {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   1. SECTION OPENING
+   ========================================================================== */
+.bogo-tech-intro {
+  max-width: 980px;
+}
+
+.bogo-tech-kicker {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #f78634;
+  margin-bottom: 1.4rem;
+  display: inline-block;
+}
+
+.bogo-tech-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #0e294e;
+  margin: 0;
+}
+
+/* ==========================================================================
+   2, 3, 4. THREE TECHNOLOGY EXPERIENCES (KNOW, ASSIST, DISCOVER)
+   Expanded Two-Column Grid with Maximized Image Area
+   ========================================================================== */
+.bogo-tech-stage-card {
+  display: grid;
+  grid-template-columns: 0.85fr 1.35fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 5.5rem);
+  width: 100%;
+  text-align: left;
+  z-index: 15;
+}
+
+.bogo-tech-stage-card.is-prominent {
+  grid-template-columns: 0.8fr 1.45fr;
+}
+
+.bogo-tech-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bogo-tech-stage-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #f78634;
+  margin-bottom: 0.8rem;
+}
+
+.bogo-tech-stage-title {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: #0e294e;
+  margin: 0 0 1.2rem 0;
+}
+
+.bogo-tech-stage-message {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #0e294e;
+  margin: 0 0 1rem 0;
+}
+
+.bogo-tech-stage-copy {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.65;
+  color: rgba(14, 41, 78, 0.72);
+  margin: 0 0 1.8rem 0;
+  max-width: 480px;
+}
+
+.bogo-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.bogo-tech-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0e294e;
+  background: rgba(14, 41, 78, 0.04);
+  border: 1px solid rgba(14, 41, 78, 0.1);
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   EXPANDED IMAGE CONTAINERS & ARCHITECTURAL PLACEHOLDERS
+   ========================================================================== */
+.bogo-tech-card-media {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.technology-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 480px;
+  max-height: 64vh;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid rgba(14, 41, 78, 0.08);
+  box-shadow: 0 24px 60px -12px rgba(14, 41, 78, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Primary experience (ASSIST) receives maximum visual scale */
+.technology-image-assist {
+  aspect-ratio: 16 / 9.8;
+  min-height: 520px;
+  max-height: 68vh;
+  box-shadow: 0 30px 72px -14px rgba(14, 41, 78, 0.14);
+  border: 1px solid rgba(247, 134, 52, 0.24);
+}
+
+.technology-img-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Subtle, architectural placeholder frame (when image file is not yet supplied) */
+.technology-placeholder-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(244, 245, 248, 0.88) 100%
+  );
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.technology-placeholder-grid-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.38;
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, rgba(14, 41, 78, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 41, 78, 0.04) 1px, transparent 1px);
+}
+
+.technology-placeholder-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.technology-placeholder-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.placeholder-stage-id {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  font-weight: 800;
+  color: #f78634;
+  text-transform: uppercase;
+}
+
+.placeholder-stage-name {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+.technology-placeholder-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 440px;
+}
+
+.placeholder-feat-pill {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(14, 41, 78, 0.75);
+  background: rgba(14, 41, 78, 0.04);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  border: 1px solid rgba(14, 41, 78, 0.07);
+}
+
+.technology-placeholder-file-path {
+  margin-top: 0.6rem;
+}
+
+.technology-placeholder-file-path code {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  color: rgba(14, 41, 78, 0.55);
+  background: rgba(0, 0, 0, 0.035);
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+}
+
+/* Corner Reticles */
+.technology-reticles {
+  position: absolute;
+  inset: 14px;
+  pointer-events: none;
+}
+
+.reticle-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: rgba(14, 41, 78, 0.22);
+}
+
+.reticle-corner.reticle-tl {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+
+.reticle-corner.reticle-tr {
+  top: 0;
+  right: 0;
+  border-top: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+.reticle-corner.reticle-bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1.5px solid;
+  border-left: 1.5px solid;
+}
+
+.reticle-corner.reticle-br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+.reticle-center-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+  opacity: 0.15;
+}
+
+.reticle-center-cross::before,
+.reticle-center-cross::after {
+  content: '';
+  position: absolute;
+  background: #0e294e;
+}
+
+.reticle-center-cross::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.reticle-center-cross::after {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+/* ==========================================================================
+   5. FINAL PAYOFF ("ONE CONNECTED SHOPPING JOURNEY.")
+   ========================================================================== */
+.bogo-tech-final-payoff {
+  max-width: 980px;
+}
+
+.bogo-tech-payoff-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.8rem, 6.2vw, 5.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #0e294e;
+  margin: 0 0 1.5rem 0;
+}
+
+.bogo-tech-payoff-sub {
+  font-family: var(--font-family-mono, monospace);
+  font-size: clamp(0.75rem, 1vw, 0.95rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #f78634;
+  margin: 0;
+}
+
+.bogo-tech-next-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2.2rem;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(14, 41, 78, 0.05);
+  border: 1px solid rgba(14, 41, 78, 0.12);
+  backdrop-filter: blur(8px);
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+.bogo-tech-cue-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f78634;
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.8);
+  animation: pulseTechCueDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseTechCueDot {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .bogo-tech-stage-card,
+  .bogo-tech-stage-card.is-prominent {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
+  }
+
+  .technology-image {
+    min-height: 380px;
+  }
+
+  .technology-image-assist {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bogo-tech-header {
+    top: 1.5rem;
+  }
+
+  .bogo-tech-active-name {
+    display: none;
+  }
+
+  .bogo-tech-stage-card,
+  .bogo-tech-stage-card.is-prominent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .bogo-tech-card-content {
+    align-items: center;
+  }
+
+  .bogo-tech-tags {
+    justify-content: center;
+  }
+
+  .technology-image {
+    min-height: 280px;
+    aspect-ratio: 16 / 11;
+  }
+
+  .technology-placeholder-frame {
+    padding: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bogo-tech-chapter,
+  .bogo-tech-telemetry-dot {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,291 @@
+/* ==========================================================================
+   BOGO FOOTER — MINIMAL ARCHITECTURAL CONCLUSION
+   Palette: Dark BOGO Navy (#060e1a), Crisp White, Restrained Orange (#f78634)
+   ========================================================================== */
+
+.bogo-footer {
+  position: relative;
+  width: 100%;
+  background-color: #060e1a;
+  color: #ffffff;
+  padding: clamp(64px, 7vw, 96px) 0 clamp(32px, 3.5vw, 44px) 0;
+  overflow: hidden;
+  z-index: 30;
+}
+
+/* Subtle organic paper/film grain overlay */
+.bogo-footer-grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Top hairline transition from the off-white section into dark navy */
+.bogo-footer-top-edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 2;
+}
+
+.bogo-footer-inner {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 80px);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   MINIMAL MAIN FOOTER ROW
+   Left Brand Identity + Right 8 Explore Links
+   ========================================================================== */
+.bogo-footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: clamp(40px, 6vw, 100px);
+}
+
+/* --------------------------------------------------------------------------
+   BRAND IDENTITY BLOCK
+   -------------------------------------------------------------------------- */
+.bogo-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 340px;
+  flex-shrink: 0;
+}
+
+.bogo-footer-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bogo-footer-logo-link:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.bogo-footer-logo {
+  height: clamp(38px, 4vw, 50px);
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  display: block;
+}
+
+.bogo-footer-tagline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.88rem, 0.95vw, 0.98rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 1.25rem 0 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   MINIMAL 8-LINK EXPLORE NAVIGATION
+   -------------------------------------------------------------------------- */
+.bogo-footer-nav-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bogo-footer-nav-kicker {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f78634;
+  margin-bottom: 1.35rem;
+  display: block;
+}
+
+.bogo-footer-nav-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+  grid-template-columns: repeat(2, minmax(180px, 240px));
+  gap: 0.95rem clamp(32px, 4.5vw, 64px);
+}
+
+.bogo-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.86rem, 0.92vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bogo-footer-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.bogo-footer-link:focus-visible {
+  outline: 1px solid #f78634;
+  outline-offset: 4px;
+}
+
+.bogo-footer-link-idx {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f78634;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.bogo-footer-link:hover .bogo-footer-link-idx {
+  opacity: 1;
+  color: #ff9d55;
+}
+
+.bogo-footer-link-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   MINIMAL BOTTOM BAR
+   Understated Copyright & Smooth Back To Top Trigger
+   ========================================================================== */
+.bogo-footer-bottom {
+  width: 100%;
+  margin-top: clamp(48px, 5.5vw, 72px);
+}
+
+.bogo-footer-bottom-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.75rem;
+}
+
+.bogo-footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bogo-footer-copy {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.bogo-footer-top-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.bogo-footer-top-btn:hover {
+  color: #f78634;
+  transform: translateY(-2px);
+}
+
+.bogo-footer-top-btn:focus-visible {
+  outline: 1px solid #f78634;
+  outline-offset: 4px;
+}
+
+.bogo-footer-top-arrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+
+.bogo-footer-top-btn:hover .bogo-footer-top-arrow {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 900px) {
+  .bogo-footer-main {
+    flex-direction: column;
+    gap: 2.75rem;
+  }
+
+  .bogo-footer-brand {
+    max-width: 100%;
+  }
+
+  .bogo-footer-nav-grid {
+    grid-auto-flow: row;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+    gap: 0.85rem 2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .bogo-footer {
+    padding: 50px 0 32px 0;
+  }
+
+  .bogo-footer-nav-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .bogo-footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bogo-footer-brand,
+  .bogo-footer-nav-wrap,
+  .bogo-footer-link,
+  .bogo-footer-bottom {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

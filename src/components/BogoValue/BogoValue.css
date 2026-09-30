@@ -1,0 +1,618 @@
+/* ==========================================================================
+   BOGO VALUE — "THE VALUE OF CONNECTION"
+   Human, Editorial, Emotional, Spacious Cinematic Storytelling
+   Color Progression: Off-White -> Deep Navy -> BOGO Orange -> Off-White
+   ========================================================================== */
+
+.bogo-val-track {
+  position: relative;
+  width: 100%;
+  height: 560vh; /* Deliberate, contemplative, spacious scroll progression */
+  background-color: #fbfbfd;
+}
+
+.bogo-val-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fbfbfd;
+  user-select: none;
+}
+
+/* Subtle organic paper texture */
+.bogo-val-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 25;
+}
+
+/* ==========================================================================
+   LARGE-SCALE COLOR PLANES (OFF-WHITE -> NAVY -> ORANGE)
+   ========================================================================== */
+
+.bogo-val-navy-plane {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0e294e;
+  z-index: 2;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.bogo-val-orange-plane {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f78634;
+  z-index: 3;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Convergence Compression Overlay */
+.bogo-val-convergence-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 4;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bogo-val-panel {
+  flex: 1;
+  height: 100%;
+}
+
+.bogo-val-panel-left {
+  background-color: #fbfbfd;
+}
+
+.bogo-val-panel-center {
+  background-color: #0e294e;
+  transform-origin: center center;
+}
+
+.bogo-val-panel-right {
+  background-color: #f78634;
+}
+
+/* ==========================================================================
+   EDITORIAL HEADER
+   ========================================================================== */
+
+.bogo-val-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 26px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 35;
+  pointer-events: none;
+}
+
+.bogo-val-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.bogo-val-brand-mark {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #0e294e;
+  transition: color 0.4s ease;
+}
+
+.bogo-val-brand-sep {
+  font-size: 12px;
+  color: rgba(14, 41, 78, 0.35);
+  transition: color 0.4s ease;
+}
+
+.bogo-val-active-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #f78634;
+  text-transform: uppercase;
+}
+
+/* Dark mode theme for header when viewing dark stages */
+.bogo-val-header.bogo-header-dark .bogo-val-brand-mark {
+  color: #ffffff;
+}
+
+.bogo-val-header.bogo-header-dark .bogo-val-brand-sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   SUBTLE CORPORATE VECTOR BACKGROUNDS
+   ========================================================================== */
+
+.bogo-val-vector-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  max-height: 700px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   EDITORIAL CHAPTERS CONTAINER & COMMON STYLES
+   ========================================================================== */
+
+/* ==========================================================================
+   EDITORIAL CHAPTERS CONTAINER & COMMON STYLES
+   ========================================================================== */
+
+.bogo-val-stage-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.bogo-val-chapter {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  max-width: 1040px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  box-sizing: border-box;
+  will-change: transform, opacity;
+}
+
+/* --------------------------------------------------------------------------
+   REFINED KICKER BADGE (ELEVATED & BALANCED ACROSS ALL SCREENS)
+   -------------------------------------------------------------------------- */
+
+.bogo-val-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: rgba(247, 134, 52, 0.08);
+  border: 1px solid rgba(247, 134, 52, 0.28);
+  font-family: var(--font-family-mono, monospace);
+  font-size: clamp(12.5px, 1.05vw, 14.5px);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f78634;
+  margin-bottom: clamp(18px, 2.5vw, 26px);
+  z-index: 3;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bogo-val-kicker-badge.is-light {
+  background: rgba(247, 134, 52, 0.15);
+  border-color: rgba(247, 134, 52, 0.38);
+  color: #f78634;
+}
+
+.bogo-val-kicker-badge.is-dark {
+  background: rgba(14, 41, 78, 0.12);
+  border-color: rgba(14, 41, 78, 0.3);
+  color: #0e294e;
+}
+
+.bogo-val-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #f78634;
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.8);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.bogo-val-kicker-dot.is-light {
+  background-color: #f78634;
+  box-shadow: 0 0 10px rgba(247, 134, 52, 0.9);
+}
+
+.bogo-val-kicker-dot.is-dark {
+  background-color: #0e294e;
+  box-shadow: 0 0 8px rgba(14, 41, 78, 0.4);
+}
+
+/* ==========================================================================
+   1. SECTION OPENING (THE BOGO DIFFERENCE / MORE VALUE. FOR EVERYONE.)
+   ========================================================================== */
+
+.bogo-val-opening {
+  max-width: 1040px;
+}
+
+.bogo-val-giant-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.14;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 3;
+}
+
+.bogo-val-line-block {
+  display: block;
+}
+
+.bogo-val-hl-primary {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: #0e294e;
+}
+
+.bogo-val-hl-secondary {
+  font-weight: 350;
+  letter-spacing: 0.035em;
+  color: #2b456b;
+}
+
+.bogo-val-subline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 450;
+  line-height: 1.55;
+  color: #55657d;
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 0.01em;
+  z-index: 3;
+}
+
+/* ==========================================================================
+   WORLD HEADLINES & COMMON POINTS GRID
+   ========================================================================== */
+
+.bogo-val-world-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(30px, 3.8vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.14;
+  margin: 0 0 8px 0;
+  z-index: 3;
+}
+
+.bogo-val-world-headline.is-light {
+  color: #ffffff;
+}
+
+.bogo-val-world-headline.is-dark {
+  color: #0e294e;
+}
+
+/* --------------------------------------------------------------------------
+   POINTS GRID WITH BESPOKE ICONS
+   -------------------------------------------------------------------------- */
+
+.bogo-val-points-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  max-width: 1000px;
+  width: 100%;
+  margin-top: clamp(24px, 3.2vw, 36px);
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.bogo-val-point-card {
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(14, 41, 78, 0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: clamp(20px, 2.2vw, 26px) clamp(16px, 1.8vw, 22px);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 4px 20px rgba(100, 60, 10, 0.06);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  box-sizing: border-box;
+}
+
+.bogo-val-point-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(100, 60, 10, 0.1);
+}
+
+.bogo-val-point-card.is-light {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+}
+
+.bogo-val-point-card.is-light:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+}
+
+.bogo-val-point-card.is-dark {
+  background: rgba(14, 41, 78, 0.09);
+  border-color: rgba(14, 41, 78, 0.18);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.bogo-val-point-card.is-dark:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+}
+
+/* Point Icon Box */
+.bogo-val-point-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 134, 52, 0.1);
+  color: #f78634;
+  border: 1px solid rgba(247, 134, 52, 0.24);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.bogo-val-point-card:hover .bogo-val-point-icon-box {
+  transform: scale(1.05);
+}
+
+.bogo-val-point-icon-box.is-light {
+  background: rgba(247, 134, 52, 0.18);
+  color: #f78634;
+  border-color: rgba(247, 134, 52, 0.38);
+}
+
+.bogo-val-point-icon-box.is-dark {
+  background: rgba(14, 41, 78, 0.14);
+  color: #0e294e;
+  border-color: rgba(14, 41, 78, 0.26);
+}
+
+/* Point Content */
+.bogo-val-point-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.bogo-val-point-title {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(13px, 1.05vw, 14.5px);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0e294e;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bogo-val-point-title.is-light {
+  color: #ffffff;
+}
+
+.bogo-val-point-title.is-dark {
+  color: #0e294e;
+}
+
+.bogo-val-point-desc {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(12.5px, 0.95vw, 13.5px);
+  font-weight: 450;
+  line-height: 1.48;
+  color: #55657d;
+  margin: 0;
+}
+
+.bogo-val-point-desc.is-light {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.bogo-val-point-desc.is-dark {
+  color: rgba(14, 41, 78, 0.86);
+}
+
+/* ==========================================================================
+   WORLDS (All chapters are centered absolute overlays)
+   ========================================================================== */
+
+.bogo-val-world-customers {
+  z-index: 5;
+}
+
+.bogo-val-world-businesses {
+  z-index: 6;
+}
+
+.bogo-val-world-ecosystem {
+  z-index: 7;
+}
+
+/* ==========================================================================
+   5. FINAL VALUE STATEMENT (ONE CONNECTED ECOSYSTEM.)
+   ========================================================================== */
+
+.bogo-val-final-statement {
+  max-width: 900px;
+  z-index: 8;
+}
+
+.bogo-val-payoff-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(38px, 5.4vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 24px 0;
+}
+
+.bogo-val-pillars-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.bogo-val-pill-tag {
+  font-family: var(--font-family-mono, monospace);
+  font-size: clamp(11.5px, 0.95vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0e294e;
+  background: rgba(14, 41, 78, 0.14);
+  border: 1px solid rgba(14, 41, 78, 0.32);
+  padding: 8px 22px;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.bogo-val-pill-sep {
+  color: rgba(14, 41, 78, 0.55);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   6. FINAL TRANSITION TO GROWTH (AND THIS IS JUST THE BEGINNING.)
+   ========================================================================== */
+
+.bogo-val-transition-growth {
+  z-index: 9;
+}
+
+.bogo-val-growth-cue {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(26px, 3.8vw, 46px);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.18;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .bogo-val-points-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    gap: 12px;
+  }
+
+  .bogo-val-point-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .bogo-val-header {
+    padding: 16px 20px;
+  }
+
+  .bogo-val-chapter {
+    padding: 0 16px;
+  }
+
+  .bogo-val-kicker-badge {
+    padding: 6px 16px;
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+
+  .bogo-val-giant-headline {
+    font-size: 30px;
+  }
+
+  .bogo-val-world-headline {
+    font-size: 26px;
+  }
+
+  .bogo-val-point-card {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .bogo-val-point-icon-box {
+    width: 38px;
+    height: 38px;
+  }
+
+  .bogo-val-point-title {
+    font-size: 12px;
+  }
+
+  .bogo-val-point-desc {
+    font-size: 11.5px;
+  }
+
+  .bogo-val-payoff-headline {
+    font-size: 30px;
+  }
+
+  .bogo-val-growth-cue {
+    font-size: 22px;
+  }
+}

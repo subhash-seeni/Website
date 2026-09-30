@@ -1,0 +1,427 @@
+/* BOGO Hero — Cinematic Light Editorial Experience with Authentic BOGO Logo */
+
+.bogo-hero-track {
+  position: relative;
+  width: 100%;
+  height: 360vh;
+  background-color: var(--color-bg-deep);
+}
+
+.bogo-hero-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fbfbfd;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, #ffffff 0%, #f6f7fa 60%, #edeff4 100%);
+  user-select: none;
+}
+
+/* Very subtle organic paper texture overlay */
+.bogo-hero-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 2;
+}
+
+/* Minimalist Editorial Header */
+.bogo-hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.bogo-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bogo-header-mark {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+.bogo-header-sub {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #8c93a3;
+  text-transform: uppercase;
+  padding-left: 12px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.bogo-header-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+}
+
+.bogo-phase-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(14, 41, 78, 0.05);
+  border: 1px solid rgba(14, 41, 78, 0.1);
+  color: #0e294e;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Central Stage Container */
+.bogo-stage-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* Authentic BOGO Logo Stage — Crisp, Clean, Zero Dirty Shadows */
+.bogo-logo-stage {
+  position: relative;
+  width: 52vw;
+  max-width: 720px;
+  aspect-ratio: 1615 / 375;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 8;
+}
+
+/* Authentic Wordmark Layers */
+.bogo-authentic-wordmark-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9;
+}
+
+/* Letter B: Left 0%, Width 19.5% */
+.bogo-layer-letter-b {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 19.50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bogo-img-letter-b {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Trailing Green O: Left 76.47%, Width 23.53% */
+.bogo-layer-letter-o {
+  position: absolute;
+  left: 76.47%;
+  top: 0;
+  width: 23.53%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bogo-img-letter-o {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* G Crossbar: Left 21.67%, Width 52.94% */
+.bogo-layer-g-bar {
+  position: absolute;
+  left: 21.67%;
+  top: 0;
+  width: 52.94%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.bogo-img-g-bar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Authentic Infinity Core: Left 21.67%, Width 52.94% */
+.bogo-authentic-infinity-container {
+  position: absolute;
+  left: 21.67%;
+  top: 0;
+  width: 52.94%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.bogo-img-infinity-core {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Central Node Indicator */
+.bogo-infinity-center-node {
+  position: absolute;
+  top: 50%;
+  left: 50.8%;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.bogo-node-core-glow {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #f78634;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 10px rgba(247, 134, 52, 0.6), 0 0 18px rgba(14, 41, 78, 0.3);
+}
+
+/* SVG Ecosystem Overlay (Covers the full viewport) */
+.bogo-svg-ecosystem-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 6;
+  overflow: visible;
+}
+
+/* Supporting Copy */
+.bogo-supporting-copy {
+  position: absolute;
+  bottom: clamp(48px, 14vh, 120px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  z-index: 15;
+  pointer-events: auto;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  width: 90%;
+  max-width: 680px;
+}
+
+.bogo-copy-line {
+  font-family: var(--font-family-mono, monospace);
+  font-size: clamp(10.5px, 0.9vw, 12.5px);
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #0e294e;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.bogo-copy-line.accent {
+  color: #0e294e;
+  font-weight: 800;
+}
+
+.bogo-hero-descriptor {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(12px, 0.95vw, 14px);
+  font-weight: 500;
+  line-height: 1.5;
+  color: #55657d;
+  text-align: center;
+  margin: 4px 0 14px 0;
+  letter-spacing: -0.01em;
+}
+
+.bogo-hero-explore-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #0e294e;
+  border: 1px solid rgba(14, 41, 78, 0.2);
+  color: #ffffff;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(14, 41, 78, 0.15);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bogo-hero-explore-cta:hover {
+  background: #f78634;
+  border-color: #f78634;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(247, 134, 52, 0.3);
+}
+
+.bogo-hero-cta-arrow {
+  display: inline-block;
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+
+.bogo-hero-explore-cta:hover .bogo-hero-cta-arrow {
+  transform: translateY(3px);
+}
+
+/* Scroll Indicator */
+.bogo-scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 15;
+  color: #8c93a3;
+  transition: opacity 0.3s ease;
+}
+
+.bogo-scroll-label {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.bogo-scroll-arrow-wrapper {
+  animation: bogoArrowFloat 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes bogoArrowFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+
+/* Responsive Handling */
+@media (max-width: 1024px) {
+  .bogo-hero-header {
+    padding: 24px 32px;
+  }
+  
+  .bogo-logo-stage {
+    width: 68vw;
+    max-width: 600px;
+  }
+  
+  .bogo-supporting-copy {
+    bottom: 21%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bogo-hero-header {
+    padding: 16px 20px;
+  }
+  
+  .bogo-header-sub {
+    display: none;
+  }
+  
+  .bogo-header-telemetry {
+    font-size: 9px;
+  }
+  
+  .bogo-logo-stage {
+    width: 86vw;
+    max-width: 420px;
+    transform: translateY(-20px);
+  }
+  
+  .bogo-copy-line {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+  }
+  
+  .bogo-supporting-copy {
+    bottom: 14%;
+    width: 90%;
+  }
+
+  .bogo-scroll-indicator {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bogo-hero-header {
+    padding: 14px 16px;
+  }
+
+  .bogo-logo-stage {
+    width: 90vw;
+    max-width: 350px;
+    transform: translateY(-24px);
+  }
+
+  .bogo-copy-line {
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+  }
+
+  .bogo-supporting-copy {
+    bottom: 12%;
+  }
+
+  .bogo-scroll-indicator {
+    bottom: 14px;
+  }
+}

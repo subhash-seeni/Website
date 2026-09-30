@@ -1,0 +1,1010 @@
+/* ==========================================================================
+   BOGO FORMATS — RETAIL SCALE PROGRESSION (SECTION 04)
+   BOGO SQUARE → BOGO BAZAAR → BOGO MINI → BOGO GO
+   "FROM DESTINATIONS TO EVERYDAY."
+   ========================================================================== */
+
+.bogo-formats-track {
+  position: relative;
+  width: 100%;
+  height: 600vh; /* Smooth, luxurious continuous scroll timeline */
+  background-color: var(--color-bg-deep, #fbfbfd);
+}
+
+.bogo-formats-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fbfbfd;
+  user-select: none;
+}
+
+/* Subtle organic film grain texture */
+.bogo-formats-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 50;
+}
+
+/* ==========================================================================
+   TOP EDITORIAL HEADER & TELEMETRY
+   ========================================================================== */
+
+.bogo-formats-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 60;
+  pointer-events: none;
+}
+
+.bogo-formats-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.bogo-formats-brand-mark {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #0e294e;
+}
+
+.bogo-formats-brand-sep {
+  font-size: 12px;
+  color: rgba(14, 41, 78, 0.35);
+}
+
+.bogo-formats-active-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #f78634;
+  text-transform: uppercase;
+}
+
+.bogo-formats-telemetry-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(14, 41, 78, 0.06);
+  border: 1px solid rgba(14, 41, 78, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.bogo-formats-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f78634;
+  box-shadow: 0 0 10px #f78634;
+  animation: bogoFormatPulse 2s infinite ease-in-out;
+}
+
+.bogo-formats-telemetry-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+/* Dark mode theme for header when viewing dark stages (like BOGO GO) */
+.bogo-formats-header.bogo-header-dark .bogo-formats-brand-mark {
+  color: #ffffff;
+}
+
+.bogo-formats-header.bogo-header-dark .bogo-formats-brand-sep {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bogo-formats-header.bogo-header-dark .bogo-formats-telemetry-badge {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.bogo-formats-header.bogo-header-dark .bogo-formats-telemetry-text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes bogoFormatPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ==========================================================================
+   STAGE 1: BOGO SQUARE RECEDING INTO DISTANCE
+   ========================================================================== */
+
+.bogo-fmt-stage-square {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  will-change: transform, opacity, filter;
+}
+
+.bogo-fmt-full-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.bogo-fmt-full-img.is-loaded {
+  opacity: 1;
+}
+
+/* Skeleton shimmer for large PNG images while loading */
+.bogo-fmt-img-skeleton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #0e1e35 0%,
+    #1a2d4a 25%,
+    #0e1e35 50%,
+    #0e1e35 100%
+  );
+  background-size: 200% 100%;
+  animation: bogoSkeletonShimmer 1.8s infinite linear;
+  z-index: 1;
+}
+
+@keyframes bogoSkeletonShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.bogo-fmt-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(8, 20, 38, 0.1) 0%, rgba(8, 20, 38, 0.4) 100%);
+  pointer-events: none;
+}
+
+/* "FROM DESTINATIONS..." Typography */
+.bogo-fmt-destinations-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 25;
+  width: 90%;
+  max-width: 780px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bogo-fmt-meta-eyebrow {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color: #f78634;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.bogo-fmt-giant-statement {
+  font-size: clamp(34px, 5.2vw, 68px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 14px;
+  text-shadow: 0 4px 20px rgba(14, 41, 78, 0.08);
+}
+
+.bogo-fmt-giant-subline {
+  font-size: 15px;
+  font-weight: 500;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   STAGE 2: BOGO BAZAAR HORIZONTAL REVEAL & ENVIRONMENT
+   ========================================================================== */
+
+.bogo-fmt-bazaar-slit {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 20;
+  will-change: clip-path, transform, opacity;
+}
+
+.bogo-fmt-slit-border {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #f78634;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(247, 134, 52, 0.6);
+}
+
+.bogo-fmt-slit-border.top { top: 0; }
+.bogo-fmt-slit-border.bottom { bottom: 0; }
+
+.bogo-fmt-bazaar-canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.bogo-fmt-bazaar-img {
+  object-position: center 40%;
+  will-change: transform;
+}
+
+.bogo-fmt-bazaar-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(10, 24, 46, 0.45) 0%, rgba(10, 24, 46, 0) 65%),
+    linear-gradient(180deg, rgba(8, 20, 38, 0.4) 0%, rgba(8, 20, 38, 0.0) 24%),
+    linear-gradient(0deg, rgba(8, 20, 38, 0.5) 0%, rgba(8, 20, 38, 0.0) 24%);
+  pointer-events: none;
+}
+
+/* Bazaar Editorial Sky Lockup */
+.bogo-fmt-bazaar-editorial {
+  position: absolute;
+  top: 96px;
+  left: 48px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 30;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bogo-fmt-eyebrow-pill {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  color: #f78634;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.bogo-fmt-eyebrow-pill.pill-blue {
+  color: #38bdf8;
+}
+
+.bogo-fmt-hero-title {
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9);
+}
+
+.bogo-fmt-hero-tagline {
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+}
+
+/* Subtle Bazaar Storefront Bay Callouts */
+.bogo-fmt-bazaar-zones-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 22;
+}
+
+.bogo-fmt-bazaar-zone {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  will-change: transform, opacity;
+}
+
+.bogo-fmt-zone-pin {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(180deg, rgba(247, 134, 52, 0) 0%, #f78634 100%);
+  order: 2;
+}
+
+.bogo-fmt-zone-label {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(14, 41, 78, 0.78);
+  border: 1px solid rgba(247, 134, 52, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.bogo-fmt-zone-title {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.bogo-fmt-zone-desc {
+  font-size: 9px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* "CLOSER TO HOME." Typographic Moment */
+.bogo-fmt-closer-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 28;
+  width: 90%;
+  max-width: 720px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   STAGE 3: BOGO MINI REVEAL & ENVIRONMENT
+   ========================================================================== */
+
+.bogo-fmt-mini-reveal-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 25;
+  will-change: clip-path, transform, opacity;
+}
+
+.bogo-fmt-mini-img {
+  object-position: center 45%;
+  will-change: transform;
+}
+
+.bogo-fmt-mini-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(6, 20, 42, 0.5) 0%, rgba(6, 20, 42, 0) 65%),
+    linear-gradient(180deg, rgba(8, 20, 38, 0.42) 0%, rgba(8, 20, 38, 0.0) 24%),
+    linear-gradient(0deg, rgba(8, 20, 38, 0.5) 0%, rgba(8, 20, 38, 0.0) 24%);
+  pointer-events: none;
+}
+
+.bogo-fmt-mini-editorial {
+  position: absolute;
+  top: 96px;
+  left: 48px;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 30;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   STAGE 4: THREE SCALES CONVERGENCE ("ONE ECOSYSTEM. DIFFERENT SCALES.")
+   ========================================================================== */
+
+.bogo-fmt-convergence-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  background: #fbfbfd;
+  background-image: radial-gradient(ellipse at 50% 50%, #ffffff 0%, #f4f5f8 60%, #eaedf3 100%);
+  z-index: 35;
+  will-change: transform, opacity;
+}
+
+.bogo-fmt-conv-badge {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #f78634;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(247, 134, 52, 0.08);
+  border: 1px solid rgba(247, 134, 52, 0.25);
+  margin-bottom: 16px;
+}
+
+.bogo-fmt-conv-headline {
+  font-size: clamp(28px, 4.2vw, 54px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.bogo-fmt-accent-text {
+  background: linear-gradient(90deg, #f78634 0%, #e26b18 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bogo-fmt-conv-subtext {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: #4b5563;
+  max-width: 620px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+}
+
+/* Three Architectural Scaled Environments */
+.bogo-fmt-scales-triptych {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 1060px;
+  padding-bottom: 20px;
+}
+
+.bogo-fmt-scales-svg-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bogo-fmt-scale-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(14, 41, 78, 0.08);
+  box-shadow: 0 12px 32px rgba(14, 41, 78, 0.08);
+  transition: transform 0.3s ease;
+  z-index: 5;
+}
+
+/* Architectural Scale Proportions */
+.card-square {
+  width: 330px;
+  transform: scale(1.0);
+}
+
+.card-bazaar {
+  width: 275px;
+  transform: scale(0.92);
+}
+
+.card-mini {
+  width: 220px;
+  transform: scale(0.85);
+}
+
+.bogo-fmt-scale-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.card-square .bogo-fmt-scale-img-wrap { height: 180px; }
+.card-bazaar .bogo-fmt-scale-img-wrap { height: 155px; }
+.card-mini .bogo-fmt-scale-img-wrap { height: 135px; }
+
+.bogo-fmt-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bogo-fmt-scale-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  background: rgba(14, 41, 78, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.bogo-fmt-scale-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+}
+
+.bogo-fmt-scale-name {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+.bogo-fmt-scale-role {
+  font-size: 11px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.bogo-fmt-conv-cue {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.bogo-fmt-conv-cue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: rgba(14, 41, 78, 0.05);
+  border: 1px solid rgba(14, 41, 78, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.bogo-fmt-conv-cue-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.7);
+  animation: pulseCueDot 2s ease-in-out infinite;
+}
+
+.bogo-fmt-conv-cue-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+@keyframes pulseCueDot {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* ==========================================================================
+   STAGE 5: TRANSITION INTO BOGO GO ("THE ECOSYSTEM MOVES.")
+   ========================================================================== */
+
+.bogo-fmt-go-stage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  background-color: #060e1a;
+  background-image: 
+    radial-gradient(ellipse at 50% 48%, rgba(14, 41, 78, 0.85) 0%, rgba(6, 14, 26, 0.96) 60%, #03070d 100%),
+    linear-gradient(180deg, rgba(14, 41, 78, 0.2) 0%, transparent 100%);
+  z-index: 40;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.bogo-fmt-velocity-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.bogo-fmt-velocity-ray {
+  transition: stroke 0.3s ease;
+  will-change: stroke-dashoffset;
+}
+
+.ray-upper {
+  opacity: 0.8;
+  filter: drop-shadow(0 0 6px rgba(247, 134, 52, 0.4));
+}
+
+.ray-mid-left,
+.ray-mid-right {
+  opacity: 0.7;
+  filter: drop-shadow(0 0 8px rgba(0, 163, 255, 0.35));
+}
+
+.ray-lower {
+  opacity: 0.75;
+  filter: drop-shadow(0 0 6px rgba(0, 163, 255, 0.3));
+}
+
+.bogo-fmt-go-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  max-width: 720px;
+}
+
+.bogo-fmt-go-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+  color: #f78634;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(247, 134, 52, 0.08);
+  border: 1px solid rgba(247, 134, 52, 0.28);
+  box-shadow: 0 0 20px rgba(247, 134, 52, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 22px;
+}
+
+.bogo-fmt-go-kicker-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f78634;
+  box-shadow: 0 0 8px #f78634;
+  animation: bogoGoDotPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes bogoGoDotPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.bogo-fmt-go-headline {
+  font-size: clamp(38px, 5.5vw, 68px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1.12;
+  margin-bottom: 26px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9), 0 0 40px rgba(14, 41, 78, 0.6);
+}
+
+/* Ambient identity stage for the official BOGO Go logo */
+.bogo-fmt-go-logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 26px;
+  padding: 8px 16px;
+}
+
+.bogo-fmt-go-halo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 163, 255, 0.24) 0%,
+    rgba(37, 99, 235, 0.12) 42%,
+    rgba(247, 134, 52, 0.05) 70%,
+    transparent 85%
+  );
+  filter: blur(32px);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.bogo-fmt-go-logo {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: clamp(210px, 19vw, 260px);
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 20px rgba(0, 163, 255, 0.22));
+}
+
+.bogo-fmt-go-subtext {
+  font-size: clamp(14px, 1.15vw, 15.5px);
+  font-weight: 450;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 34px;
+  letter-spacing: 0.015em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.bogo-fmt-go-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.bogo-fmt-go-cue-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.bogo-fmt-go-cue-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #00a3ff;
+  box-shadow: 0 0 10px #00a3ff;
+  animation: bogoGoCuePulse 2s infinite ease-in-out;
+}
+
+@keyframes bogoGoCuePulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.bogo-fmt-go-cue-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+}
+
+.bogo-fmt-go-hairline {
+  width: 1.5px;
+  height: 34px;
+  background: linear-gradient(180deg, #f78634 0%, #00a3ff 60%, rgba(0, 163, 255, 0) 100%);
+  animation: bogoGoHairline 2s infinite ease-in-out;
+}
+
+@keyframes bogoGoHairline {
+  0%, 100% { opacity: 0.4; transform: scaleY(0.85); }
+  50% { opacity: 1; transform: scaleY(1.15); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .bogo-formats-header {
+    padding: 20px 28px;
+  }
+
+  .bogo-fmt-bazaar-editorial,
+  .bogo-fmt-mini-editorial {
+    top: 80px;
+    left: 28px;
+    max-width: 480px;
+  }
+
+  .card-square { width: 280px; }
+  .card-bazaar { width: 235px; }
+  .card-mini { width: 190px; }
+}
+
+@media (max-width: 768px) {
+  .bogo-formats-header {
+    padding: 16px 20px;
+  }
+
+  .bogo-formats-telemetry-badge {
+    padding: 4px 10px;
+  }
+
+  .bogo-formats-telemetry-text {
+    font-size: 8.5px;
+  }
+
+  .bogo-fmt-destinations-text,
+  .bogo-fmt-closer-text {
+    max-width: 90%;
+  }
+
+  .bogo-fmt-giant-statement {
+    font-size: 28px;
+  }
+
+  .bogo-fmt-giant-subline {
+    font-size: 13px;
+  }
+
+  .bogo-fmt-bazaar-editorial,
+  .bogo-fmt-mini-editorial {
+    top: 68px;
+    left: 18px;
+    right: 18px;
+    max-width: 90%;
+  }
+
+  .bogo-fmt-hero-title {
+    font-size: 30px;
+  }
+
+  .bogo-fmt-hero-tagline {
+    font-size: 14.5px;
+  }
+
+  .bogo-fmt-bazaar-zones-layer {
+    display: none; /* Keep mobile viewport clean and focused on architecture */
+  }
+
+  .bogo-fmt-convergence-stage {
+    padding: 0 20px;
+    justify-content: flex-start;
+    padding-top: 80px;
+    overflow-y: auto;
+  }
+
+  .bogo-fmt-conv-headline {
+    font-size: 26px;
+  }
+
+  .bogo-fmt-conv-subtext {
+    font-size: 12.5px;
+    margin-bottom: 24px;
+  }
+
+  /* Stack scales triptych vertically on mobile */
+  .bogo-fmt-scales-triptych {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 320px;
+  }
+
+  .card-square,
+  .card-bazaar,
+  .card-mini {
+    width: 100%;
+    transform: none;
+  }
+
+  .bogo-fmt-scale-img-wrap {
+    height: 110px !important;
+  }
+
+  .bogo-fmt-scales-svg-line {
+    display: none;
+  }
+
+  .bogo-fmt-go-headline {
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    margin-bottom: 18px;
+  }
+
+  .bogo-fmt-go-logo-wrapper {
+    margin: 2px 0 18px;
+  }
+
+  .bogo-fmt-go-halo {
+    width: 260px;
+    height: 120px;
+    filter: blur(20px);
+  }
+
+  .bogo-fmt-go-logo {
+    width: clamp(160px, 46vw, 195px);
+  }
+
+  .bogo-fmt-go-subtext {
+    font-size: 13px;
+    margin-bottom: 24px;
+    max-width: 90%;
+  }
+
+  .bogo-fmt-go-cue-text {
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+  }
+}

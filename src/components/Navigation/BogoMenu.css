@@ -1,0 +1,610 @@
+/* ==========================================================================
+   BOGO NAVIGATION SYSTEM — TOP-RIGHT HAMBURGER & FULL-SCREEN OVERLAY
+   Palette: Dark BOGO Navy (#060e1a), Crisp White, Restrained Orange & Green
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER RIGHT CLEARANCE: PREVENT COLLISION WITH FIXED MENU TRIGGER BUTTON
+   Reserves right-side space across all section headers so header brand text
+   never collides with the fixed MENU button in the top-right corner.
+   ========================================================================== */
+.bogo-hero-header,
+.bogo-square-header,
+.bogo-formats-header,
+.bogo-tech-header,
+.bogo-go-header,
+.bogo-programs-header,
+.bogo-val-header,
+.bogo-growth-header {
+  padding-right: clamp(120px, 9vw, 160px) !important;
+}
+
+/* BOGO Collection has interactive set tabs in its header, needing extra clearance */
+.bogo-collection-header {
+  padding-right: clamp(180px, 14vw, 220px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. FIXED TOP-RIGHT HAMBURGER TRIGGER BUTTON
+   -------------------------------------------------------------------------- */
+.bogo-menu-trigger {
+  position: fixed;
+  top: 26px;
+  right: clamp(20px, 3.6vw, 48px);
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(14, 41, 78, 0.16);
+  box-shadow: 0 4px 18px rgba(14, 41, 78, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.bogo-menu-trigger:hover {
+  background: #ffffff;
+  border-color: rgba(247, 134, 52, 0.55);
+  box-shadow: 0 6px 22px rgba(14, 41, 78, 0.12);
+  transform: translateY(-1px);
+}
+
+.bogo-menu-trigger:focus-visible {
+  outline: 2px solid #f78634;
+  outline-offset: 3px;
+}
+
+.bogo-trigger-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f78634;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bogo-menu-trigger:hover .bogo-trigger-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.85);
+}
+
+.bogo-trigger-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0e294e;
+  transition: color 0.25s ease;
+}
+
+/* Minimalist double-slash or cross glyph */
+.bogo-trigger-glyph {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.glyph-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.5px;
+  height: 12px;
+  margin-top: -6px;
+  margin-left: -0.75px;
+  background-color: #0e294e;
+  border-radius: 1px;
+  transform-origin: center center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Default state: two parallel slanted bars '//' */
+.glyph-bar.bar-1 {
+  transform: translateX(-3px) skewX(-16deg);
+}
+
+.glyph-bar.bar-2 {
+  transform: translateX(3px) skewX(-16deg);
+}
+
+/* Active State (When menu is open -> clean uncropped '✕') */
+.bogo-menu-trigger.is-active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.bogo-menu-trigger.is-active:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(247, 134, 52, 0.7);
+}
+
+.bogo-menu-trigger.is-active .bogo-trigger-text {
+  color: #ffffff;
+}
+
+.bogo-menu-trigger.is-active .bogo-trigger-dot {
+  background: #f78634;
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.9);
+}
+
+.bogo-menu-trigger.is-active .glyph-bar {
+  background-color: #ffffff;
+}
+
+.bogo-menu-trigger.is-active .bar-1 {
+  transform: rotate(45deg);
+}
+
+.bogo-menu-trigger.is-active .bar-2 {
+  transform: rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. FULL-SCREEN CINEMATIC NAVIGATION OVERLAY
+   -------------------------------------------------------------------------- */
+.bogo-fullscreen-nav {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #ffffff;
+}
+
+/* Dark Navy Curtain Backdrop */
+.bogo-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #060e1a;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Tactile film grain overlay */
+.bogo-menu-grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 2;
+}
+
+.bogo-menu-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 3.2vw, 44px) clamp(28px, 5.5vw, 84px) clamp(22px, 3vw, 36px);
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   3. MENU HEADER ROW
+   -------------------------------------------------------------------------- */
+.bogo-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.4rem;
+}
+
+.bogo-menu-brand-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+.bogo-menu-brand-link:hover {
+  transform: translateY(-1px);
+}
+
+.bogo-menu-logo {
+  height: clamp(36px, 4.2vw, 48px);
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.bogo-menu-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 130px; /* Leaves clear breathing space for the fixed Close button */
+}
+
+.bogo-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f78634;
+  box-shadow: 0 0 8px rgba(247, 134, 52, 0.8);
+}
+
+.bogo-telemetry-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+}
+
+/* Thin Orange Accent Bar */
+.bogo-menu-accent-bar {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #f78634 0%, rgba(247, 134, 52, 0.25) 30%, rgba(255, 255, 255, 0.08) 100%);
+  margin-bottom: clamp(24px, 3.5vw, 42px);
+}
+
+/* --------------------------------------------------------------------------
+   4. MAIN CANVAS (3-COLUMN DISCIPLINED ARCHITECTURAL LAYOUT)
+   -------------------------------------------------------------------------- */
+.bogo-menu-canvas {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1.35fr;
+  gap: clamp(32px, 4.8vw, 76px);
+  align-items: flex-start;
+  flex: 1;
+  padding: 0.5rem 0 2.5rem 0;
+}
+
+/* Category Kickers (Unified micro-headers across all columns) */
+.bogo-menu-col-kicker {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f78634;
+  margin-bottom: 1.4rem;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 1: MAIN EXPLORATION
+   -------------------------------------------------------------------------- */
+.bogo-menu-main-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.bogo-menu-main-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.5rem, 0.9vw, 0.85rem);
+}
+
+.bogo-menu-main-item {
+  margin: 0;
+  padding: 0;
+}
+
+.bogo-menu-main-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.88);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+
+.bogo-main-link-num {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.3);
+  min-width: 22px;
+  transition: color 0.25s ease;
+}
+
+.bogo-main-link-label {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.28rem, 1.65vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.bogo-main-link-arrow {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #f78634;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bogo-menu-main-link:hover {
+  transform: translateX(6px);
+  color: #ffffff;
+}
+
+.bogo-menu-main-link:hover .bogo-main-link-num {
+  color: #f78634;
+}
+
+.bogo-menu-main-link:hover .bogo-main-link-label {
+  color: #ffffff;
+}
+
+.bogo-menu-main-link:hover .bogo-main-link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 2: ECOSYSTEM & PROGRAMMES
+   -------------------------------------------------------------------------- */
+.bogo-menu-secondary-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.8rem, 2.8vw, 3rem);
+}
+
+.bogo-menu-subcol {
+  display: flex;
+  flex-direction: column;
+}
+
+.bogo-menu-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bogo-menu-subitem {
+  margin: 0;
+}
+
+.bogo-menu-sublink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 2px 0;
+  transition: transform 0.25s ease;
+}
+
+.bogo-sublink-title {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1rem, 1.18vw, 1.15rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.76);
+  letter-spacing: -0.01em;
+  transition: color 0.25s ease;
+}
+
+.bogo-sublink-arrow {
+  font-size: 0.95rem;
+  color: #f78634;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bogo-menu-sublink:hover {
+  transform: translateX(5px);
+}
+
+.bogo-menu-sublink:hover .bogo-sublink-title {
+  color: #ffffff;
+}
+
+.bogo-menu-sublink:hover .bogo-sublink-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --------------------------------------------------------------------------
+   COLUMN 3: COLLECTION (11 DISTINCT BRANDS)
+   -------------------------------------------------------------------------- */
+.bogo-menu-collection-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.bogo-menu-brands-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem 1.4rem;
+}
+
+.bogo-menu-brand-item {
+  margin: 0;
+}
+
+.bogo-menu-brand-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.brand-dot {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+  flex-shrink: 0;
+}
+
+.bogo-menu-brand-link-item:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.bogo-menu-brand-link-item:hover .brand-dot {
+  background: #f78634;
+  box-shadow: 0 0 6px rgba(247, 134, 52, 0.85);
+  transform: scale(1.3);
+}
+
+/* --------------------------------------------------------------------------
+   5. BOTTOM FOOTER BAR INSIDE MENU
+   -------------------------------------------------------------------------- */
+.bogo-menu-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bogo-menu-copy {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.bogo-menu-tagline {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f78634;
+}
+
+/* --------------------------------------------------------------------------
+   6. RESPONSIVE OPTIMIZATIONS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .bogo-menu-canvas {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .bogo-menu-collection-col {
+    grid-column: span 2;
+    margin-top: 1rem;
+  }
+
+  .bogo-menu-brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* On mobile screens, collapse header space */
+  .bogo-hero-header,
+  .bogo-collection-header,
+  .bogo-square-header,
+  .bogo-formats-header,
+  .bogo-tech-header,
+  .bogo-go-header,
+  .bogo-programs-header,
+  .bogo-val-header,
+  .bogo-growth-header {
+    padding-right: 90px !important;
+  }
+
+  .bogo-menu-trigger {
+    top: 18px;
+    right: 16px;
+    height: 32px;
+    padding: 0 12px;
+  }
+
+  .bogo-menu-container {
+    padding: 20px 20px 24px;
+  }
+
+  .bogo-menu-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .bogo-menu-telemetry {
+    padding-right: 0;
+  }
+
+  .bogo-menu-canvas {
+    grid-template-columns: 1fr;
+    gap: 2.2rem;
+  }
+
+  .bogo-menu-collection-col {
+    grid-column: span 1;
+  }
+
+  .bogo-menu-brands-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .bogo-main-link-label {
+    font-size: 1.25rem;
+    white-space: normal;
+  }
+
+  .bogo-menu-footer-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .bogo-menu-backdrop,
+  .bogo-menu-main-item,
+  .bogo-menu-subcol,
+  .bogo-menu-footer-bar {
+    transition: none !important;
+    transform: none !important;
+  }
+}

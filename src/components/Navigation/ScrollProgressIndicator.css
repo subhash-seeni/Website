@@ -1,0 +1,245 @@
+/* ==========================================================================
+   GLOBAL SCROLL PROGRESS & QUICK-NAV HUD
+   Architectural, restrained, unobtrusive luxury guidance
+   ========================================================================== */
+
+/* 1. Global Progress Hairline at very top of viewport */
+.bogo-global-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 2.5px;
+  background: rgba(14, 41, 78, 0.05);
+  z-index: 999;
+  pointer-events: none;
+}
+
+.bogo-global-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #f78634 0%, #ffaa40 50%, #0e294e 100%);
+  transform-origin: left center;
+  will-change: transform;
+  transition: transform 0.08s linear;
+}
+
+/* 2. Floating Section HUD in Bottom-Left */
+.bogo-nav-hud {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-family-mono, monospace);
+  user-select: none;
+}
+
+/* Badge Trigger Button */
+.bogo-hud-current-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(14, 41, 78, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bogo-hud-current-badge:hover {
+  background: rgba(14, 41, 78, 0.92);
+  border-color: rgba(247, 134, 52, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+}
+
+.bogo-hud-current-badge:focus-visible {
+  outline: 2px solid #f78634;
+  outline-offset: 3px;
+}
+
+.bogo-hud-index {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f78634;
+}
+
+.bogo-hud-total {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.bogo-hud-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.bogo-hud-name {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bogo-hud-toggle-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.55);
+  margin-left: 2px;
+}
+
+/* Fast-Skip Drawer */
+.bogo-hud-drawer {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 280px;
+  background: rgba(10, 24, 48, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(12px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom left;
+}
+
+.bogo-nav-hud.is-expanded .bogo-hud-drawer {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.bogo-hud-drawer-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bogo-hud-drawer-title {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #f78634;
+}
+
+.bogo-hud-drawer-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.bogo-hud-sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* Custom mini scrollbar in HUD drawer */
+.bogo-hud-sections-list::-webkit-scrollbar {
+  width: 3px;
+}
+.bogo-hud-sections-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+}
+
+.bogo-hud-sec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.bogo-hud-sec-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(3px);
+}
+
+.bogo-hud-sec-item.is-active {
+  background: rgba(247, 134, 52, 0.14);
+}
+
+.bogo-hud-sec-num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  min-width: 20px;
+}
+
+.bogo-hud-sec-item.is-active .bogo-hud-sec-num {
+  color: #f78634;
+}
+
+.bogo-hud-sec-label {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bogo-hud-sec-item.is-active .bogo-hud-sec-label {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.bogo-hud-sec-active-glyph {
+  font-size: 0.55rem;
+  color: #f78634;
+}
+
+/* Responsive adjustment */
+@media (max-width: 640px) {
+  .bogo-nav-hud {
+    bottom: 16px;
+    left: 16px;
+  }
+  
+  .bogo-hud-name {
+    max-width: 120px;
+  }
+  
+  .bogo-hud-drawer {
+    width: 250px;
+  }
+}

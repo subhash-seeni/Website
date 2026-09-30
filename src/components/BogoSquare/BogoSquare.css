@@ -1,0 +1,1073 @@
+/* ==========================================================================
+   BOGO SQUARE — SECTION 03 STYLES
+   Cinematic Transition: Abstract Ecosystem → Living Physical Destination
+   ========================================================================== */
+
+.bogo-square-track {
+  position: relative;
+  width: 100%;
+  height: 480vh; /* Smooth, luxurious multi-stage progression */
+  background-color: var(--color-bg-deep, #fbfbfd);
+}
+
+.bogo-square-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #0c1829;
+  user-select: none;
+}
+
+/* Subtle organic architectural film texture */
+.bogo-square-grain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 40;
+}
+
+/* ==========================================================================
+   TOP EDITORIAL HEADER & TELEMETRY
+   ========================================================================== */
+
+.bogo-square-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  pointer-events: none;
+}
+
+.bogo-square-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.bogo-square-brand-mark {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.bogo-square-brand-div {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 300;
+}
+
+.bogo-square-section-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #f78634;
+  text-transform: uppercase;
+}
+
+.bogo-square-telemetry-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(14, 41, 78, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
+}
+
+.bogo-square-telemetry-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #f78634;
+  box-shadow: 0 0 10px #f78634;
+  animation: bogoTelemetryPulse 2s infinite ease-in-out;
+}
+
+.bogo-square-telemetry-text {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+@keyframes bogoTelemetryPulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ==========================================================================
+   PHASE 1: CONVERGENCE LAYER ("MANY → ONE")
+   ========================================================================== */
+
+.bogo-square-convergence {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fbfbfd;
+  background-image: radial-gradient(ellipse at 50% 50%, #ffffff 0%, #f4f5f8 60%, #eaedf3 100%);
+  z-index: 30;
+  will-change: opacity;
+}
+
+.bogo-conv-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 106px));
+  text-align: center;
+  z-index: 10;
+  width: 90%;
+  max-width: 440px;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+.bogo-conv-eyebrow {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.26em;
+  color: #f78634;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.bogo-conv-title {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.bogo-conv-subtext {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.bogo-conv-svg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bogo-conv-ray {
+  transition: opacity 0.3s ease;
+}
+
+/* Central Beacon Core */
+.bogo-conv-beacon-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.bogo-conv-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(247, 134, 52, 0.35);
+  box-sizing: border-box;
+}
+
+.ring-outer {
+  width: 140px;
+  height: 140px;
+  border-style: dashed;
+  animation: bogoBeaconSpin 24s infinite linear;
+}
+
+.ring-mid {
+  width: 76px;
+  height: 76px;
+  border: 1.5px solid rgba(14, 41, 78, 0.25);
+  animation: bogoBeaconSpinReverse 16s infinite linear;
+}
+
+.bogo-conv-core {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f78634 0%, #e26b18 70%, #0e294e 100%);
+  box-shadow: 0 0 24px rgba(247, 134, 52, 0.7), 0 0 45px rgba(247, 134, 52, 0.4);
+}
+
+.bogo-conv-beacon-label {
+  position: absolute;
+  top: 85px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #0e294e;
+  white-space: nowrap;
+}
+
+@keyframes bogoBeaconSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bogoBeaconSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Converging Brand Badges */
+.bogo-conv-brands-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.bogo-conv-brand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid;
+  box-shadow: 0 4px 14px rgba(14, 41, 78, 0.08);
+  white-space: nowrap;
+  margin-left: -50px;
+  margin-top: -15px;
+  will-change: transform, opacity;
+}
+
+.bogo-conv-brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.bogo-conv-brand-name {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #0e294e;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   PHASE 2: ARCHITECTURAL APERTURE & CINEMATIC HERO IMAGE
+   ========================================================================== */
+
+.bogo-square-aperture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  will-change: width, height, border-radius, box-shadow;
+}
+
+.bogo-square-image-canvas {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bogo-square-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 36%;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.bogo-square-hero-img.is-loaded {
+  opacity: 1;
+}
+
+/* Skeleton shimmer placeholder while large PNG loads */
+@keyframes bogoSkeletonShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.bogo-square-img-skeleton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #0e1e35 0%,
+    #1a2d4a 25%,
+    #0e1e35 50%,
+    #0e1e35 100%
+  );
+  background-size: 200% 100%;
+  animation: bogoSkeletonShimmer 1.8s infinite linear;
+  z-index: 1;
+}
+
+/* Cinematic Contrast Overlay — Keeps architecture crisp while boosting typography */
+.bogo-square-cinematic-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 16% 22%, rgba(5, 14, 28, 0.52) 0%, rgba(5, 14, 28, 0) 65%),
+    linear-gradient(180deg, rgba(8, 20, 38, 0.45) 0%, rgba(8, 20, 38, 0.0) 26%),
+    linear-gradient(0deg, rgba(8, 20, 38, 0.55) 0%, rgba(8, 20, 38, 0.0) 24%);
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   PHASE 3: EDITORIAL HERO TYPOGRAPHY (QUIET SKY ZONE)
+   ========================================================================== */
+
+.bogo-square-typography {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* Single Unified High-Contrast Architectural Headline in Quiet Sky */
+.bogo-sq-hero-editorial {
+  position: absolute;
+  top: 96px;
+  left: 48px;
+  max-width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.bogo-sq-eyebrow {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #f78634;
+  text-transform: uppercase;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+}
+
+.bogo-sq-title {
+  font-size: clamp(34px, 4.4vw, 58px);
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 4px;
+}
+
+.bogo-sq-tagline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bogo-sq-tag-main {
+  font-size: clamp(18px, 2.3vw, 30px);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1.18;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.95);
+}
+
+.bogo-sq-tag-accent {
+  font-size: clamp(18px, 2.3vw, 30px);
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  color: #ffaa66; /* Vibrant luminous amber-orange with supreme contrast against twilight sky */
+  text-transform: uppercase;
+  line-height: 1.18;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.95), 0 0 28px rgba(247, 134, 52, 0.5);
+}
+
+/* ==========================================================================
+   INTERACTIVE ARCHITECTURAL HOTSPOTS OVER IMAGE
+   ========================================================================== */
+
+.bogo-square-hotspots-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 18;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bogo-square-hotspots-container.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bogo-square-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  outline: none;
+}
+
+.bogo-hotspot-radar {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #f78634;
+  opacity: 0.45;
+  animation: bogoHotspotPulse 2.4s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bogo-hotspot-core-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #f78634;
+  box-shadow: 0 0 10px #f78634;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+/* Subtle architectural storefront outline highlight on hover */
+.bogo-hotspot-frame {
+  position: absolute;
+  width: 90px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bogo-square-hotspot.is-active .bogo-hotspot-frame {
+  border-color: rgba(247, 134, 52, 0.6);
+  box-shadow: 0 0 20px rgba(247, 134, 52, 0.35), inset 0 0 15px rgba(247, 134, 52, 0.15);
+}
+
+.bogo-square-hotspot.is-active .bogo-hotspot-core-dot {
+  transform: scale(1.35);
+  background: #f78634;
+  box-shadow: 0 0 14px #f78634;
+}
+
+/* Floating Architectural Callout Tag */
+.bogo-hotspot-callout {
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+  z-index: 22;
+}
+
+.bogo-square-hotspot.is-active .bogo-hotspot-callout {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.bogo-hotspot-hairline {
+  width: 1px;
+  height: 12px;
+  background: #f78634;
+  order: 2;
+}
+
+.bogo-hotspot-tag-body {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(14, 41, 78, 0.88);
+  border: 1px solid rgba(247, 134, 52, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.bogo-hotspot-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-family-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  color: #f78634;
+  letter-spacing: 0.16em;
+}
+
+.bogo-hotspot-name {
+  color: #ffffff;
+}
+
+.bogo-hotspot-tagline {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.02em;
+}
+
+@keyframes bogoHotspotPulse {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ==========================================================================
+   PHASE 4: EXPERIENCES NAVIGATION & CONTROLLER (BOTTOM DOCK)
+   ========================================================================== */
+
+.bogo-square-experiences-layer {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 960px;
+  display: flex;
+  justify-content: center;
+  z-index: 35;
+  will-change: transform, opacity;
+}
+
+.bogo-square-exp-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.bogo-square-exp-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 30px;
+  background: rgba(14, 41, 78, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  flex-wrap: wrap;
+}
+
+.bogo-exp-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bogo-exp-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bogo-exp-tab.is-active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(247, 134, 52, 0.4);
+}
+
+.bogo-exp-tab-num {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  color: #f78634;
+}
+
+.bogo-exp-tab-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.bogo-exp-tab-line {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: #f78634;
+  border-radius: 2px;
+  box-shadow: 0 0 8px #f78634;
+}
+
+.bogo-square-exp-detail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px;
+  border-radius: 12px;
+  background: rgba(8, 20, 38, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 680px;
+  text-align: center;
+}
+
+.bogo-square-exp-category {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #f78634;
+  white-space: nowrap;
+}
+
+.bogo-square-exp-desc {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   PHASE 5: OUTRO & RETAIL FORMAT HORIZON
+   ========================================================================== */
+
+.bogo-square-outro-slate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+  background: radial-gradient(circle at 50% 50%, rgba(8, 20, 38, 0.85) 0%, rgba(5, 12, 24, 0.95) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 45;
+  will-change: transform, opacity;
+}
+
+.bogo-sq-outro-pill {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: #f78634;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(247, 134, 52, 0.4);
+  background: rgba(247, 134, 52, 0.08);
+  margin-bottom: 18px;
+}
+
+.bogo-sq-outro-headline {
+  font-size: clamp(30px, 4.4vw, 54px);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.bogo-sq-outro-subtext {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Retail Hierarchy Indicator */
+.bogo-sq-retail-hierarchy {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bogo-sq-hierarchy-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.bogo-sq-h-step {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 9px;
+  font-weight: 800;
+  color: #f78634;
+}
+
+.bogo-sq-h-name {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.bogo-sq-h-status {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.bogo-sq-hierarchy-item.is-current .bogo-sq-h-status {
+  color: #f78634;
+}
+
+.bogo-sq-hierarchy-connector {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .bogo-square-header {
+    padding: 20px 28px;
+  }
+
+  .bogo-sq-hero-editorial {
+    top: 80px;
+    left: 28px;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bogo-square-header {
+    padding: 16px 20px;
+  }
+
+  .bogo-square-telemetry-badge {
+    padding: 4px 10px;
+  }
+
+  .bogo-square-telemetry-text {
+    font-size: 8.5px;
+  }
+
+  /* Convergence Mobile Layout */
+  .bogo-conv-header {
+    transform: translate(-50%, calc(-50% - 84px));
+    max-width: 280px;
+  }
+
+  .bogo-conv-eyebrow {
+    font-size: 8.5px;
+    letter-spacing: 0.22em;
+    margin-bottom: 4px;
+  }
+
+  .bogo-conv-title {
+    font-size: 14.5px;
+    letter-spacing: 0.12em;
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+
+  .bogo-conv-subtext {
+    font-size: 10.5px;
+    max-width: 260px;
+    line-height: 1.4;
+  }
+
+  .ring-outer {
+    width: 96px;
+    height: 96px;
+  }
+
+  .ring-mid {
+    width: 52px;
+    height: 52px;
+  }
+
+  .bogo-conv-core {
+    width: 14px;
+    height: 14px;
+  }
+
+  .bogo-conv-beacon-label {
+    top: 58px;
+    font-size: 7.5px;
+    letter-spacing: 0.18em;
+  }
+
+  .bogo-conv-brand {
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: -30px;
+    margin-top: -10px;
+    box-shadow: 0 2px 6px rgba(14, 41, 78, 0.08);
+  }
+
+  .bogo-conv-brand-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .bogo-conv-brand-name {
+    font-size: 8px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Hero Architecture & Framing */
+  .bogo-square-hero-img {
+    object-position: 50% 28%;
+  }
+
+  /* Editorial Lockup in Sky */
+  .bogo-sq-hero-editorial {
+    top: 68px;
+    left: 18px;
+    right: 18px;
+    max-width: 92%;
+    gap: 4px;
+  }
+
+  .bogo-sq-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+  }
+
+  .bogo-sq-title {
+    font-size: clamp(26px, 7.5vw, 34px);
+    letter-spacing: 0.12em;
+    margin-bottom: 2px;
+  }
+
+  .bogo-sq-tagline {
+    gap: 2px;
+    margin-top: 2px;
+  }
+
+  .bogo-sq-tag-main,
+  .bogo-sq-tag-accent {
+    font-size: 15px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Touch-Friendly Experience Bar */
+  .bogo-square-experiences-layer {
+    bottom: 16px;
+    width: 94%;
+    max-width: 420px;
+  }
+
+  .bogo-square-exp-nav-container {
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bogo-square-exp-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 5px 8px;
+    gap: 4px;
+    border-radius: 20px;
+  }
+
+  .bogo-square-exp-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bogo-exp-tab {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    gap: 4px;
+    border-radius: 14px;
+  }
+
+  .bogo-exp-tab-num {
+    font-size: 8px;
+  }
+
+  .bogo-exp-tab-name {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+
+  .bogo-square-exp-detail {
+    flex-direction: column;
+    gap: 3px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+
+  .bogo-square-exp-category {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+  }
+
+  .bogo-square-exp-desc {
+    font-size: 10.5px;
+    line-height: 1.35;
+  }
+
+  /* Outro Hierarchy Mobile */
+  .bogo-square-outro-slate {
+    padding: 0 20px;
+  }
+
+  .bogo-sq-outro-headline {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .bogo-sq-outro-subtext {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .bogo-sq-retail-hierarchy {
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: 20px;
+    width: 88%;
+    max-width: 290px;
+  }
+
+  .bogo-sq-hierarchy-connector {
+    width: 1px;
+    height: 12px;
+  }
+
+  .bogo-sq-hierarchy-item {
+    flex-direction: row;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .bogo-sq-h-step {
+    font-size: 9px;
+  }
+
+  .bogo-sq-h-name {
+    font-size: 12px;
+  }
+
+  .bogo-sq-h-status {
+    font-size: 8.5px;
+  }
+}
