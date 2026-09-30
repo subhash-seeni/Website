@@ -43,7 +43,7 @@ export const BogoWordmark: React.FC<BogoWordmarkProps> = ({
         }}
       >
         <img
-          src="/images/bogo/bogo-b.png"
+          src={`${import.meta.env.BASE_URL}images/bogo/bogo-b.png`}
           alt="B"
           className="bogo-img-letter-b"
           draggable={false}
@@ -60,7 +60,7 @@ export const BogoWordmark: React.FC<BogoWordmarkProps> = ({
         }}
       >
         <img
-          src="/images/bogo/bogo-green-o.png"
+          src={`${import.meta.env.BASE_URL}images/bogo/bogo-green-o.png`}
           alt="O"
           className="bogo-img-letter-o"
           draggable={false}
@@ -79,7 +79,7 @@ export const BogoWordmark: React.FC<BogoWordmarkProps> = ({
           }}
         >
           <img
-            src="/images/bogo/bogo-g-bar.png"
+            src={`${import.meta.env.BASE_URL}images/bogo/bogo-g-bar.png`}
             alt=""
             className="bogo-img-g-bar"
             draggable={false}

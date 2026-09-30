@@ -30,7 +30,7 @@ export const InfinityMark: React.FC<InfinityMarkProps> = ({
     >
       {/* 1. Authentic Infinity Graphic (from Bogo.png) — Crisp & Clean */}
       <img
-        src="/images/bogo/bogo-infinity.png"
+        src={`${import.meta.env.BASE_URL}images/bogo/bogo-infinity.png`}
         alt="BOGO Connective Tissue"
         className="bogo-img-infinity-core"
         draggable={false}
