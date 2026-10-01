@@ -404,7 +404,7 @@ export const BogoSquare: React.FC = () => {
           </div>
 
           {/* Inward Orbiting Brand Badges */}
-          <div className="bogo-conv-brands-stage" aria-hidden="true">
+          <div className="bogo-conv-brands-stage" aria-label="Converging Brand Badges">
             {CONVERGENCE_BRANDS.map((brand) => {
               const rad = (brand.angle * Math.PI) / 180;
               const x = Math.cos(rad) * pillRadiusX;
@@ -414,13 +414,28 @@ export const BogoSquare: React.FC = () => {
                 <div
                   key={brand.name}
                   className="bogo-conv-brand"
+                  title={`BOGO ${brand.name}`}
+                  aria-label={`BOGO ${brand.name}`}
                   style={{
                     transform: `translate(${x}px, ${y}px)`,
                     borderColor: brand.color,
+                    boxShadow: `0 4px 16px rgba(14, 41, 78, 0.08), 0 0 14px ${brand.color}33`,
+                    ['--brand-color' as string]: brand.color,
+                    ['--icon-scale' as string]: brand.opticalScale,
                   }}
                 >
-                  <span className="bogo-conv-brand-dot" style={{ backgroundColor: brand.color }} />
-                  <span className="bogo-conv-brand-name">{brand.name}</span>
+                  <div className="bogo-conv-brand-icon-wrapper">
+                    <img
+                      src={brand.icon}
+                      alt={`BOGO ${brand.name}`}
+                      className="bogo-conv-brand-icon"
+                      style={{
+                        transform: `scale(${brand.opticalScale})`,
+                      }}
+                      loading="eager"
+                    />
+                  </div>
+                  <span className="bogo-conv-brand-tooltip">{brand.name}</span>
                 </div>
               );
             })}

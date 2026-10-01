@@ -412,15 +412,12 @@ export const BogoValue: React.FC = () => {
               SHOP SMARTER &amp; SAVE.
             </h2>
             
-            {/* Points Grid with Bespoke Icons */}
+            {/* Points Grid — Architectural Iconless Pillar Cards */}
             <div className="bogo-val-points-grid">
               <div className="bogo-val-point-card">
-                <div className="bogo-val-point-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num">01</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title">11 IN-HOUSE BRANDS</h3>
@@ -429,10 +426,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card">
-                <div className="bogo-val-point-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num">02</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title">HONEST PRICING</h3>
@@ -441,11 +437,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card">
-                <div className="bogo-val-point-icon-box">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num">03</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title">SEAMLESS ACCESS</h3>
@@ -466,15 +460,12 @@ export const BogoValue: React.FC = () => {
               GROW SUSTAINABLY.
             </h2>
             
-            {/* Points Grid with Bespoke Icons */}
+            {/* Points Grid — Architectural Iconless Pillar Cards */}
             <div className="bogo-val-points-grid">
               <div className="bogo-val-point-card is-light">
-                <div className="bogo-val-point-icon-box is-light">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-light">01</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-light">FAIR PROCUREMENT</h3>
@@ -483,13 +474,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card is-light">
-                <div className="bogo-val-point-icon-box is-light">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-light">02</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-light">SHARED FOOTFALL</h3>
@@ -498,11 +485,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card is-light">
-                <div className="bogo-val-point-icon-box is-light">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                    <polyline points="16 7 22 7 22 13" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-light">03</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-light">ZERO LISTING BARRIERS</h3>
@@ -523,14 +508,12 @@ export const BogoValue: React.FC = () => {
               A SELF-SUSTAINING LOOP.
             </h2>
             
-            {/* Points Grid with Bespoke Icons */}
+            {/* Points Grid — Architectural Iconless Pillar Cards */}
             <div className="bogo-val-points-grid">
               <div className="bogo-val-point-card is-dark">
-                <div className="bogo-val-point-icon-box is-dark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    <polyline points="9 22 9 12 15 12 15 22" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-dark">01</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-dark">BRANDS &amp; RETAIL</h3>
@@ -539,13 +522,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card is-dark">
-                <div className="bogo-val-point-icon-box is-dark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                    <line x1="6" y1="6" x2="6.01" y2="6" />
-                    <line x1="6" y1="18" x2="6.01" y2="18" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-dark">02</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-dark">PREDICTIVE LOGISTICS</h3>
@@ -554,13 +533,9 @@ export const BogoValue: React.FC = () => {
               </div>
 
               <div className="bogo-val-point-card is-dark">
-                <div className="bogo-val-point-icon-box is-dark">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                    <line x1="9" y1="9" x2="9.01" y2="9" />
-                    <line x1="15" y1="9" x2="15.01" y2="9" />
-                  </svg>
+                <div className="bogo-val-point-top">
+                  <span className="bogo-val-point-num is-dark">03</span>
+                  <span className="bogo-val-point-line" />
                 </div>
                 <div className="bogo-val-point-content">
                   <h3 className="bogo-val-point-title is-dark">SHARED SCALE</h3>
@@ -572,11 +547,9 @@ export const BogoValue: React.FC = () => {
 
           {/* 5. FINAL VALUE STATEMENT */}
           <div className="bogo-val-chapter bogo-val-final-statement">
-            <div className="bogo-val-kicker-badge is-dark">
-              <span className="bogo-val-kicker-dot is-dark" />
-              <span>ONE CONNECTED</span>
-            </div>
             <h2 className="bogo-val-payoff-headline">
+              ONE CONNECTED
+              <br />
               ECOSYSTEM.
             </h2>
             <div className="bogo-val-pillars-summary">

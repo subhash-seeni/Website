@@ -330,100 +330,137 @@
 }
 
 .bogo-val-point-card {
+  position: relative;
   min-width: 0;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(14, 41, 78, 0.07);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 10px;
-  padding: clamp(20px, 2.2vw, 26px) clamp(16px, 1.8vw, 22px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(14, 41, 78, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: clamp(22px, 2.4vw, 28px) clamp(18px, 2vw, 24px);
   text-align: left;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: 0 4px 20px rgba(100, 60, 10, 0.06);
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+  box-shadow: 0 4px 20px rgba(100, 60, 10, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s ease;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bogo-val-point-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f78634 0%, transparent 60%);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
 .bogo-val-point-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(100, 60, 10, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(14, 41, 78, 0.09), 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-color: rgba(247, 134, 52, 0.35);
+}
+
+.bogo-val-point-card:hover::before {
+  opacity: 1;
 }
 
 .bogo-val-point-card.is-light {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.16);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+}
+
+.bogo-val-point-card.is-light::before {
+  background: linear-gradient(90deg, #f78634 0%, transparent 65%);
+  opacity: 0.7;
 }
 
 .bogo-val-point-card.is-light:hover {
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(247, 134, 52, 0.45);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35);
 }
 
 .bogo-val-point-card.is-dark {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.92);
-  box-shadow: 0 16px 40px rgba(120, 40, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  box-shadow: 0 16px 40px rgba(120, 40, 0, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.bogo-val-point-card.is-dark::before {
+  background: linear-gradient(90deg, #ea580c 0%, transparent 60%);
+  opacity: 0.8;
 }
 
 .bogo-val-point-card.is-dark:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 50px rgba(120, 40, 0, 0.22), 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 24px 50px rgba(120, 40, 0, 0.22), 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
-/* Point Icon Box */
-.bogo-val-point-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+/* Point Card Architectural Header */
+.bogo-val-point-top {
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: rgba(247, 134, 52, 0.1);
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.bogo-val-point-num {
+  font-family: var(--font-family-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.24em;
   color: #f78634;
-  border: 1px solid rgba(247, 134, 52, 0.24);
-  flex-shrink: 0;
-  transition: transform 0.25s ease;
+  line-height: 1;
 }
 
-.bogo-val-point-card:hover .bogo-val-point-icon-box {
-  transform: scale(1.05);
-}
-
-.bogo-val-point-icon-box.is-light {
-  background: rgba(247, 134, 52, 0.18);
+.bogo-val-point-num.is-light {
   color: #f78634;
-  border-color: rgba(247, 134, 52, 0.38);
 }
 
-.bogo-val-point-icon-box.is-dark {
-  background: rgba(247, 134, 52, 0.12);
+.bogo-val-point-num.is-dark {
   color: #ea580c;
-  border: 1px solid rgba(247, 134, 52, 0.3);
+}
+
+.bogo-val-point-line {
+  height: 1.5px;
+  width: 24px;
+  background-color: currentColor;
+  opacity: 0.35;
+  border-radius: 1px;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.bogo-val-point-card:hover .bogo-val-point-line {
+  width: 36px;
+  opacity: 0.8;
 }
 
 /* Point Content */
 .bogo-val-point-content {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
   min-width: 0;
 }
 
 .bogo-val-point-title {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(13px, 1.05vw, 14.5px);
+  font-size: clamp(14px, 1.1vw, 15.5px);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #0e294e;
+  line-height: 1.28;
   margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .bogo-val-point-title.is-light {
@@ -438,13 +475,13 @@
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(12.5px, 0.95vw, 13.5px);
   font-weight: 450;
-  line-height: 1.48;
+  line-height: 1.55;
   color: #55657d;
   margin: 0;
 }
 
 .bogo-val-point-desc.is-light {
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .bogo-val-point-desc.is-dark {
@@ -477,18 +514,6 @@
   max-width: 900px;
   z-index: 8;
 }
-
-.bogo-val-payoff-headline {
-  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(38px, 5.4vw, 76px);
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: #0e294e;
-  text-transform: uppercase;
-  line-height: 1.05;
-  margin: 0 0 24px 0;
-}
-
 .bogo-val-world-headline.is-dark {
   color: #0e294e;
   text-shadow: 0 2px 14px rgba(255, 255, 255, 0.25);
@@ -496,15 +521,16 @@
 
 .bogo-val-payoff-headline {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(38px, 5.4vw, 76px);
+  font-size: clamp(34px, 4.8vw, 68px);
   font-weight: 900;
   letter-spacing: -0.015em;
   color: #0e294e;
   text-transform: uppercase;
-  line-height: 1.05;
-  margin: 0 0 24px 0;
+  line-height: 1.08;
+  margin: 0 0 32px 0;
   text-shadow: 0 2px 16px rgba(255, 255, 255, 0.25);
 }
+
 
 .bogo-val-pillars-summary {
   display: flex;
@@ -598,21 +624,24 @@
   }
 
   .bogo-val-point-card {
-    padding: 12px 16px;
-    gap: 12px;
+    padding: 16px 18px;
+    gap: 10px;
   }
 
-  .bogo-val-point-icon-box {
-    width: 38px;
-    height: 38px;
+  .bogo-val-point-top {
+    gap: 8px;
+  }
+
+  .bogo-val-point-num {
+    font-size: 11.5px;
   }
 
   .bogo-val-point-title {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .bogo-val-point-desc {
-    font-size: 11.5px;
+    font-size: 12px;
   }
 
   .bogo-val-payoff-headline {
