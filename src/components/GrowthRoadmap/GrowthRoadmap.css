@@ -374,7 +374,7 @@
   letter-spacing: -0.03em;
   text-transform: uppercase;
   color: #ffffff;
-  margin: 0 0 2rem 0;
+  margin: 2.2rem 0 0 0;
   text-align: left;
   align-self: flex-start;
 }
@@ -400,6 +400,31 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 4px;
   text-align: left;
+  width: calc(100% - 96px);
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bogo-growth-stele-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(247, 134, 52, 0.35);
+}
+
+/* Progressive stepped staircase indentation */
+.bogo-growth-stele-item.item-1 {
+  margin-left: 0;
+}
+
+.bogo-growth-stele-item.item-2 {
+  margin-left: 32px;
+}
+
+.bogo-growth-stele-item.item-3 {
+  margin-left: 64px;
+}
+
+.bogo-growth-stele-item.item-4 {
+  margin-left: 96px;
 }
 
 .stele-num {
@@ -543,10 +568,20 @@
     text-align: left;
   }
 
+  .bogo-growth-stele-kicker {
+    margin-top: 1.5rem;
+  }
+
   .bogo-growth-stele-item {
     padding: 0.8rem 1.2rem;
     gap: 1rem;
+    width: calc(100% - 36px);
   }
+
+  .bogo-growth-stele-item.item-1 { margin-left: 0; }
+  .bogo-growth-stele-item.item-2 { margin-left: 12px; }
+  .bogo-growth-stele-item.item-3 { margin-left: 24px; }
+  .bogo-growth-stele-item.item-4 { margin-left: 36px; }
 
   .stele-concept {
     font-size: 1.1rem;

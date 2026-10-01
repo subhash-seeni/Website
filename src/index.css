@@ -48,6 +48,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: auto;
+  overscroll-behavior: none;
 }
 
 body {
@@ -55,6 +56,7 @@ body {
   background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 
 ::selection {

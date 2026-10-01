@@ -279,41 +279,6 @@
   letter-spacing: -0.01em;
 }
 
-.bogo-hero-explore-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 10px 22px;
-  border-radius: 999px;
-  background: #0e294e;
-  border: 1px solid rgba(14, 41, 78, 0.2);
-  color: #ffffff;
-  font-family: var(--font-family-mono, monospace);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(14, 41, 78, 0.15);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.bogo-hero-explore-cta:hover {
-  background: #f78634;
-  border-color: #f78634;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(247, 134, 52, 0.3);
-}
-
-.bogo-hero-cta-arrow {
-  display: inline-block;
-  font-size: 13px;
-  transition: transform 0.25s ease;
-}
-
-.bogo-hero-explore-cta:hover .bogo-hero-cta-arrow {
-  transform: translateY(3px);
-}
 
 /* Scroll Indicator */
 .bogo-scroll-indicator {

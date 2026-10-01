@@ -9,7 +9,6 @@ export interface SquareExperience {
     x: number; // percentage horizontally (0-100)
     y: number; // percentage vertically (0-100)
   };
-  cameraPanX: number; // subtle horizontal pan offset in %
 }
 
 export const SQUARE_EXPERIENCES: SquareExperience[] = [
@@ -21,7 +20,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'All 11 In-House Brands',
     description: 'Explore and shop the complete catalog of all 11 BOGO brands in expansive, dedicated brand pavilions.',
     coords: { x: 8.5, y: 49.5 },
-    cameraPanX: 3.5,
   },
   {
     id: 'dine',
@@ -31,7 +29,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'Farm-Fresh Dining',
     description: 'Farm-to-table organic cafes, artisanal bakeries, and open-air dining terraces powered by fresh BOGO produce.',
     coords: { x: 17.5, y: 49.5 },
-    cameraPanX: 2.2,
   },
   {
     id: 'wellness',
@@ -41,7 +38,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'Wellness & Skincare Lounge',
     description: 'Personalized wellness consultations, clean skincare testing counters, and organic nutritional guidance.',
     coords: { x: 27.5, y: 49.5 },
-    cameraPanX: 1.0,
   },
   {
     id: 'lifestyle',
@@ -51,7 +47,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'Modern Living & Pet Care',
     description: 'Curated home décor galleries, sustainable kitchen setups, and dedicated pet nutrition and care stations.',
     coords: { x: 74.5, y: 49.5 },
-    cameraPanX: -1.0,
   },
   {
     id: 'discover',
@@ -61,7 +56,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'Interactive Learning & Play',
     description: 'Hands-on children’s STEM labs, interactive sensory exhibits, and weekend learning workshops.',
     coords: { x: 84.8, y: 49.5 },
-    cameraPanX: -2.2,
   },
   {
     id: 'experience',
@@ -71,7 +65,6 @@ export const SQUARE_EXPERIENCES: SquareExperience[] = [
     tagline: 'Live Events & Culture',
     description: 'Central open-air amphitheater hosting weekend farmers markets, live cooking demonstrations, and cultural events.',
     coords: { x: 94.2, y: 49.5 },
-    cameraPanX: -3.5,
   },
 ];
 

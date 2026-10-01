@@ -64,13 +64,12 @@ const ValueVectorBg: React.FC<{ type: 'matrix' | 'customers' | 'businesses' | 'e
       <svg className="bogo-val-vector-bg" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path
           d="M 320 250 C 320 160, 400 120, 500 250 C 600 380, 680 340, 680 250 C 680 160, 600 120, 500 250 C 400 380, 320 340, 320 250 Z"
-          stroke="#0e294e"
-          strokeWidth="1.2"
-          strokeOpacity="0.1"
+          stroke="rgba(255, 255, 255, 0.4)"
+          strokeWidth="1.5"
           fill="none"
         />
-        <circle cx="400" cy="250" r="130" stroke="#0e294e" strokeWidth="0.75" strokeDasharray="4 6" strokeOpacity="0.08" />
-        <circle cx="600" cy="250" r="130" stroke="#0e294e" strokeWidth="0.75" strokeDasharray="4 6" strokeOpacity="0.08" />
+        <circle cx="400" cy="250" r="130" stroke="rgba(255, 255, 255, 0.22)" strokeWidth="1" strokeDasharray="4 6" />
+        <circle cx="600" cy="250" r="130" stroke="rgba(255, 255, 255, 0.22)" strokeWidth="1" strokeDasharray="4 6" />
       </svg>
     );
   }
@@ -103,12 +102,6 @@ export const BogoValue: React.FC = () => {
       gsap.set('.bogo-val-world-ecosystem', { opacity: 0, y: 24, pointerEvents: 'none' });
       gsap.set('.bogo-val-world-ecosystem .bogo-val-point-card', { opacity: 0, y: 14 });
 
-      // Convergence Compressing Panels
-      gsap.set('.bogo-val-convergence-overlay', { opacity: 0 });
-      gsap.set('.bogo-val-panel-left', { xPercent: -100 });
-      gsap.set('.bogo-val-panel-center', { scaleY: 0 });
-      gsap.set('.bogo-val-panel-right', { xPercent: 100 });
-
       // Final Statement & Transition to Growth
       gsap.set('.bogo-val-final-statement', { opacity: 0, y: 24, pointerEvents: 'none' });
       gsap.set('.bogo-val-transition-growth', { opacity: 0, y: 16, pointerEvents: 'none' });
@@ -121,18 +114,18 @@ export const BogoValue: React.FC = () => {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.8,
+          scrub: 0.35,
         },
       });
 
-      // [0.00 -> 0.26]: SECTION OPENING ("MORE VALUE. FOR EVERYONE.")
+      // [0.00 -> 0.20]: SECTION OPENING ("MORE VALUE. FOR EVERYONE.")
       tl.to(
         '.bogo-val-opening',
         {
           opacity: 1,
           y: 0,
           pointerEvents: 'auto',
-          duration: 0.12,
+          duration: 0.08,
           ease: 'power2.out',
         },
         0.02
@@ -144,23 +137,23 @@ export const BogoValue: React.FC = () => {
           opacity: 0,
           y: -20,
           pointerEvents: 'none',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power2.in',
         },
-        0.26
+        0.20
       );
 
-      // [0.28 -> 0.48]: WORLD 01 — CUSTOMERS ("SHOP MORE EASILY.")
+      // [0.22 -> 0.42]: WORLD 01 — CUSTOMERS ("SHOP SMARTER & SAVE.")
       tl.to(
         '.bogo-val-world-customers',
         {
           opacity: 1,
           y: 0,
           pointerEvents: 'auto',
-          duration: 0.07,
+          duration: 0.05,
           ease: 'power2.out',
         },
-        0.29
+        0.22
       );
 
       tl.to(
@@ -168,11 +161,11 @@ export const BogoValue: React.FC = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.05,
-          stagger: 0.02,
+          duration: 0.04,
+          stagger: 0.015,
           ease: 'power2.out',
         },
-        0.31
+        0.24
       );
 
       tl.to(
@@ -181,21 +174,21 @@ export const BogoValue: React.FC = () => {
           opacity: 0,
           y: -20,
           pointerEvents: 'none',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power2.in',
         },
-        0.46
+        0.42
       );
 
-      // [0.46 -> 0.52]: NAVY FIELD SLIDE
+      // [0.42 -> 0.46]: NAVY FIELD SLIDE
       tl.to(
         '.bogo-val-navy-plane',
         {
           xPercent: 0,
-          duration: 0.08,
+          duration: 0.06,
           ease: 'power2.inOut',
         },
-        0.46
+        0.42
       );
 
       // Header text turns white on navy background
@@ -203,23 +196,23 @@ export const BogoValue: React.FC = () => {
         ['.bogo-val-brand-mark', '.bogo-val-brand-sep'],
         {
           color: '#ffffff',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power1.out',
         },
-        0.48
+        0.44
       );
 
-      // [0.52 -> 0.70]: WORLD 02 — BUSINESSES ("GROW WITH BOGO.")
+      // [0.46 -> 0.64]: WORLD 02 — BUSINESSES ("GROW SUSTAINABLY.")
       tl.to(
         '.bogo-val-world-businesses',
         {
           opacity: 1,
           y: 0,
           pointerEvents: 'auto',
-          duration: 0.07,
+          duration: 0.05,
           ease: 'power2.out',
         },
-        0.53
+        0.47
       );
 
       tl.to(
@@ -227,11 +220,11 @@ export const BogoValue: React.FC = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.05,
-          stagger: 0.02,
+          duration: 0.04,
+          stagger: 0.015,
           ease: 'power2.out',
         },
-        0.55
+        0.49
       );
 
       tl.to(
@@ -240,21 +233,21 @@ export const BogoValue: React.FC = () => {
           opacity: 0,
           y: -20,
           pointerEvents: 'none',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power2.in',
         },
-        0.68
+        0.64
       );
 
-      // [0.68 -> 0.74]: ORANGE PLANE SWEEP
+      // [0.64 -> 0.69]: WARM SUNSET AMBER PLANE SWEEP
       tl.to(
         '.bogo-val-orange-plane',
         {
           yPercent: 0,
-          duration: 0.08,
+          duration: 0.06,
           ease: 'power2.inOut',
         },
-        0.68
+        0.64
       );
 
       // Header text restores contrast on orange background
@@ -262,41 +255,42 @@ export const BogoValue: React.FC = () => {
         '.bogo-val-brand-mark',
         {
           color: '#0e294e',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power1.out',
         },
-        0.70
+        0.66
       );
       tl.to(
         '.bogo-val-brand-sep',
         {
           color: 'rgba(14, 41, 78, 0.35)',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power1.out',
         },
-        0.70
+        0.66
       );
       tl.to(
         '.bogo-val-active-name',
         {
           color: '#0e294e',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power1.out',
         },
-        0.70
+        0.66
       );
 
-      // [0.74 -> 0.88]: WORLD 03 — THE ECOSYSTEM ("STRONGER TOGETHER.")
+      // [0.69 -> 0.89]: WORLD 03 — THE ECOSYSTEM ("A SELF-SUSTAINING LOOP.")
+      // Expanded reading plateau: generous time to comfortably read all 3 cards!
       tl.to(
         '.bogo-val-world-ecosystem',
         {
           opacity: 1,
           y: 0,
           pointerEvents: 'auto',
-          duration: 0.07,
+          duration: 0.04,
           ease: 'power2.out',
         },
-        0.74
+        0.69
       );
 
       tl.to(
@@ -304,77 +298,27 @@ export const BogoValue: React.FC = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.05,
-          stagger: 0.02,
+          duration: 0.03,
+          stagger: 0.015,
           ease: 'power2.out',
         },
-        0.76
+        0.71
       );
 
+      // Holds steady and readable from 0.71 all the way to 0.88!
       tl.to(
         '.bogo-val-world-ecosystem',
         {
           opacity: 0,
           y: -20,
           pointerEvents: 'none',
-          duration: 0.04,
+          duration: 0.03,
           ease: 'power2.in',
-        },
-        0.87
-      );
-
-      // [0.88 -> 0.94]: THREE WORLDS CONVERGE
-      tl.to(
-        '.bogo-val-convergence-overlay',
-        {
-          opacity: 1,
-          duration: 0.01,
         },
         0.88
       );
 
-      tl.to(
-        '.bogo-val-panel-left',
-        {
-          xPercent: 0,
-          duration: 0.05,
-          ease: 'power2.inOut',
-        },
-        0.89
-      );
-
-      tl.to(
-        '.bogo-val-panel-right',
-        {
-          xPercent: 0,
-          duration: 0.05,
-          ease: 'power2.inOut',
-        },
-        0.89
-      );
-
-      tl.to(
-        '.bogo-val-panel-center',
-        {
-          scaleY: 1,
-          duration: 0.05,
-          ease: 'power2.inOut',
-        },
-        0.89
-      );
-
-      // Panels flash and clear
-      tl.to(
-        '.bogo-val-convergence-overlay',
-        {
-          opacity: 0,
-          duration: 0.03,
-          ease: 'power1.out',
-        },
-        0.94
-      );
-
-      // [0.94 -> 0.98]: FINAL VALUE STATEMENT ("GREATER VALUE.")
+      // [0.89 -> 0.96]: FINAL VALUE STATEMENT ("ONE CONNECTED ECOSYSTEM.")
       tl.to(
         '.bogo-val-final-statement',
         {
@@ -384,7 +328,7 @@ export const BogoValue: React.FC = () => {
           duration: 0.035,
           ease: 'power2.out',
         },
-        0.945
+        0.895
       );
 
       tl.to(
@@ -396,20 +340,20 @@ export const BogoValue: React.FC = () => {
           duration: 0.02,
           ease: 'power2.in',
         },
-        0.975
+        0.96
       );
 
-      // [0.98 -> 1.00]: FINAL TRANSITION TO GROWTH ("AND THIS IS JUST THE BEGINNING.")
+      // [0.97 -> 1.00]: FINAL TRANSITION TO GROWTH ("AND THIS IS JUST THE BEGINNING.")
       tl.to(
         '.bogo-val-transition-growth',
         {
           opacity: 1,
           y: 0,
           pointerEvents: 'auto',
-          duration: 0.02,
+          duration: 0.025,
           ease: 'power2.out',
         },
-        0.98
+        0.97
       );
     }, trackRef);
 
@@ -428,12 +372,7 @@ export const BogoValue: React.FC = () => {
         <div className="bogo-val-navy-plane" aria-hidden="true" />
         <div className="bogo-val-orange-plane" aria-hidden="true" />
 
-        {/* Convergence Compression Overlay */}
-        <div className="bogo-val-convergence-overlay" aria-hidden="true">
-          <div className="bogo-val-panel bogo-val-panel-left" />
-          <div className="bogo-val-panel bogo-val-panel-center" />
-          <div className="bogo-val-panel bogo-val-panel-right" />
-        </div>
+
 
         {/* Editorial Header */}
         <header className="bogo-val-header">

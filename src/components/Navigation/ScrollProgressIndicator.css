@@ -35,6 +35,14 @@
   align-items: flex-start;
   font-family: var(--font-family-mono, monospace);
   user-select: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s ease;
+}
+
+.bogo-nav-hud.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px);
 }
 
 /* Badge Trigger Button */

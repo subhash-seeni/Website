@@ -212,9 +212,11 @@ export const navigationConfig: NavigationStructure = {
   },
 };
 
+import { smoothScrollTo } from '../utils/smoothScroll';
+
 /**
  * Global navigation helper to smoothly scroll to on-page destinations
- * while updating browser history cleanly.
+ * while updating browser history cleanly using unified Lenis physics.
  */
 export const navigateToDestination = (item: NavItem, onComplete?: () => void) => {
   // Update browser history path without page reload
@@ -232,12 +234,15 @@ export const navigateToDestination = (item: NavItem, onComplete?: () => void) =>
       if (item.brandSet === 1) targetRatio = 0.48;
       if (item.brandSet === 2) targetRatio = 0.80;
       const targetY = trackTop + trackHeight * targetRatio;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+      smoothScrollTo(targetY, { duration: 1.3, onComplete });
+      return;
     } else {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      smoothScrollTo(targetElement, { duration: 1.3, onComplete });
+      return;
     }
   } else if (item.targetId === 'bogo-hero-section' || item.path === '/') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0, { duration: 1.3, onComplete });
+    return;
   }
 
   if (onComplete) {

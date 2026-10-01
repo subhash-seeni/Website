@@ -6,6 +6,7 @@ export const ScrollProgressIndicator: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isInFooter, setIsInFooter] = useState(false);
 
   const sections: NavItem[] = navigationConfig.main;
 
@@ -15,6 +16,15 @@ export const ScrollProgressIndicator: React.FC = () => {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const currentProgress = docHeight > 0 ? Math.min(1, Math.max(0, scrollY / docHeight)) : 0;
       setProgress(currentProgress);
+
+      // Check if footer is in view or user reached bottom of page
+      const footerEl = document.getElementById('bogo-footer');
+      const atBottom = docHeight > 0 && (docHeight - scrollY <= 150);
+      const footerInView = (footerEl && footerEl.getBoundingClientRect().top <= window.innerHeight - 50) || atBottom;
+      setIsInFooter(Boolean(footerInView));
+      if (footerInView) {
+        setIsExpanded(false);
+      }
 
       // Determine active section based on bounding rect
       let activeIdx = 0;
@@ -56,7 +66,7 @@ export const ScrollProgressIndicator: React.FC = () => {
 
       {/* 2. Floating Minimal Architectural Section HUD */}
       <aside
-        className={`bogo-nav-hud ${isExpanded ? 'is-expanded' : ''}`}
+        className={`bogo-nav-hud ${isExpanded ? 'is-expanded' : ''} ${isInFooter ? 'is-hidden' : ''}`}
         aria-label="Section Navigation"
       >
         <button

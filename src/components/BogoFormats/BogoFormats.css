@@ -204,8 +204,8 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 25;
-  width: 90%;
-  max-width: 780px;
+  width: 92%;
+  max-width: 960px;
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -332,59 +332,7 @@
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
 }
 
-/* Subtle Bazaar Storefront Bay Callouts */
-.bogo-fmt-bazaar-zones-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 22;
-}
 
-.bogo-fmt-bazaar-zone {
-  position: absolute;
-  transform: translate(-50%, -100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  will-change: transform, opacity;
-}
-
-.bogo-fmt-zone-pin {
-  width: 1px;
-  height: 24px;
-  background: linear-gradient(180deg, rgba(247, 134, 52, 0) 0%, #f78634 100%);
-  order: 2;
-}
-
-.bogo-fmt-zone-label {
-  order: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: rgba(14, 41, 78, 0.78);
-  border: 1px solid rgba(247, 134, 52, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-  text-align: center;
-}
-
-.bogo-fmt-zone-title {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  color: #ffffff;
-  text-transform: uppercase;
-}
-
-.bogo-fmt-zone-desc {
-  font-size: 9px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-}
 
 /* "CLOSER TO HOME." Typographic Moment */
 .bogo-fmt-closer-text {
@@ -394,8 +342,8 @@
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 28;
-  width: 90%;
-  max-width: 720px;
+  width: 92%;
+  max-width: 860px;
   pointer-events: none;
   will-change: transform, opacity;
 }
@@ -498,7 +446,7 @@
   color: #4b5563;
   max-width: 620px;
   line-height: 1.6;
-  margin-bottom: 36px;
+  margin-bottom: 28px;
 }
 
 /* Three Architectural Scaled Environments */
@@ -507,21 +455,10 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 28px;
+  gap: 32px;
   width: 100%;
-  max-width: 1060px;
-  padding-bottom: 20px;
-}
-
-.bogo-fmt-scales-svg-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  z-index: 1;
+  max-width: 1160px;
+  padding-bottom: 10px;
 }
 
 .bogo-fmt-scale-card {
@@ -533,37 +470,36 @@
   overflow: hidden;
   background: #ffffff;
   border: 1px solid rgba(14, 41, 78, 0.08);
-  box-shadow: 0 12px 32px rgba(14, 41, 78, 0.08);
+  box-shadow: 0 14px 36px rgba(14, 41, 78, 0.09);
   transition: transform 0.3s ease;
   z-index: 5;
 }
 
-/* Architectural Scale Proportions */
+/* Architectural Scale Proportions (Proportionally Scaled Up) */
 .card-square {
-  width: 330px;
+  width: 380px;
   transform: scale(1.0);
 }
 
 .card-bazaar {
-  width: 275px;
-  transform: scale(0.92);
+  width: 325px;
+  transform: scale(0.93);
 }
 
 .card-mini {
-  width: 220px;
-  transform: scale(0.85);
+  width: 270px;
+  transform: scale(0.86);
 }
 
 .bogo-fmt-scale-img-wrap {
   position: relative;
   width: 100%;
-  height: 160px;
   overflow: hidden;
 }
 
-.card-square .bogo-fmt-scale-img-wrap { height: 180px; }
-.card-bazaar .bogo-fmt-scale-img-wrap { height: 155px; }
-.card-mini .bogo-fmt-scale-img-wrap { height: 135px; }
+.card-square .bogo-fmt-scale-img-wrap { height: 215px; }
+.card-bazaar .bogo-fmt-scale-img-wrap { height: 185px; }
+.card-mini .bogo-fmt-scale-img-wrap { height: 155px; }
 
 .bogo-fmt-thumb-img {
   width: 100%;
@@ -576,30 +512,30 @@
   top: 10px;
   left: 10px;
   font-family: var(--font-family-mono, monospace);
-  font-size: 8.5px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.16em;
   color: #ffffff;
-  background: rgba(14, 41, 78, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(14, 41, 78, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  padding: 3px 8px;
+  padding: 4px 9px;
   border-radius: 12px;
 }
 
 .bogo-fmt-scale-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 12px 14px;
+  gap: 3px;
+  padding: 13px 16px;
   width: 100%;
   text-align: left;
   background: #ffffff;
 }
 
 .bogo-fmt-scale-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #0e294e;
@@ -607,16 +543,17 @@
 }
 
 .bogo-fmt-scale-role {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   color: #6b7280;
 }
 
 .bogo-fmt-conv-cue {
-  margin-top: 26px;
+  margin-top: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   z-index: 10;
 }
 
@@ -887,9 +824,9 @@
     max-width: 480px;
   }
 
-  .card-square { width: 280px; }
-  .card-bazaar { width: 235px; }
-  .card-mini { width: 190px; }
+  .card-square { width: 310px; }
+  .card-bazaar { width: 265px; }
+  .card-mini { width: 220px; }
 }
 
 @media (max-width: 768px) {
@@ -934,9 +871,7 @@
     font-size: 14.5px;
   }
 
-  .bogo-fmt-bazaar-zones-layer {
-    display: none; /* Keep mobile viewport clean and focused on architecture */
-  }
+
 
   .bogo-fmt-convergence-stage {
     padding: 0 20px;

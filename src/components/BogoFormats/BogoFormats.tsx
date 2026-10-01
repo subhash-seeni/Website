@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { BAZAAR_ZONES } from './types';
 import squareHeroImg from '../../assets/Square.png';
 import bazaarHeroImg from '../../assets/Bazaar.png';
 import miniHeroImg from '../../assets/Mini.png';
@@ -30,7 +29,7 @@ export const BogoFormats: React.FC = () => {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.8,
+          scrub: 0.35,
           onUpdate: (self) => {
             const p = self.progress;
 
@@ -81,7 +80,6 @@ export const BogoFormats: React.FC = () => {
       gsap.set('.bogo-fmt-bazaar-slit', { clipPath: 'inset(50% 0% 50% 0%)', opacity: 0 });
       gsap.set('.bogo-fmt-bazaar-img', { scale: 1.15 });
       gsap.set('.bogo-fmt-bazaar-editorial', { opacity: 0, y: 25 });
-      gsap.set('.bogo-fmt-bazaar-zone', { opacity: 0, y: 15 });
       gsap.set('.bogo-fmt-closer-text', { opacity: 0, y: 30 });
 
       // Thin orange slit appears and expands vertically
@@ -119,22 +117,9 @@ export const BogoFormats: React.FC = () => {
         0.26
       );
 
-      // Category zones subtly reveal along the storefront bays
+      // Fade editorial
       tl.to(
-        '.bogo-fmt-bazaar-zone',
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.03,
-          duration: 0.10,
-          ease: 'power2.out',
-        },
-        0.34
-      );
-
-      // Fade zones and editorial
-      tl.to(
-        ['.bogo-fmt-bazaar-editorial', '.bogo-fmt-bazaar-zone'],
+        '.bogo-fmt-bazaar-editorial',
         {
           opacity: 0,
           y: -15,
@@ -248,7 +233,6 @@ export const BogoFormats: React.FC = () => {
       // [0.85 -> 1.00]: STAGE 4 — SCALE CONVERGENCE ("ONE ECOSYSTEM. DIFFERENT SCALES.")
       // =========================================================================
       gsap.set('.bogo-fmt-convergence-stage', { opacity: 0, y: 35 });
-      gsap.set('.bogo-fmt-infinity-line', { strokeDashoffset: 1000 });
       gsap.set('.bogo-fmt-conv-cue', { opacity: 0, y: 15 });
 
       tl.to(
@@ -260,17 +244,6 @@ export const BogoFormats: React.FC = () => {
           ease: 'power2.out',
         },
         0.85
-      );
-
-      // Draw the connecting infinity path linking the 3 formats
-      tl.to(
-        '.bogo-fmt-infinity-line',
-        {
-          strokeDashoffset: 0,
-          duration: 0.10,
-          ease: 'power1.inOut',
-        },
-        0.87
       );
 
       // Bottom cue pointing to Technology
@@ -310,10 +283,10 @@ export const BogoFormats: React.FC = () => {
         {/* STAGE 1: RETAIL EVOLUTION TYPOGRAPHIC MOMENT */}
         {/* =================================================================== */}
 
-        {/* "FROM DESTINATIONS..." Typographic Moment */}
+        {/* "FROM LARGE RETAIL DESTINATIONS..." Typographic Moment */}
         <div className="bogo-fmt-destinations-text">
           <div className="bogo-fmt-meta-eyebrow">RETAIL FORMAT TIERS</div>
-          <h2 className="bogo-fmt-giant-statement">FROM DESTINATIONS...</h2>
+          <h2 className="bogo-fmt-giant-statement">FROM LARGE RETAIL DESTINATIONS...</h2>
           <p className="bogo-fmt-giant-subline">30,000+ sq ft regional landmarks anchoring culture, dining, and brand discovery.</p>
         </div>
 
@@ -334,22 +307,7 @@ export const BogoFormats: React.FC = () => {
             />
             <div className="bogo-fmt-bazaar-scrim" />
 
-            {/* Subtle Storefront Bay Callouts */}
-            <div className="bogo-fmt-bazaar-zones-layer" aria-hidden="true">
-              {BAZAAR_ZONES.map((zone) => (
-                <div
-                  key={zone.name}
-                  className="bogo-fmt-bazaar-zone"
-                  style={{ left: `${zone.x}%`, top: `${zone.y}%` }}
-                >
-                  <div className="bogo-fmt-zone-pin" />
-                  <div className="bogo-fmt-zone-label">
-                    <span className="bogo-fmt-zone-title">{zone.name}</span>
-                    <span className="bogo-fmt-zone-desc">{zone.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
           <div className="bogo-fmt-slit-border bottom" />
         </div>
@@ -361,10 +319,10 @@ export const BogoFormats: React.FC = () => {
           <p className="bogo-fmt-hero-tagline">Weekly groceries, farm-fresh produce, and household pantries closer to home.</p>
         </div>
 
-        {/* "CLOSER TO HOME." Typographic Moment */}
+        {/* "TO OUTLETS NEAR YOUR HOME." Typographic Moment */}
         <div className="bogo-fmt-closer-text">
           <div className="bogo-fmt-meta-eyebrow">NEIGHBORHOOD PROXIMITY</div>
-          <h2 className="bogo-fmt-giant-statement">CLOSER TO HOME.</h2>
+          <h2 className="bogo-fmt-giant-statement">TO OUTLETS NEAR YOUR HOME.</h2>
           <p className="bogo-fmt-giant-subline">Placing modern retail right where daily life happens.</p>
         </div>
 
@@ -442,32 +400,13 @@ export const BogoFormats: React.FC = () => {
                 <span className="bogo-fmt-scale-role">5-Minute Daily Top-Ups</span>
               </div>
             </div>
+          </div>
 
-            {/* Infinity Connector Ribbon SVG */}
-            <svg className="bogo-fmt-scales-svg-line" viewBox="0 0 900 120" preserveAspectRatio="none" aria-hidden="true">
-              <path
-                className="bogo-fmt-infinity-line"
-                d="M 120 60 C 260 20, 340 100, 450 60 C 560 20, 640 100, 780 60"
-                fill="none"
-                stroke="url(#infinityGrad)"
-                strokeWidth="2.5"
-                strokeDasharray="1000"
-              />
-              <defs>
-                <linearGradient id="infinityGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#0e294e" />
-                  <stop offset="50%" stopColor="#f78634" />
-                  <stop offset="100%" stopColor="#1e3a8a" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            {/* Cue to Technology Section */}
-            <div className="bogo-fmt-conv-cue">
-              <div className="bogo-fmt-conv-cue-badge">
-                <span className="bogo-fmt-conv-cue-dot" />
-                <span className="bogo-fmt-conv-cue-text">NEXT &middot; TECHNOLOGY &mdash; THE INTELLIGENCE BEHIND BOGO</span>
-              </div>
+          {/* Cue to Technology Section */}
+          <div className="bogo-fmt-conv-cue">
+            <div className="bogo-fmt-conv-cue-badge">
+              <span className="bogo-fmt-conv-cue-dot" />
+              <span className="bogo-fmt-conv-cue-text">NEXT &middot; TECHNOLOGY &mdash; THE INTELLIGENCE BEHIND BOGO</span>
             </div>
           </div>
         </div>

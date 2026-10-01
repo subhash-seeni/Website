@@ -12,7 +12,7 @@ export const RETAIL_FORMATS: RetailFormat[] = [
     id: 'square',
     name: 'BOGO SQUARE',
     scaleLabel: 'FLAGSHIP DESTINATION',
-    tagline: 'From Destinations...',
+    tagline: 'From Large Retail Destinations...',
     subtitle: '30,000+ sq ft regional landmark uniting all 11 brands, experiential dining, and community culture.',
   },
   {
@@ -38,9 +38,3 @@ export const RETAIL_FORMATS: RetailFormat[] = [
   },
 ];
 
-export const BAZAAR_ZONES = [
-  { name: 'FRESH PRODUCE', x: 37, y: 60, desc: 'Farm-direct organic harvest within 24h' },
-  { name: 'PANTRY & GRAINS', x: 46, y: 60, desc: 'Cold-pressed oils, grains & daily staples' },
-  { name: 'CLEAN CARE', x: 55, y: 60, desc: 'Toxin-free personal care & home hygiene' },
-  { name: 'BAKERY & DAIRY', x: 65, y: 60, desc: 'Fresh daily breads & organic dairy' },
-];

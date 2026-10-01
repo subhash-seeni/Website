@@ -113,7 +113,7 @@ export const GrowthRoadmap: React.FC = () => {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.8,
+          scrub: 0.35,
         },
       });
 
@@ -532,9 +532,6 @@ export const GrowthRoadmap: React.FC = () => {
 
           {/* 3. THE CONVERGENCE — VERTICAL ASCENDING STELE */}
           <div className="bogo-growth-chapter bogo-growth-ascent-stele" aria-hidden="true">
-            <h3 className="bogo-growth-stele-kicker">
-              THE ASCENT OF <span className="bogo-orange-accent">BOGO</span>
-            </h3>
             <div className="bogo-growth-stele-list">
               <div className="bogo-growth-stele-item item-4">
                 <span className="stele-num">04</span>
@@ -561,6 +558,10 @@ export const GrowthRoadmap: React.FC = () => {
                 <span className="stele-sub">SQUARE &amp; FLAGSHIP ECOSYSTEM</span>
               </div>
             </div>
+
+            <h3 className="bogo-growth-stele-kicker">
+              THE ASCENT OF <span className="bogo-orange-accent">BOGO</span>
+            </h3>
           </div>
 
           {/* 4. FINAL TRANSITION — LOOKING AHEAD & CLOSING STATEMENT */}

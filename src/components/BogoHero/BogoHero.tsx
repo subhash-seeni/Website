@@ -55,7 +55,7 @@ export const BogoHero: React.FC = () => {
       trigger: track,
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 0.8, // Controlled physical deceleration
+      scrub: 0.35, // Responsive trackpad-synchronized scrub
       onUpdate: (self) => {
         const p = self.progress;
         setScrollProgress(p);
@@ -174,18 +174,6 @@ export const BogoHero: React.FC = () => {
           <p className="bogo-hero-descriptor">
             11 Curated In-House Brands &middot; Multi-Format Retail Stores &middot; Integrated Supply Chain &amp; Logistics
           </p>
-          <button
-            type="button"
-            className="bogo-hero-explore-cta"
-            onClick={() => {
-              const el = document.getElementById('bogo-collection-section');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            aria-label="Explore the BOGO Ecosystem"
-          >
-            <span>ENTER THE ECOSYSTEM</span>
-            <span className="bogo-hero-cta-arrow" aria-hidden="true">&darr;</span>
-          </button>
         </div>
 
         {/* Scroll Indicator (State 1) */}

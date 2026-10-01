@@ -35,7 +35,7 @@ export const BogoPrograms: React.FC = () => {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.8,
+          scrub: 0.35,
         },
       });
 

@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { initSmoothScroll, destroySmoothScroll } from './utils/smoothScroll';
 import { BogoHero } from './components/BogoHero/BogoHero';
 import { BogoCollection } from './components/BogoCollection/BogoCollection';
 import { BogoSquare } from './components/BogoSquare/BogoSquare';
@@ -12,6 +14,13 @@ import { BogoMenu } from './components/Navigation/BogoMenu';
 import { ScrollProgressIndicator } from './components/Navigation/ScrollProgressIndicator';
 
 function App() {
+  useEffect(() => {
+    initSmoothScroll();
+    return () => {
+      destroySmoothScroll();
+    };
+  }, []);
+
   return (
     <div className="bogo-app">
       <ScrollProgressIndicator />

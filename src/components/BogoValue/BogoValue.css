@@ -7,7 +7,7 @@
 .bogo-val-track {
   position: relative;
   width: 100%;
-  height: 560vh; /* Deliberate, contemplative, spacious scroll progression */
+  height: 640vh; /* Spacious, contemplative, unhurried scroll progression */
   background-color: #fbfbfd;
 }
 
@@ -48,7 +48,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: #0e294e;
+  background: radial-gradient(ellipse at 50% 40%, #163868 0%, #0e294e 55%, #081a33 100%);
   z-index: 2;
   will-change: transform;
   pointer-events: none;
@@ -59,40 +59,20 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: #f78634;
+  background: radial-gradient(ellipse at 50% 30%, #ff8f40 0%, #f77520 40%, #db590c 75%, #ba4400 100%);
   z-index: 3;
   will-change: transform;
   pointer-events: none;
+  overflow: hidden;
 }
 
-/* Convergence Compression Overlay */
-.bogo-val-convergence-overlay {
+.bogo-val-orange-plane::before {
+  content: '';
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  z-index: 4;
+  background: radial-gradient(circle at 50% 25%, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 55%),
+              radial-gradient(ellipse at 50% 100%, rgba(138, 48, 0, 0.35) 0%, transparent 65%);
   pointer-events: none;
-  will-change: transform, opacity;
-}
-
-.bogo-val-panel {
-  flex: 1;
-  height: 100%;
-}
-
-.bogo-val-panel-left {
-  background-color: #fbfbfd;
-}
-
-.bogo-val-panel-center {
-  background-color: #0e294e;
-  transform-origin: center center;
-}
-
-.bogo-val-panel-right {
-  background-color: #f78634;
 }
 
 /* ==========================================================================
@@ -207,53 +187,56 @@
 .bogo-val-kicker-badge {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 8px 22px;
+  gap: 10px;
+  padding: 8px 24px;
   border-radius: 999px;
-  background: rgba(247, 134, 52, 0.08);
-  border: 1px solid rgba(247, 134, 52, 0.28);
-  font-family: var(--font-family-mono, monospace);
-  font-size: clamp(12.5px, 1.05vw, 14.5px);
-  font-weight: 800;
-  letter-spacing: 0.22em;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(247, 134, 52, 0.42);
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 850;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #f78634;
+  color: #0e294e;
+  box-shadow: 0 4px 18px rgba(14, 41, 78, 0.07), 0 0 12px rgba(247, 134, 52, 0.12);
   margin-bottom: clamp(18px, 2.5vw, 26px);
   z-index: 3;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .bogo-val-kicker-badge.is-light {
-  background: rgba(247, 134, 52, 0.15);
-  border-color: rgba(247, 134, 52, 0.38);
-  color: #f78634;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .bogo-val-kicker-badge.is-dark {
-  background: rgba(14, 41, 78, 0.12);
-  border-color: rgba(14, 41, 78, 0.3);
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(14, 41, 78, 0.18);
   color: #0e294e;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 .bogo-val-kicker-dot {
-  width: 7px;
-  height: 7px;
+  width: 7.5px;
+  height: 7.5px;
   border-radius: 50%;
   background-color: #f78634;
-  box-shadow: 0 0 8px rgba(247, 134, 52, 0.8);
+  box-shadow: 0 0 10px rgba(247, 134, 52, 0.95);
   display: inline-block;
   flex-shrink: 0;
 }
 
 .bogo-val-kicker-dot.is-light {
   background-color: #f78634;
-  box-shadow: 0 0 10px rgba(247, 134, 52, 0.9);
+  box-shadow: 0 0 12px #f78634;
 }
 
 .bogo-val-kicker-dot.is-dark {
   background-color: #0e294e;
-  box-shadow: 0 0 8px rgba(14, 41, 78, 0.4);
+  box-shadow: 0 0 8px rgba(14, 41, 78, 0.5);
 }
 
 /* ==========================================================================
@@ -379,13 +362,16 @@
 }
 
 .bogo-val-point-card.is-dark {
-  background: rgba(14, 41, 78, 0.09);
-  border-color: rgba(14, 41, 78, 0.18);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 16px 40px rgba(120, 40, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .bogo-val-point-card.is-dark:hover {
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 50px rgba(120, 40, 0, 0.22), 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Point Icon Box */
@@ -414,9 +400,9 @@
 }
 
 .bogo-val-point-icon-box.is-dark {
-  background: rgba(14, 41, 78, 0.14);
-  color: #0e294e;
-  border-color: rgba(14, 41, 78, 0.26);
+  background: rgba(247, 134, 52, 0.12);
+  color: #ea580c;
+  border: 1px solid rgba(247, 134, 52, 0.3);
 }
 
 /* Point Content */
@@ -462,7 +448,9 @@
 }
 
 .bogo-val-point-desc.is-dark {
-  color: rgba(14, 41, 78, 0.86);
+  color: #334155;
+  font-weight: 500;
+  line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -501,6 +489,23 @@
   margin: 0 0 24px 0;
 }
 
+.bogo-val-world-headline.is-dark {
+  color: #0e294e;
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.25);
+}
+
+.bogo-val-payoff-headline {
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(38px, 5.4vw, 76px);
+  font-weight: 900;
+  letter-spacing: -0.015em;
+  color: #0e294e;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 0 0 24px 0;
+  text-shadow: 0 2px 16px rgba(255, 255, 255, 0.25);
+}
+
 .bogo-val-pillars-summary {
   display: flex;
   align-items: center;
@@ -510,24 +515,25 @@
 }
 
 .bogo-val-pill-tag {
-  font-family: var(--font-family-mono, monospace);
-  font-size: clamp(11.5px, 0.95vw, 13px);
-  font-weight: 800;
+  font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 850;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #0e294e;
-  background: rgba(14, 41, 78, 0.14);
-  border: 1px solid rgba(14, 41, 78, 0.32);
-  padding: 8px 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  padding: 9px 24px;
   border-radius: 999px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(120, 40, 0, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .bogo-val-pill-sep {
-  color: rgba(14, 41, 78, 0.55);
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 /* ==========================================================================
@@ -541,11 +547,12 @@
 .bogo-val-growth-cue {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: clamp(26px, 3.8vw, 46px);
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.1em;
   color: #0e294e;
   text-transform: uppercase;
   line-height: 1.18;
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.25);
 }
 
 /* ==========================================================================

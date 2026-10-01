@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Internal presentation & documentation notes
+MANAGEMENT_PRESENTATION.md

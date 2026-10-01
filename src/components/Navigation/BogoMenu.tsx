@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import bogoLogoLightImg from '../../assets/Bogo-light.png';
 import { navigationConfig, navigateToDestination, type NavItem } from '../../config/navigation';
+import { stopScroll, startScroll } from '../../utils/smoothScroll';
 import './BogoMenu.css';
 
 export const BogoMenu: React.FC = () => {
@@ -24,11 +25,14 @@ export const BogoMenu: React.FC = () => {
   // Prevent background scrolling while menu is open
   useEffect(() => {
     if (isOpen) {
+      stopScroll();
       document.body.style.overflow = 'hidden';
     } else {
+      startScroll();
       document.body.style.overflow = '';
     }
     return () => {
+      startScroll();
       document.body.style.overflow = '';
     };
   }, [isOpen]);

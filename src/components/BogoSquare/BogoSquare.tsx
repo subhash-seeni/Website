@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -57,23 +57,7 @@ export const BogoSquare: React.FC = () => {
     return () => window.removeEventListener('resize', updateRadius);
   }, []);
 
-  // Interactive mouse parallax state for tactile depth
-  const [mouseParallax, setMouseParallax] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { width, height, left, top } = currentTarget.getBoundingClientRect();
-    const relX = (clientX - left) / width - 0.5;
-    const relY = (clientY - top) / height - 0.5;
-    setMouseParallax({
-      x: relX * 18,
-      y: relY * 12,
-    });
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setMouseParallax({ x: 0, y: 0 });
-  }, []);
 
   // Jump to specific experience zone via scroll
   const handleSelectExperience = (id: string) => {
@@ -115,7 +99,7 @@ export const BogoSquare: React.FC = () => {
           trigger: track,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.8,
+          scrub: 0.35,
           onUpdate: (self) => {
             const p = self.progress;
 
@@ -307,36 +291,7 @@ export const BogoSquare: React.FC = () => {
         0.56
       );
 
-      // Subtle horizontal camera shift across the wings as experiences progress
-      masterTl.to(
-        imageCanvas,
-        {
-          x: '2.5%', // Frame left wing (Shop, Dine, Wellness)
-          duration: 0.14,
-          ease: 'power1.inOut',
-        },
-        0.58
-      );
 
-      masterTl.to(
-        imageCanvas,
-        {
-          x: '-2.5%', // Frame right wing (Lifestyle, Discover, Experience)
-          duration: 0.14,
-          ease: 'power1.inOut',
-        },
-        0.72
-      );
-
-      masterTl.to(
-        imageCanvas,
-        {
-          x: '0%', // Center back
-          duration: 0.08,
-          ease: 'power1.out',
-        },
-        0.84
-      );
 
       // Fade experiences layer before outro
       masterTl.to(
@@ -374,26 +329,11 @@ export const BogoSquare: React.FC = () => {
     };
   }, []);
 
-  // Compute camera parallax transform based on mouse offset and active zone
-  const activeExp = SQUARE_EXPERIENCES.find((e) => e.id === (hoveredExperienceId || activeExperienceId));
-  const dynamicPanX = activeExp ? (
-    isMobile ? (
-      activeExp.id === 'shop' ? 22 :
-      activeExp.id === 'dine' ? 14 :
-      activeExp.id === 'wellness' ? 7 :
-      activeExp.id === 'lifestyle' ? -7 :
-      activeExp.id === 'discover' ? -14 :
-      activeExp.id === 'experience' ? -22 : 0
-    ) : activeExp.cameraPanX
-  ) : 0;
-
   return (
     <section
       className="bogo-square-track"
       ref={trackRef}
       id="bogo-square-section"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
     >
       <div className="bogo-square-viewport" ref={viewportRef}>
         {/* Subtle cinematic film texture */}
@@ -494,11 +434,6 @@ export const BogoSquare: React.FC = () => {
           <div
             className="bogo-square-image-canvas"
             ref={imageCanvasRef}
-            style={{
-              transform: isMobile
-                ? `translate3d(${dynamicPanX}vw, 0, 0)`
-                : `translate3d(${mouseParallax.x + dynamicPanX}px, ${mouseParallax.y}px, 0)`,
-            }}
           >
             {/* Skeleton shimmer shown while the large hero image loads */}
             {!imgLoaded && (
