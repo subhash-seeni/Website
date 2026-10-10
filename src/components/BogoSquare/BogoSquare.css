@@ -1033,6 +1033,28 @@
     display: none !important;
   }
 
+  /* Mobile Full-Page Image Panoramic Pan Viewport */
+  .bogo-square-image-canvas {
+    width: 100vw;
+    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .bogo-square-hero-img {
+    width: auto !important;
+    min-width: 180vw !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover !important;
+    object-position: center 36% !important;
+    will-change: transform;
+  }
+
   /* Touch-Friendly Experience Bar placed safely above bottom navigation bar */
   .bogo-square-experiences-layer {
     bottom: 74px;

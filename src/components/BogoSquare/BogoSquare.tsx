@@ -204,46 +204,92 @@ export const BogoSquare: React.FC = () => {
       );
 
       // =========================================================================
-      // [0.12 -> 0.45]: PHASE 2 — APERTURE EXPANSION & CINEMATIC CAMERA PUSH
+      // [0.12 -> 0.45]: PHASE 2 — APERTURE EXPANSION & CINEMATIC CAMERA
       // =========================================================================
-      // Image begins inside a compact architectural aperture, then expands to full viewport
-      gsap.set(aperture, {
-        width: '320px',
-        height: '200px',
-        borderRadius: '24px',
-        boxShadow: '0 25px 60px rgba(14, 41, 78, 0.18), 0 0 0 1px rgba(247, 134, 52, 0.4)',
-      });
+      if (!isMobile) {
+        // Desktop: Architectural window aperture & camera push-in zoom
+        gsap.set(aperture, {
+          width: '320px',
+          height: '200px',
+          borderRadius: '24px',
+          boxShadow: '0 25px 60px rgba(14, 41, 78, 0.18), 0 0 0 1px rgba(247, 134, 52, 0.4)',
+        });
 
-      gsap.set(imageCanvas, {
-        scale: 1.22,
-        y: 15,
-      });
+        gsap.set(imageCanvas, {
+          scale: 1.22,
+          y: 15,
+        });
 
-      // Expand aperture from architectural window to full immersive viewport
-      masterTl.to(
-        aperture,
-        {
-          width: '100vw',
-          height: '100vh',
-          borderRadius: '0px',
-          boxShadow: 'none',
-          duration: 0.28,
-          ease: 'power2.inOut',
-        },
-        0.14
-      );
+        // Expand aperture from architectural window to full immersive viewport
+        masterTl.to(
+          aperture,
+          {
+            width: '100vw',
+            height: '100vh',
+            borderRadius: '0px',
+            boxShadow: 'none',
+            duration: 0.28,
+            ease: 'power2.inOut',
+          },
+          0.14
+        );
 
-      // Camera push-in toward the grand building entrance (scale 1.22 -> 1.05)
-      masterTl.to(
-        imageCanvas,
-        {
-          scale: 1.04,
+        // Camera push-in toward the grand building entrance (scale 1.22 -> 1.05)
+        masterTl.to(
+          imageCanvas,
+          {
+            scale: 1.04,
+            y: 0,
+            duration: 0.28,
+            ease: 'power2.out',
+          },
+          0.14
+        );
+      } else {
+        // Mobile view: Panoramic pan effect instead of zoom in/out
+        // Preserves crisp scale: 1 and pans horizontally across the full architectural complex
+        gsap.set(aperture, {
+          width: '280px',
+          height: '180px',
+          borderRadius: '20px',
+          boxShadow: '0 20px 50px rgba(14, 41, 78, 0.18), 0 0 0 1px rgba(247, 134, 52, 0.4)',
+        });
+
+        gsap.set(imageCanvas, {
+          scale: 1,
           y: 0,
-          duration: 0.28,
-          ease: 'power2.out',
-        },
-        0.14
-      );
+        });
+
+        gsap.set('.bogo-square-hero-img', {
+          xPercent: 18,
+          scale: 1,
+        });
+
+        // Expand aperture from mobile preview window to full immersive screen
+        masterTl.to(
+          aperture,
+          {
+            width: '100vw',
+            height: '100vh',
+            borderRadius: '0px',
+            boxShadow: 'none',
+            duration: 0.28,
+            ease: 'power2.inOut',
+          },
+          0.14
+        );
+
+        // Smooth horizontal pan from left wing (Shop / Dine / Fountains) across center atrium to right wing (Lifestyle / Discover)
+        masterTl.to(
+          '.bogo-square-hero-img',
+          {
+            xPercent: -18,
+            duration: 0.72,
+            ease: 'none',
+          },
+          0.14
+        );
+      }
 
       // =========================================================================
       // [0.28 -> 0.60]: PHASE 3 — CINEMATIC EDITORIAL HERO TYPOGRAPHY
@@ -327,7 +373,7 @@ export const BogoSquare: React.FC = () => {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section

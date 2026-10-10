@@ -17,6 +17,16 @@ export const BogoFormats: React.FC = () => {
   const [activeFormat, setActiveFormat] = useState<string>('RETAIL FORMATS');
   const [bazaarLoaded, setBazaarLoaded] = useState<boolean>(false);
   const [miniLoaded, setMiniLoaded] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -78,32 +88,62 @@ export const BogoFormats: React.FC = () => {
       // [0.18 -> 0.56]: STAGE 2 — BAZAAR HORIZONTAL REVEAL & ENVIRONMENT
       // =========================================================================
       gsap.set('.bogo-fmt-bazaar-slit', { clipPath: 'inset(50% 0% 50% 0%)', opacity: 0 });
-      gsap.set('.bogo-fmt-bazaar-img', { scale: 1.15 });
       gsap.set('.bogo-fmt-bazaar-editorial', { opacity: 0, y: 25 });
       gsap.set('.bogo-fmt-closer-text', { opacity: 0, y: 30 });
 
-      // Thin orange slit appears and expands vertically
-      tl.to(
-        '.bogo-fmt-bazaar-slit',
-        {
-          opacity: 1,
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 0.18,
-          ease: 'power2.inOut',
-        },
-        0.18
-      );
+      if (!isMobile) {
+        // Desktop: Zoom in camera toward entrance (scale 1.15 -> 1.02)
+        gsap.set('.bogo-fmt-bazaar-img', { scale: 1.15 });
 
-      // Camera slowly moves toward entrance
-      tl.to(
-        '.bogo-fmt-bazaar-img',
-        {
-          scale: 1.02,
-          duration: 0.20,
-          ease: 'power1.out',
-        },
-        0.20
-      );
+        // Thin orange slit appears and expands vertically
+        tl.to(
+          '.bogo-fmt-bazaar-slit',
+          {
+            opacity: 1,
+            clipPath: 'inset(0% 0% 0% 0%)',
+            duration: 0.18,
+            ease: 'power2.inOut',
+          },
+          0.18
+        );
+
+        // Camera slowly moves toward entrance
+        tl.to(
+          '.bogo-fmt-bazaar-img',
+          {
+            scale: 1.02,
+            duration: 0.20,
+            ease: 'power1.out',
+          },
+          0.20
+        );
+      } else {
+        // Mobile view: Panoramic pan effect across the wide Bazaar market facade
+        // Preserves crisp scale: 1 and pans horizontally across the full store front
+        gsap.set('.bogo-fmt-bazaar-img', { scale: 1, xPercent: 18 });
+
+        tl.to(
+          '.bogo-fmt-bazaar-slit',
+          {
+            opacity: 1,
+            clipPath: 'inset(0% 0% 0% 0%)',
+            duration: 0.18,
+            ease: 'power2.inOut',
+          },
+          0.18
+        );
+
+        // Camera smoothly pans horizontally from left billboard & community to center & right entrance
+        tl.to(
+          '.bogo-fmt-bazaar-img',
+          {
+            xPercent: -18,
+            duration: 0.32,
+            ease: 'none',
+          },
+          0.18
+        );
+      }
 
       // Editorial typography appears in twilight sky
       tl.to(
@@ -168,31 +208,60 @@ export const BogoFormats: React.FC = () => {
       // [0.60 -> 0.86]: STAGE 3 — BOGO MINI CENTER DISCOVERY & ENVIRONMENT
       // =========================================================================
       gsap.set('.bogo-fmt-mini-reveal-wrap', { clipPath: 'circle(0% at 50% 50%)', opacity: 0 });
-      gsap.set('.bogo-fmt-mini-img', { scale: 1.14 });
       gsap.set('.bogo-fmt-mini-editorial', { opacity: 0, y: 25 });
 
-      // Mini expands outward from center point
-      tl.to(
-        '.bogo-fmt-mini-reveal-wrap',
-        {
-          opacity: 1,
-          clipPath: 'circle(100% at 50% 50%)',
-          duration: 0.16,
-          ease: 'power2.inOut',
-        },
-        0.62
-      );
+      if (!isMobile) {
+        // Desktop: Camera gently moves toward storefront (scale 1.14 -> 1.03)
+        gsap.set('.bogo-fmt-mini-img', { scale: 1.14 });
 
-      // Camera gently moves toward the storefront
-      tl.to(
-        '.bogo-fmt-mini-img',
-        {
-          scale: 1.03,
-          duration: 0.18,
-          ease: 'power1.out',
-        },
-        0.64
-      );
+        // Mini expands outward from center point
+        tl.to(
+          '.bogo-fmt-mini-reveal-wrap',
+          {
+            opacity: 1,
+            clipPath: 'circle(100% at 50% 50%)',
+            duration: 0.16,
+            ease: 'power2.inOut',
+          },
+          0.62
+        );
+
+        // Camera gently moves toward the storefront
+        tl.to(
+          '.bogo-fmt-mini-img',
+          {
+            scale: 1.03,
+            duration: 0.18,
+            ease: 'power1.out',
+          },
+          0.64
+        );
+      } else {
+        // Mobile view: Panoramic pan effect across Mini storefront & neighborhood
+        // Preserves crisp scale: 1 and pans horizontally across the storefront
+        gsap.set('.bogo-fmt-mini-img', { scale: 1, xPercent: 18 });
+
+        tl.to(
+          '.bogo-fmt-mini-reveal-wrap',
+          {
+            opacity: 1,
+            clipPath: 'circle(100% at 50% 50%)',
+            duration: 0.16,
+            ease: 'power2.inOut',
+          },
+          0.62
+        );
+
+        tl.to(
+          '.bogo-fmt-mini-img',
+          {
+            xPercent: -18,
+            duration: 0.22,
+            ease: 'none',
+          },
+          0.62
+        );
+      }
 
       // Mini typography enters
       tl.to(
@@ -262,7 +331,7 @@ export const BogoFormats: React.FC = () => {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="bogo-formats-track" ref={trackRef} id="bogo-formats-section">
