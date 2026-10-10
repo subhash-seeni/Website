@@ -602,7 +602,8 @@
 
 @media (max-width: 640px) {
   .bogo-val-header {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    padding-right: 110px;
   }
 
   .bogo-val-chapter {
@@ -645,10 +646,52 @@
   }
 
   .bogo-val-payoff-headline {
-    font-size: 30px;
+    font-size: clamp(28px, 7.5vw, 36px);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  /* Remove rogue separator dots causing misalignment on mobile */
+  .bogo-val-pill-sep {
+    display: none !important;
+  }
+
+  /* Clean, perfectly aligned vertical pillar stack */
+  .bogo-val-pillars-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .bogo-val-pill-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 290px;
+    padding: 12px 20px;
+    font-size: 12.5px;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    color: #0e294e;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    box-shadow: 0 6px 20px rgba(120, 40, 0, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    text-align: center;
+    box-sizing: border-box;
   }
 
   .bogo-val-growth-cue {
-    font-size: 22px;
+    font-size: 24px;
+    line-height: 1.25;
   }
 }
