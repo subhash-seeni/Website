@@ -1027,7 +1027,8 @@
     letter-spacing: 0.08em;
   }
 
-  /* Hotspot Callouts on Mobile (Handled by bottom experience bar) */
+  /* Remove glowing dots / hotspots in mobile view as requested */
+  .bogo-square-hotspots-container,
   .bogo-hotspot-callout {
     display: none !important;
   }
@@ -1042,20 +1043,23 @@
   .bogo-square-exp-nav-container {
     width: 100%;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
   }
 
+  /* Mini titles given in 2 lines with numbers stacked over names */
   .bogo-square-exp-pills {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
-    justify-content: flex-start;
-    padding: 5px 8px;
-    gap: 5px;
-    border-radius: 20px;
+    justify-content: space-between;
+    padding: 5px 6px;
+    gap: 4px;
+    border-radius: 16px;
+    background: rgba(14, 41, 78, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
   }
 
   .bogo-square-exp-pills::-webkit-scrollbar {
@@ -1063,48 +1067,65 @@
   }
 
   .bogo-exp-tab {
-    flex-shrink: 0;
-    padding: 5px 10px;
-    gap: 4px;
-    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    padding: 5px 3px;
+    gap: 2px;
+    border-radius: 12px;
+    text-align: center;
   }
 
   .bogo-exp-tab-num {
     font-size: 8.5px;
     font-weight: 800;
+    color: #f78634;
+    line-height: 1;
   }
 
   .bogo-exp-tab-name {
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 800;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
+  /* Increased box size with readable paragraph text */
   .bogo-square-exp-detail {
     flex-direction: column;
-    gap: 2px;
-    padding: 6px 12px;
-    border-radius: 10px;
-    max-width: 100%;
-    background: rgba(14, 41, 78, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    gap: 5px;
+    padding: 12px 16px 14px;
+    border-radius: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 82px;
+    background: rgba(10, 25, 48, 0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    text-align: center;
   }
 
   .bogo-square-exp-category {
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-weight: 800;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
+    color: #f78634;
+    text-transform: uppercase;
   }
 
   .bogo-square-exp-desc {
-    font-size: 11px;
+    font-size: 12.5px;
     font-weight: 500;
-    line-height: 1.35;
+    line-height: 1.45;
     color: rgba(255, 255, 255, 0.95);
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
