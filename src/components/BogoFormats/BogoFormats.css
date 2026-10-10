@@ -831,7 +831,8 @@
 
 @media (max-width: 768px) {
   .bogo-formats-header {
-    padding: 16px 20px;
+    padding: 14px 16px;
+    padding-right: 110px;
   }
 
   .bogo-formats-telemetry-badge {
@@ -848,74 +849,139 @@
   }
 
   .bogo-fmt-giant-statement {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .bogo-fmt-giant-subline {
-    font-size: 13px;
+    font-size: 12.5px;
+  }
+
+  .bogo-fmt-bazaar-img,
+  .bogo-fmt-mini-img {
+    object-position: center 30%;
   }
 
   .bogo-fmt-bazaar-editorial,
   .bogo-fmt-mini-editorial {
-    top: 68px;
-    left: 18px;
-    right: 18px;
+    top: 58px;
+    left: 16px;
+    right: 16px;
+    padding-right: 85px;
     max-width: 90%;
   }
 
   .bogo-fmt-hero-title {
-    font-size: 30px;
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 3px;
   }
 
   .bogo-fmt-hero-tagline {
-    font-size: 14.5px;
+    font-size: 13px;
+    line-height: 1.35;
   }
 
-
-
   .bogo-fmt-convergence-stage {
-    padding: 0 20px;
-    justify-content: flex-start;
-    padding-top: 80px;
-    overflow-y: auto;
+    padding: 0 16px;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    overflow-y: visible;
+  }
+
+  .bogo-fmt-conv-badge {
+    font-size: 8px;
+    padding: 3px 10px;
+    margin-bottom: 6px;
   }
 
   .bogo-fmt-conv-headline {
-    font-size: 26px;
+    font-size: clamp(16px, 4.5vw, 20px);
+    line-height: 1.2;
+    margin-bottom: 4px;
   }
 
   .bogo-fmt-conv-subtext {
-    font-size: 12.5px;
-    margin-bottom: 24px;
+    font-size: 10.5px;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    max-width: 90%;
   }
 
-  /* Stack scales triptych vertically on mobile */
+  /* Compact architectural landscape cards on mobile so all 3 fit cleanly */
   .bogo-fmt-scales-triptych {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
-    max-width: 320px;
+    gap: 8px;
+    max-width: 360px;
+    width: 100%;
+    padding-bottom: 0;
+  }
+
+  .bogo-fmt-scale-card {
+    flex-direction: row !important;
+    width: 100% !important;
+    transform: none !important;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(14, 41, 78, 0.08);
   }
 
   .card-square,
   .card-bazaar,
   .card-mini {
-    width: 100%;
-    transform: none;
+    width: 100% !important;
+    transform: none !important;
   }
 
   .bogo-fmt-scale-img-wrap {
-    height: 110px !important;
+    width: 96px !important;
+    height: 68px !important;
+    flex-shrink: 0;
+  }
+
+  .bogo-fmt-scale-badge {
+    font-size: 6.5px;
+    padding: 2px 5px;
+    top: 5px;
+    left: 5px;
+    border-radius: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .bogo-fmt-scale-info {
+    padding: 8px 12px;
+    gap: 2px;
+  }
+
+  .bogo-fmt-scale-name {
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+  }
+
+  .bogo-fmt-scale-role {
+    font-size: 9.5px;
   }
 
   .bogo-fmt-scales-svg-line {
     display: none;
   }
 
+  .bogo-fmt-conv-cue {
+    margin-top: 10px;
+  }
+
+  .bogo-fmt-conv-cue-badge {
+    padding: 4px 12px;
+  }
+
+  .bogo-fmt-conv-cue-text {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+
   .bogo-fmt-go-headline {
-    font-size: 30px;
+    font-size: 26px;
     letter-spacing: 0.08em;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
   .bogo-fmt-go-logo-wrapper {

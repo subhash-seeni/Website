@@ -369,12 +369,13 @@
 @media (max-width: 480px) {
   .bogo-hero-header {
     padding: 14px 16px;
+    padding-right: 100px;
   }
 
   .bogo-logo-stage {
-    width: 90vw;
-    max-width: 350px;
-    transform: translateY(-24px);
+    width: 82vw;
+    max-width: 320px;
+    transform: translateY(-20px);
   }
 
   .bogo-copy-line {
@@ -382,8 +383,16 @@
     letter-spacing: 0.16em;
   }
 
+  .bogo-hero-descriptor {
+    font-size: 11px;
+    line-height: 1.4;
+    margin: 4px 0 8px 0;
+  }
+
   .bogo-supporting-copy {
-    bottom: 12%;
+    bottom: clamp(72px, 11vh, 90px);
+    width: 92%;
+    padding: 0 12px;
   }
 
   .bogo-scroll-indicator {

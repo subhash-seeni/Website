@@ -105,11 +105,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'TECHNOLOGY',
     index: '01',
     startX: 400,
-    startY: 450,
+    startY: 440,
     anchorX: 400,
-    anchorY: 275,
+    anchorY: 265,
     textX: 400,
-    textY: 232,
+    textY: 225,
     textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#0284c7',
@@ -118,13 +118,13 @@ const MOBILE_PILLARS: PillarItem[] = [
     id: 'brands',
     name: 'BRANDS',
     index: '02',
-    startX: 320,
-    startY: 470,
-    anchorX: 180,
-    anchorY: 370,
-    textX: 160,
-    textY: 370,
-    textAnchor: 'end',
+    startX: 330,
+    startY: 465,
+    anchorX: 230,
+    anchorY: 360,
+    textX: 230,
+    textY: 320,
+    textAnchor: 'middle',
     startColor: '#f78634',
     endColor: '#ea580c',
   },
@@ -132,13 +132,13 @@ const MOBILE_PILLARS: PillarItem[] = [
     id: 'retail',
     name: 'RETAIL',
     index: '03',
-    startX: 480,
-    startY: 470,
-    anchorX: 620,
-    anchorY: 370,
-    textX: 640,
-    textY: 370,
-    textAnchor: 'start',
+    startX: 470,
+    startY: 465,
+    anchorX: 570,
+    anchorY: 360,
+    textX: 570,
+    textY: 320,
+    textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#2563eb',
   },
@@ -146,13 +146,13 @@ const MOBILE_PILLARS: PillarItem[] = [
     id: 'partnerships',
     name: 'PARTNERSHIPS',
     index: '04',
-    startX: 320,
-    startY: 530,
-    anchorX: 180,
-    anchorY: 630,
-    textX: 160,
-    textY: 630,
-    textAnchor: 'end',
+    startX: 330,
+    startY: 535,
+    anchorX: 230,
+    anchorY: 640,
+    textX: 230,
+    textY: 685,
+    textAnchor: 'middle',
     startColor: '#f78634',
     endColor: '#059669',
   },
@@ -160,13 +160,13 @@ const MOBILE_PILLARS: PillarItem[] = [
     id: 'distribution',
     name: 'DISTRIBUTION',
     index: '05',
-    startX: 480,
-    startY: 530,
-    anchorX: 620,
-    anchorY: 630,
-    textX: 640,
-    textY: 630,
-    textAnchor: 'start',
+    startX: 470,
+    startY: 535,
+    anchorX: 570,
+    anchorY: 640,
+    textX: 570,
+    textY: 685,
+    textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#0284c7',
   },
@@ -206,7 +206,7 @@ export const EcosystemPaths: React.FC<EcosystemPathsProps> = ({ progress }) => {
   const strokeCoreWidth = isMobile ? 2.8 : 1.75;
   const beaconHaloRadius = isMobile ? 10 : 7;
   const beaconCoreRadius = isMobile ? 4.5 : 3.5;
-  const fontSizeMain = isMobile ? 20 : 14.5;
+  const fontSizeMain = isMobile ? 15 : 14.5;
 
   return (
     <svg
@@ -316,11 +316,11 @@ export const EcosystemPaths: React.FC<EcosystemPathsProps> = ({ progress }) => {
                   x={pillar.textX}
                   y={pillar.textY}
                   textAnchor={pillar.textAnchor}
-                  dominantBaseline={pillar.textAnchor === 'middle' ? 'auto' : 'central'}
+                  dominantBaseline="central"
                   fill={isBrandPillar && progress > 0.70 ? '#e26b18' : '#0e294e'}
                   fontSize={fontSizeMain}
                   fontWeight="800"
-                  letterSpacing="0.24em"
+                  letterSpacing={isMobile ? '0.14em' : '0.24em'}
                   fontFamily="var(--font-family-sans)"
                   style={{
                     transition: 'fill 0.3s ease',
