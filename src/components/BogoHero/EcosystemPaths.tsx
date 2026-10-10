@@ -105,11 +105,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'TECHNOLOGY',
     index: '01',
     startX: 400,
-    startY: 440,
+    startY: 435,
     anchorX: 400,
-    anchorY: 265,
+    anchorY: 245,
     textX: 400,
-    textY: 225,
+    textY: 195,
     textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#0284c7',
@@ -119,11 +119,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'BRANDS',
     index: '02',
     startX: 330,
-    startY: 465,
-    anchorX: 230,
-    anchorY: 360,
-    textX: 230,
-    textY: 320,
+    startY: 460,
+    anchorX: 220,
+    anchorY: 330,
+    textX: 220,
+    textY: 280,
     textAnchor: 'middle',
     startColor: '#f78634',
     endColor: '#ea580c',
@@ -133,11 +133,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'RETAIL',
     index: '03',
     startX: 470,
-    startY: 465,
-    anchorX: 570,
-    anchorY: 360,
-    textX: 570,
-    textY: 320,
+    startY: 460,
+    anchorX: 580,
+    anchorY: 330,
+    textX: 580,
+    textY: 280,
     textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#2563eb',
@@ -147,11 +147,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'PARTNERSHIPS',
     index: '04',
     startX: 330,
-    startY: 535,
-    anchorX: 230,
-    anchorY: 640,
-    textX: 230,
-    textY: 685,
+    startY: 540,
+    anchorX: 205,
+    anchorY: 670,
+    textX: 205,
+    textY: 725,
     textAnchor: 'middle',
     startColor: '#f78634',
     endColor: '#059669',
@@ -161,11 +161,11 @@ const MOBILE_PILLARS: PillarItem[] = [
     name: 'DISTRIBUTION',
     index: '05',
     startX: 470,
-    startY: 535,
-    anchorX: 570,
-    anchorY: 640,
-    textX: 570,
-    textY: 685,
+    startY: 540,
+    anchorX: 595,
+    anchorY: 670,
+    textX: 595,
+    textY: 725,
     textAnchor: 'middle',
     startColor: '#0e294e',
     endColor: '#0284c7',
@@ -202,11 +202,11 @@ export const EcosystemPaths: React.FC<EcosystemPathsProps> = ({ progress }) => {
   const viewBox = isMobile ? '0 0 800 1100' : '0 0 1600 900';
 
   // Sizing tokens scaled for mobile vs desktop SVG viewports
-  const strokeHaloWidth = isMobile ? 8 : 5;
-  const strokeCoreWidth = isMobile ? 2.8 : 1.75;
-  const beaconHaloRadius = isMobile ? 10 : 7;
-  const beaconCoreRadius = isMobile ? 4.5 : 3.5;
-  const fontSizeMain = isMobile ? 15 : 14.5;
+  const strokeHaloWidth = isMobile ? 14 : 5;
+  const strokeCoreWidth = isMobile ? 3.5 : 1.75;
+  const beaconHaloRadius = isMobile ? 18 : 7;
+  const beaconCoreRadius = isMobile ? 7 : 3.5;
+  const fontSizeMain = isMobile ? 27 : 14.5;
 
   return (
     <svg
@@ -295,10 +295,12 @@ export const EcosystemPaths: React.FC<EcosystemPathsProps> = ({ progress }) => {
             {lineP > 0.7 && (
               <g transform={`translate(${curX}, ${curY})`} opacity={lineP * transitionOpacity}>
                 {/* Soft outer glow ring */}
-                <circle cx="0" cy="0" r={beaconHaloRadius} fill={pillar.endColor} opacity="0.22" />
+                <circle cx="0" cy="0" r={beaconHaloRadius} fill={pillar.endColor} opacity="0.25" />
+                {/* Crisp accent perimeter ring */}
+                <circle cx="0" cy="0" r={beaconHaloRadius * 0.7} stroke={pillar.endColor} strokeWidth="1.5" strokeOpacity="0.45" fill="none" />
                 {/* Core dot */}
                 <circle cx="0" cy="0" r={beaconCoreRadius} fill={pillar.endColor} />
-                <circle cx="0" cy="0" r={beaconCoreRadius * 0.4} fill="#ffffff" />
+                <circle cx="0" cy="0" r={beaconCoreRadius * 0.42} fill="#ffffff" />
               </g>
             )}
 
@@ -317,13 +319,14 @@ export const EcosystemPaths: React.FC<EcosystemPathsProps> = ({ progress }) => {
                   y={pillar.textY}
                   textAnchor={pillar.textAnchor}
                   dominantBaseline="central"
-                  fill={isBrandPillar && progress > 0.70 ? '#e26b18' : '#0e294e'}
+                  fill={isBrandPillar && progress > 0.70 ? '#ea580c' : '#0e294e'}
                   fontSize={fontSizeMain}
-                  fontWeight="800"
+                  fontWeight="900"
                   letterSpacing={isMobile ? '0.14em' : '0.24em'}
                   fontFamily="var(--font-family-sans)"
                   style={{
                     transition: 'fill 0.3s ease',
+                    filter: 'drop-shadow(0 2px 4px rgba(14, 41, 78, 0.15))',
                   }}
                 >
                   {pillar.name}

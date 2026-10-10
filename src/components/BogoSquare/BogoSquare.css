@@ -1003,25 +1003,28 @@
   }
 
   .bogo-sq-eyebrow {
-    font-size: 8.5px;
-    letter-spacing: 0.2em;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
   }
 
   .bogo-sq-title {
-    font-size: clamp(20px, 6vw, 26px);
-    letter-spacing: 0.1em;
+    font-size: clamp(26px, 7vw, 32px);
+    font-weight: 900;
+    letter-spacing: 0.12em;
     margin-bottom: 2px;
   }
 
   .bogo-sq-tagline {
-    gap: 2px;
+    gap: 3px;
     margin-top: 2px;
   }
 
   .bogo-sq-tag-main,
   .bogo-sq-tag-accent {
-    font-size: 12px;
-    letter-spacing: 0.06em;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
   }
 
   /* Hotspot Callouts on Mobile (Handled by bottom experience bar) */
@@ -1050,8 +1053,8 @@
     -webkit-overflow-scrolling: touch;
     width: 100%;
     justify-content: flex-start;
-    padding: 4px 6px;
-    gap: 4px;
+    padding: 5px 8px;
+    gap: 5px;
     border-radius: 20px;
   }
 
@@ -1061,36 +1064,45 @@
 
   .bogo-exp-tab {
     flex-shrink: 0;
-    padding: 4px 8px;
+    padding: 5px 10px;
     gap: 4px;
-    border-radius: 12px;
+    border-radius: 14px;
   }
 
   .bogo-exp-tab-num {
-    font-size: 8px;
+    font-size: 8.5px;
+    font-weight: 800;
   }
 
   .bogo-exp-tab-name {
-    font-size: 8.5px;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
   }
 
   .bogo-square-exp-detail {
     flex-direction: column;
     gap: 2px;
-    padding: 5px 10px;
-    border-radius: 8px;
+    padding: 6px 12px;
+    border-radius: 10px;
     max-width: 100%;
+    background: rgba(14, 41, 78, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .bogo-square-exp-category {
-    font-size: 7.5px;
-    letter-spacing: 0.14em;
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
   }
 
   .bogo-square-exp-desc {
-    font-size: 9.5px;
-    line-height: 1.3;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.95);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

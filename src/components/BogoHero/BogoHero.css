@@ -342,27 +342,38 @@
   }
   
   .bogo-header-telemetry {
-    font-size: 9px;
+    font-size: 10px;
+    font-weight: 700;
   }
   
   .bogo-logo-stage {
-    width: 86vw;
-    max-width: 420px;
-    transform: translateY(-20px);
+    width: 88vw;
+    max-width: 380px;
+    transform: translateY(-16px);
   }
   
   .bogo-copy-line {
-    font-size: 9px;
+    font-size: 11px;
+    font-weight: 800;
     letter-spacing: 0.22em;
+  }
+
+  .bogo-hero-descriptor {
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2d3748;
+    margin: 6px 0 10px 0;
   }
   
   .bogo-supporting-copy {
-    bottom: 14%;
+    bottom: clamp(74px, 11vh, 96px);
     width: 90%;
+    max-width: 380px;
   }
 
   .bogo-scroll-indicator {
-    bottom: 20px;
+    bottom: 16px;
   }
 }
 
@@ -373,26 +384,29 @@
   }
 
   .bogo-logo-stage {
-    width: 82vw;
-    max-width: 320px;
-    transform: translateY(-20px);
+    width: 88vw;
+    max-width: 360px;
+    transform: translateY(-14px);
   }
 
   .bogo-copy-line {
-    font-size: 8.5px;
-    letter-spacing: 0.16em;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.20em;
   }
 
   .bogo-hero-descriptor {
-    font-size: 11px;
-    line-height: 1.4;
-    margin: 4px 0 8px 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
+    color: #2d3748;
+    margin: 5px 0 8px 0;
   }
 
   .bogo-supporting-copy {
-    bottom: clamp(72px, 11vh, 90px);
-    width: 92%;
-    padding: 0 12px;
+    bottom: clamp(74px, 11vh, 92px);
+    width: 90%;
+    padding: 0 8px;
   }
 
   .bogo-scroll-indicator {
