@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { navigationConfig, navigateToDestination, type NavItem } from '../../config/navigation';
 import './ScrollProgressIndicator.css';
 
-export const ScrollProgressIndicator: React.FC = () => {
+export interface ScrollProgressIndicatorProps {
+  isBrandsPage?: boolean;
+}
+
+export const ScrollProgressIndicator: React.FC<ScrollProgressIndicatorProps> = ({ isBrandsPage = false }) => {
   const [progress, setProgress] = useState(0);
   const [activeSectionIndex, setActiveSectionIndex] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -74,14 +78,28 @@ export const ScrollProgressIndicator: React.FC = () => {
           className="bogo-hud-current-badge"
           onClick={() => setIsExpanded(!isExpanded)}
           aria-expanded={isExpanded}
-          aria-label={`Current Section: ${activeSection.label}. Click to ${isExpanded ? 'collapse' : 'expand'} quick navigation.`}
+          aria-label={
+            isBrandsPage
+              ? `Current Page: BRANDS DIRECTORY. Click to ${isExpanded ? 'collapse' : 'expand'} quick navigation.`
+              : `Current Section: ${activeSection.label}. Click to ${isExpanded ? 'collapse' : 'expand'} quick navigation.`
+          }
         >
-          <span className="bogo-hud-index">
-            {String(activeSectionIndex + 1).padStart(2, '0')}
-            <span className="bogo-hud-total"> / {String(sections.length).padStart(2, '0')}</span>
-          </span>
-          <span className="bogo-hud-dot" aria-hidden="true" />
-          <span className="bogo-hud-name">{activeSection.label}</span>
+          {isBrandsPage ? (
+            <>
+              <span className="bogo-hud-index">BRANDS</span>
+              <span className="bogo-hud-dot" aria-hidden="true" />
+              <span className="bogo-hud-name">ECOSYSTEM</span>
+            </>
+          ) : (
+            <>
+              <span className="bogo-hud-index">
+                {String(activeSectionIndex + 1).padStart(2, '0')}
+                <span className="bogo-hud-total"> / {String(sections.length).padStart(2, '0')}</span>
+              </span>
+              <span className="bogo-hud-dot" aria-hidden="true" />
+              <span className="bogo-hud-name">{activeSection.label}</span>
+            </>
+          )}
           <span className="bogo-hud-toggle-icon" aria-hidden="true">
             {isExpanded ? '×' : '⋯'}
           </span>

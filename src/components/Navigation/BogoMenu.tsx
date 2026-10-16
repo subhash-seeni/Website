@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import bogoLogoLightImg from '../../assets/Bogo-light.png';
-import { navigationConfig, navigateToDestination, type NavItem } from '../../config/navigation';
+import { navigationConfig, navigateToDestination, isBrandsPath, type NavItem } from '../../config/navigation';
 import { stopScroll, startScroll } from '../../utils/smoothScroll';
 import './BogoMenu.css';
 
-export const BogoMenu: React.FC = () => {
+export interface BogoMenuProps {
+  currentPath?: string;
+}
+
+export const BogoMenu: React.FC<BogoMenuProps> = ({
+  currentPath = typeof window !== 'undefined' ? window.location.pathname : '/',
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -233,7 +239,12 @@ export const BogoMenu: React.FC = () => {
               onClick={(e) => {
                 e.preventDefault();
                 handleCloseMenu(() => {
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                  navigateToDestination({
+                    id: 'home',
+                    label: 'HOME',
+                    path: '/',
+                    targetId: 'bogo-hero-section',
+                  });
                 });
               }}
               aria-label="BOGO — Home"
@@ -284,18 +295,24 @@ export const BogoMenu: React.FC = () => {
               <div className="bogo-menu-subcol">
                 <span className="bogo-menu-col-kicker">ECOSYSTEM</span>
                 <ul className="bogo-menu-sublist">
-                  {navigationConfig.ecosystem.map((item) => (
-                    <li key={item.id} className="bogo-menu-subitem">
-                      <a
-                        href={`#${item.targetId}`}
-                        className="bogo-menu-sublink"
-                        onClick={(e) => handleItemClick(e, item)}
-                      >
-                        <span className="bogo-sublink-title">{item.label}</span>
-                        <span className="bogo-sublink-arrow">→</span>
-                      </a>
-                    </li>
-                  ))}
+                  {navigationConfig.ecosystem.map((item) => {
+                    const isBrandActive =
+                      (item.id === 'eco-brands' || item.path === '/ecosystem/brands') &&
+                      isBrandsPath(currentPath);
+                    return (
+                      <li key={item.id} className="bogo-menu-subitem">
+                        <a
+                          href={item.path}
+                          className={`bogo-menu-sublink ${isBrandActive ? 'is-active' : ''}`}
+                          onClick={(e) => handleItemClick(e, item)}
+                          aria-current={isBrandActive ? 'page' : undefined}
+                        >
+                          <span className="bogo-sublink-title">{item.label}</span>
+                          <span className="bogo-sublink-arrow">→</span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 

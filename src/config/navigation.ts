@@ -105,7 +105,7 @@ export const navigationConfig: NavigationStructure = {
       id: 'eco-brands',
       label: 'Brands',
       path: '/ecosystem/brands',
-      targetId: 'bogo-collection-section',
+      targetId: 'bogo-brands-page',
       subtitle: '11 Distinct Specialised Brands',
     },
     {
@@ -198,7 +198,7 @@ export const navigationConfig: NavigationStructure = {
       { id: 'f-growth', label: 'Growth Roadmap', path: '/growth', targetId: 'bogo-growth-section' },
     ],
     ecosystem: [
-      { id: 'f-brands', label: 'Brands', path: '/ecosystem/brands', targetId: 'bogo-collection-section' },
+      { id: 'f-brands', label: 'Brands', path: '/ecosystem/brands', targetId: 'bogo-brands-page' },
       { id: 'f-retail-formats', label: 'Retail Formats', path: '/ecosystem/retail', targetId: 'bogo-formats-section' },
       { id: 'f-bogo-go', label: 'BOGO Go', path: '/ecosystem/distribution', targetId: 'bogo-go-section' },
       { id: 'f-bogo-partner', label: 'BOGO Partner', path: '/ecosystem/partnerships', targetId: 'bogo-programs-section' },
@@ -214,14 +214,60 @@ export const navigationConfig: NavigationStructure = {
 
 import { smoothScrollTo } from '../utils/smoothScroll';
 
+export const ROUTE_CHANGE_EVENT = 'bogo:routechange';
+
 /**
- * Global navigation helper to smoothly scroll to on-page destinations
+ * Checks whether a given pathname corresponds to the Brands directory page.
+ */
+export const isBrandsPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  const clean = pathname.toLowerCase().replace(/\/$/, '');
+  return clean === '/ecosystem/brands' || clean === '/brands';
+};
+
+/**
+ * Global navigation helper to smoothly navigate and scroll to destinations
  * while updating browser history cleanly using unified Lenis physics.
  */
 export const navigateToDestination = (item: NavItem, onComplete?: () => void) => {
+  const isTargetBrands = isBrandsPath(item.path) || item.id === 'eco-brands' || item.id === 'f-brands';
+  const wasOnBrands = typeof window !== 'undefined' && isBrandsPath(window.location.pathname);
+
   // Update browser history path without page reload
-  if (window.history && window.history.pushState) {
+  if (typeof window !== 'undefined' && window.history && window.history.pushState) {
     window.history.pushState(null, '', item.path);
+    window.dispatchEvent(new CustomEvent(ROUTE_CHANGE_EVENT, { detail: item }));
+  }
+
+  // If navigating directly to Brands page
+  if (isTargetBrands) {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    smoothScrollTo(0, { duration: 0.8, onComplete });
+    return;
+  }
+
+  // If navigating from Brands page back to a homepage section
+  if (wasOnBrands) {
+    setTimeout(() => {
+      const targetElement = document.getElementById(item.targetId);
+      if (targetElement) {
+        if (item.targetId === 'bogo-collection-section' && item.brandSet !== undefined) {
+          const trackTop = targetElement.offsetTop;
+          const trackHeight = targetElement.offsetHeight - window.innerHeight;
+          let targetRatio = 0.08;
+          if (item.brandSet === 1) targetRatio = 0.48;
+          if (item.brandSet === 2) targetRatio = 0.80;
+          const targetY = trackTop + trackHeight * targetRatio;
+          smoothScrollTo(targetY, { duration: 1.3, onComplete });
+        } else {
+          smoothScrollTo(targetElement, { duration: 1.3, onComplete });
+        }
+      } else {
+        smoothScrollTo(0, { duration: 1.0, onComplete });
+      }
+    }, 120);
+    return;
   }
 
   // Smooth scroll to the on-page anchor target if it exists

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initSmoothScroll, destroySmoothScroll } from './utils/smoothScroll';
 import { BogoHero } from './components/BogoHero/BogoHero';
 import { BogoCollection } from './components/BogoCollection/BogoCollection';
@@ -12,8 +12,14 @@ import { GrowthRoadmap } from './components/GrowthRoadmap/GrowthRoadmap';
 import { BogoFooter } from './components/BogoFooter/BogoFooter';
 import { BogoMenu } from './components/Navigation/BogoMenu';
 import { ScrollProgressIndicator } from './components/Navigation/ScrollProgressIndicator';
+import { BrandsPage } from './components/BrandsPage/BrandsPage';
+import { isBrandsPath, ROUTE_CHANGE_EVENT } from './config/navigation';
 
 function App() {
+  const [currentPath, setCurrentPath] = useState(() =>
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  );
+
   useEffect(() => {
     initSmoothScroll();
     return () => {
@@ -21,22 +27,48 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    const handleRouteChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener(ROUTE_CHANGE_EVENT, handleRouteChange);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener(ROUTE_CHANGE_EVENT, handleRouteChange);
+    };
+  }, []);
+
+  const isBrands = isBrandsPath(currentPath);
+
   return (
     <div className="bogo-app">
-      <ScrollProgressIndicator />
-      <BogoMenu />
-      <BogoHero />
-      <BogoCollection />
-      <BogoSquare />
-      <BogoFormats />
-      <BogoTechnology />
-      <BogoGo />
-      <BogoPrograms />
-      <BogoValue />
-      <GrowthRoadmap />
+      <ScrollProgressIndicator isBrandsPage={isBrands} />
+      <BogoMenu currentPath={currentPath} />
+      {isBrands ? (
+        <BrandsPage />
+      ) : (
+        <>
+          <BogoHero />
+          <BogoCollection />
+          <BogoSquare />
+          <BogoFormats />
+          <BogoTechnology />
+          <BogoGo />
+          <BogoPrograms />
+          <BogoValue />
+          <GrowthRoadmap />
+        </>
+      )}
       <BogoFooter />
     </div>
   );
 }
 
 export default App;
+

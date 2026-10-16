@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import bogoLogoLightImg from '../../assets/Bogo-light.png';
-import { navigationConfig, navigateToDestination, type NavItem } from '../../config/navigation';
+import { navigationConfig, navigateToDestination, isBrandsPath, type NavItem } from '../../config/navigation';
 import './BogoFooter.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -83,6 +83,20 @@ export const BogoFooter: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined' && isBrandsPath(window.location.pathname)) {
+      navigateToDestination({
+        id: 'home',
+        label: 'HOME',
+        path: '/',
+        targetId: 'bogo-hero-section',
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   // Exactly the 8 links from Explore in the main menu
   const exploreLinks = navigationConfig.main;
 
@@ -100,10 +114,10 @@ export const BogoFooter: React.FC = () => {
           {/* Brand Identity */}
           <div className="bogo-footer-brand">
             <a
-              href="#bogo-hero-section"
+              href="/"
               className="bogo-footer-logo-link"
-              onClick={handleScrollToTop}
-              aria-label="BOGO — Back to top"
+              onClick={handleLogoClick}
+              aria-label="BOGO — Home"
             >
               <img
                 src={bogoLogoLightImg}
