@@ -150,7 +150,7 @@
   position: relative;
   z-index: 5;
   width: 100%;
-  padding: clamp(40px, 5.5vw, 68px) clamp(20px, 4vw, 56px) clamp(32px, 4vw, 48px);
+  padding: clamp(64px, 7vw, 92px) clamp(20px, 4vw, 56px) clamp(32px, 4vw, 48px);
 }
 
 .brands-hero-layout {
@@ -325,7 +325,14 @@
 .orbit-ring.ring-middle {
   width: 210px;
   height: 210px;
-  border: 1px dashed rgba(14, 41, 78, 0.12);
+  border: 1px dashed rgba(14, 41, 78, 0.14);
+  animation: slowOrbitRing 140s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes slowOrbitRing {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
 }
 
 .orbit-ring.ring-inner {
@@ -392,14 +399,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 20;
+  will-change: transform;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .orbit-node {
   position: absolute;
-  width: 36px;
-  height: 36px;
-  margin-left: -18px;
-  margin-top: -18px;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
   border-radius: 50%;
   background: #ffffff;
   border: 1.5px solid var(--node-color, #f78634);
@@ -409,14 +421,30 @@
   justify-content: center;
   cursor: pointer;
   pointer-events: auto;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  transform: translate3d(var(--node-x), var(--node-y), 0);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
   user-select: none;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Invisible generous hit target around node */
+.orbit-node::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  pointer-events: auto;
 }
 
 .orbit-node:hover {
-  transform: scale(1.3) !important;
-  box-shadow: 0 8px 22px rgba(14, 41, 78, 0.22);
-  z-index: 20;
+  transform: translate3d(var(--node-x), var(--node-y), 0) scale(1.24);
+  box-shadow: 0 8px 24px rgba(14, 41, 78, 0.22);
+  z-index: 25;
 }
 
 .orbit-node-inner {
@@ -426,6 +454,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  will-change: transform;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .orbit-node-img {
@@ -434,65 +466,98 @@
   object-fit: contain;
 }
 
-.orbit-node-num {
-  position: absolute;
-  bottom: -13px;
-  font-family: var(--font-family-mono, monospace);
-  font-size: 7.5px;
-  font-weight: 800;
-  color: #8c93a3;
-  letter-spacing: 0.05em;
-  background: #ffffff;
-  padding: 1px 3px;
-  border-radius: 3px;
-  border: 1px solid rgba(14, 41, 78, 0.08);
+/* Brand Node Details Popover (Directly on each wheel node) */
+.orbit-node.is-hovered {
+  z-index: 50 !important;
 }
 
-/* Hover Tooltip */
-.orbit-hover-tooltip {
+.orbit-node-popover {
   position: absolute;
-  bottom: -55px;
   left: 50%;
   transform: translateX(-50%);
-  width: 260px;
-  background: #ffffff;
-  border: 1.5px solid #f78634;
+  width: max-content;
+  max-width: 210px;
+  background: rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(16px) saturate(200%);
+  -webkit-backdrop-filter: blur(16px) saturate(200%);
+  border: 1.5px solid var(--popover-accent, rgba(247, 134, 52, 0.5));
   border-radius: 12px;
   padding: 8px 12px;
-  box-shadow: 0 10px 24px rgba(14, 41, 78, 0.14);
+  box-shadow: 0 8px 24px rgba(14, 41, 78, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02);
   text-align: center;
-  z-index: 25;
+  z-index: 100;
   pointer-events: none;
-  animation: tooltipFade 0.2s ease-out;
+  white-space: normal;
+  animation: popoverFloatIn 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes tooltipFade {
-  from { opacity: 0; transform: translate(-50%, 6px); }
-  to { opacity: 1; transform: translate(-50%, 0); }
+/* Outward Top (For nodes on top half -> popover floats above node, pointing away from center hub) */
+.orbit-node-popover.placement-outward-top {
+  bottom: calc(100% + 14px);
 }
 
-.tooltip-name {
+.orbit-node-popover.placement-outward-top::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-style: solid;
+  border-color: var(--popover-accent, #f78634) transparent transparent transparent;
+}
+
+/* Outward Bottom (For nodes on bottom half -> popover floats below node, pointing away from center hub) */
+.orbit-node-popover.placement-outward-bottom {
+  top: calc(100% + 14px);
+}
+
+.orbit-node-popover.placement-outward-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px 6px;
+  border-style: solid;
+  border-color: transparent transparent var(--popover-accent, #f78634) transparent;
+}
+
+@keyframes popoverFloatIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 6px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.popover-name {
   display: block;
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
   font-size: 11.5px;
   font-weight: 800;
   color: #0e294e;
+  line-height: 1.25;
 }
 
-.tooltip-tagline {
+.popover-tagline {
   display: block;
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 10px;
+  font-size: 9.5px;
   color: #4b5563;
-  margin: 2px 0 4px;
+  line-height: 1.35;
+  margin: 2px 0 3px;
 }
 
-.tooltip-cta {
+.popover-cta {
   display: block;
   font-family: var(--font-family-mono, monospace);
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 700;
-  color: #f78634;
+  color: var(--popover-accent, #f78634);
   letter-spacing: 0.06em;
 }
 
@@ -673,8 +738,10 @@
 .brands-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 2.4vw, 32px);
+  gap: clamp(18px, 1.8vw, 24px);
   width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
 @media (max-width: 1100px) {
@@ -690,7 +757,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. INDIVIDUAL BRAND CARD
+   5. INDIVIDUAL BRAND CARD (Refined Compact Architecture)
    -------------------------------------------------------------------------- */
 .brands-card {
   position: relative;
@@ -698,9 +765,9 @@
   flex-direction: column;
   background: #ffffff;
   border: 1px solid rgba(14, 41, 78, 0.08);
-  border-radius: 22px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(14, 41, 78, 0.035);
+  box-shadow: 0 3px 14px rgba(14, 41, 78, 0.03);
   transition: border-color 0.35s ease;
   scroll-margin-top: 100px;
 }
@@ -708,7 +775,7 @@
 /* Dynamic Accent Line that expands on hover */
 .card-accent-hairline {
   width: 100%;
-  height: 2.5px;
+  height: 2px;
   transform-origin: left center;
   transform: scaleX(0.25);
   transition: transform 0.35s ease;
@@ -723,13 +790,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px 12px;
+  padding: 12px 16px 10px;
   border-bottom: 1px solid rgba(14, 41, 78, 0.05);
 }
 
 .card-num {
   font-family: var(--font-family-mono, monospace);
-  font-size: 11.5px;
+  font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #8c93a3;
@@ -737,19 +804,19 @@
 
 .card-category-tag {
   font-family: var(--font-family-mono, monospace);
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: #0e294e;
   text-transform: uppercase;
-  padding: 3px 8px;
+  padding: 2.5px 7px;
   background: rgba(14, 41, 78, 0.04);
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .card-color-indicator {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
   transition: transform 0.25s ease;
@@ -759,7 +826,7 @@
 .card-image-canvas {
   position: relative;
   width: 100%;
-  height: 190px;
+  height: 145px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -780,40 +847,40 @@
 .card-featured-img {
   position: relative;
   z-index: 2;
-  max-width: 140px;
-  max-height: 140px;
+  max-width: 105px;
+  max-height: 105px;
   width: auto;
   height: auto;
   object-fit: contain;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  filter: drop-shadow(0 8px 18px rgba(14, 41, 78, 0.08));
+  filter: drop-shadow(0 6px 14px rgba(14, 41, 78, 0.07));
 }
 
 /* Card Body */
 .card-body {
   display: flex;
   flex-direction: column;
-  padding: 22px 24px 18px;
+  padding: 16px 18px 14px;
   flex: 1;
 }
 
 .card-identity-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
 .card-brand-logo {
-  height: 22px;
+  height: 18px;
   width: auto;
-  max-width: 65px;
+  max-width: 55px;
   object-fit: contain;
 }
 
 .card-brand-name {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #0e294e;
@@ -823,18 +890,18 @@
 
 .card-tagline {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.95rem;
+  font-size: 0.86rem;
   font-weight: 600;
-  line-height: 1.45;
+  line-height: 1.4;
   color: var(--brand-color, #f78634);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .card-description {
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
   color: #4b5563;
   margin: 0;
   flex: 1;
@@ -842,7 +909,7 @@
 
 /* Card Footer */
 .card-footer {
-  padding: 16px 24px;
+  padding: 12px 18px;
   border-top: 1px solid rgba(14, 41, 78, 0.06);
   background: #ffffff;
   display: flex;

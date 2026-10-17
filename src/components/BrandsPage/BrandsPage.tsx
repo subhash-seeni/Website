@@ -96,24 +96,38 @@ export const BrandsPage: React.FC = () => {
           '-=0.35'
         );
 
-      // 2. Continuous 360-degree Brand Orbit Rotation
+      // 2. Continuous 360-degree Brand Orbit Rotation (Slower & Silky Smooth)
       const track = orbitTrackRef.current;
       if (track) {
-        const orbitTl = gsap.timeline({ repeat: -1 });
-        orbitTl.to(track, {
-          rotation: 360,
-          duration: 42,
-          ease: 'none',
+        const orbitTl = gsap.timeline({
+          repeat: -1,
+          defaults: { ease: 'none' },
         });
         orbitTimelineRef.current = orbitTl;
 
-        // Counter-rotate each node so logos/text stay upright
-        gsap.to('.orbit-node-inner', {
-          rotation: -360,
-          duration: 42,
-          repeat: -1,
-          ease: 'none',
-        });
+        // Smooth 360-degree Brand Orbit Track Rotation (calibrated to 85s for graceful readability)
+        orbitTl.to(
+          track,
+          {
+            rotation: 360,
+            duration: 85,
+            ease: 'none',
+            force3D: true,
+          },
+          0
+        );
+
+        // Counter-rotate each node in lockstep so logos and numbers remain perfectly upright
+        orbitTl.to(
+          '.orbit-node-inner',
+          {
+            rotation: -360,
+            duration: 85,
+            ease: 'none',
+            force3D: true,
+          },
+          0
+        );
       }
 
       // 3. Staggered reveal for Brand Cards using ScrollTrigger
@@ -194,16 +208,26 @@ export const BrandsPage: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedBrand]);
 
-  // Orbit Speed Controls on Hover
+  // Orbit Speed Controls on Hover (Cushioned Inertial Deceleration)
   const handleOrbitMouseEnter = () => {
     if (orbitTimelineRef.current) {
-      gsap.to(orbitTimelineRef.current, { timeScale: 0.25, duration: 0.5 });
+      gsap.to(orbitTimelineRef.current, {
+        timeScale: 0.12,
+        duration: 1.2,
+        ease: 'power2.out',
+        overwrite: 'auto',
+      });
     }
   };
 
   const handleOrbitMouseLeave = () => {
     if (orbitTimelineRef.current) {
-      gsap.to(orbitTimelineRef.current, { timeScale: 1, duration: 0.5 });
+      gsap.to(orbitTimelineRef.current, {
+        timeScale: 1,
+        duration: 1.2,
+        ease: 'power2.inOut',
+        overwrite: 'auto',
+      });
     }
     setHoveredOrbitBrand(null);
   };
@@ -418,18 +442,21 @@ export const BrandsPage: React.FC = () => {
                   const rad = (angle * Math.PI) / 180;
                   const x = Math.round(Math.cos(rad) * radius);
                   const y = Math.round(Math.sin(rad) * radius);
+                  const isHovered = hoveredOrbitBrand?.id === brand.id;
+                  // Always position the popover pointing outwards (away from center hub) so it never covers the BOGO center hub
+                  const placementClass = y <= 0 ? 'placement-outward-top' : 'placement-outward-bottom';
 
                   return (
                     <div
                       key={brand.id}
-                      className="orbit-node"
+                      className={`orbit-node ${isHovered ? 'is-hovered' : ''}`}
                       style={{
-                        transform: `translate(${x}px, ${y}px)`,
+                        '--node-x': `${x}px`,
+                        '--node-y': `${y}px`,
                         '--node-color': brand.accentColor,
                       } as React.CSSProperties}
                       onClick={() => handleOrbitNodeClick(brand.id)}
                       onMouseEnter={() => setHoveredOrbitBrand(brand)}
-                      title={`Click to view ${brand.name}`}
                       role="button"
                       tabIndex={0}
                       aria-label={`Jump to ${brand.name}`}
@@ -441,21 +468,23 @@ export const BrandsPage: React.FC = () => {
                           className="orbit-node-img"
                           loading="lazy"
                         />
-                        <span className="orbit-node-num">{brand.number}</span>
+
+                        {/* Brand Details Tooltip corresponding directly to this node */}
+                        {isHovered && (
+                          <div
+                            className={`orbit-node-popover ${placementClass}`}
+                            style={{ '--popover-accent': brand.accentColor } as React.CSSProperties}
+                          >
+                            <span className="popover-name">{brand.name}</span>
+                            <span className="popover-tagline">“{brand.tagline}”</span>
+                            <span className="popover-cta">Click to explore ↓</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
                 })}
               </div>
-
-              {/* Active Hover Telemetry Tooltip */}
-              {hoveredOrbitBrand && (
-                <div className="orbit-hover-tooltip" style={{ borderColor: hoveredOrbitBrand.accentColor }}>
-                  <span className="tooltip-name">{hoveredOrbitBrand.name}</span>
-                  <span className="tooltip-tagline">“{hoveredOrbitBrand.tagline}”</span>
-                  <span className="tooltip-cta">Click to view in directory ↓</span>
-                </div>
-              )}
             </div>
 
             <div className="orbit-hint-bar">
