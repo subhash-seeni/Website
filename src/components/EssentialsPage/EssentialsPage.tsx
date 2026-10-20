@@ -326,8 +326,8 @@ export const EssentialsPage: React.FC = () => {
             <div className="essentials-hero-glow" aria-hidden="true" />
             <div className="essentials-hero-media-wrap">
               <img
-                src="/images/essentials/hero-essentials.jpg"
-                alt="BOGO Essentials daily household food, beverage, and grocery necessities"
+                src="/images/essentials/hero-store.png"
+                alt="BOGO Essentials modern retail store interior with organized shelves and aisles"
                 className="essentials-hero-img"
                 loading="eager"
                 width="660"
@@ -390,16 +390,6 @@ export const EssentialsPage: React.FC = () => {
                   <div className="cat-card-text">
                     <h3 className="cat-title">{cat.title}</h3>
                     <p className="cat-desc">{cat.description}</p>
-                    <div className="cat-brands-list">
-                      <span className="cat-brands-label">Featuring:</span>
-                      <div className="cat-brands-chips">
-                        {cat.brands.map((brand) => (
-                          <span key={brand} className="cat-brand-chip">
-                            {brand}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                   <div className="cat-arrow-cue" aria-hidden="true">
                     <span>→</span>
