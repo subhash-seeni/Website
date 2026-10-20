@@ -12,14 +12,32 @@ interface CategoryItem {
   description: string;
   image: string;
   icon: React.ReactNode;
+  brands: string[];
 }
 
 const CATEGORIES: CategoryItem[] = [
   {
-    id: 'bath-body',
-    title: 'Bath & Body Care',
-    description: 'Everyday bathing and body-care necessities.',
-    image: '/images/essentials/cat-bath-body.jpg',
+    id: 'food-staples',
+    title: 'Food & Pantry Staples',
+    description: 'Everyday breakfast, snacks, spices, rice, tea, and kitchen essentials.',
+    image: '/images/essentials/cat-food-staples.jpg',
+    brands: ["Lay's", "Kellogg's", 'Coca-Cola', 'Tropicana', 'Maggi', 'Nutella', 'Good Day', 'India Gate', 'Tata Salt', 'Tata Tea'],
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+        <line x1="6" y1="1" x2="6" y2="4" />
+        <line x1="10" y1="1" x2="10" y2="4" />
+        <line x1="14" y1="1" x2="14" y2="4" />
+      </svg>
+    ),
+  },
+  {
+    id: 'personal-care',
+    title: 'Personal & Hygiene Care',
+    description: 'Daily body wash, oral hygiene, lotions, soaps, and grooming staples.',
+    image: '/images/essentials/cat-personal-care.jpg',
+    brands: ['Dove', 'NIVEA', "L'Oréal", 'Garnier', 'Dettol', 'Pantene', 'Colgate', 'Gillette', 'Always'],
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
@@ -27,36 +45,38 @@ const CATEGORIES: CategoryItem[] = [
     ),
   },
   {
-    id: 'hair-care',
-    title: 'Hair Care',
-    description: 'Products for everyday hair-care routines.',
-    image: '/images/essentials/cat-hair-care.jpg',
+    id: 'beauty-skincare',
+    title: 'Beauty & Skincare',
+    description: 'Face washes, revitalizing serums, day creams, and beauty essentials.',
+    image: '/images/essentials/cat-beauty-skincare.jpg',
+    brands: ["L'Oréal Paris", 'Maybelline New York', 'Garnier Skin Naturals', 'Lakmé 9to5', 'Lakmé Absolute'],
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M7 3v18" />
-        <path d="M12 3v18" />
-        <path d="M17 3v18" />
-        <path d="M3 8h18" />
+        <circle cx="12" cy="12" r="10" />
+        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+        <line x1="9" y1="9" x2="9.01" y2="9" />
+        <line x1="15" y1="9" x2="15.01" y2="9" />
       </svg>
     ),
   },
   {
-    id: 'oral-care',
-    title: 'Oral Care',
-    description: 'Daily oral-hygiene essentials.',
-    image: '/images/essentials/cat-oral-care.jpg',
+    id: 'nutrition-wellness',
+    title: 'Health & Nutrition',
+    description: 'Nutritional drinks, wellness cereals, proteins, muesli, and vitality boosters.',
+    image: '/images/essentials/cat-nutrition-wellness.jpg',
+    brands: ['Horlicks', 'Optimum Nutrition (ON)', 'MyProtein', 'Ensure', 'BournVita', 'Nature Valley', 'Nutrilite'],
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2C8 2 6 5 6 9c0 5 2 13 6 13s6-8 6-13c0-4-2-7-6-7z" />
-        <path d="M9 10c0-1.5 1.3-2 3-2s3 .5 3 2" />
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg>
     ),
   },
   {
-    id: 'cleaning',
-    title: 'Household Cleaning',
-    description: 'Cleaning products for everyday home care.',
+    id: 'cleaning-laundry',
+    title: 'Cleaning & Household Care',
+    description: 'Surface disinfectants, detergents, floor cleaners, and home hygiene supplies.',
     image: '/images/essentials/cat-cleaning.jpg',
+    brands: ['Colin', 'Harpic', 'Vim Dishwash', 'Lizol', 'Ariel', 'Surf Excel', 'Comfort'],
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -65,26 +85,17 @@ const CATEGORIES: CategoryItem[] = [
     ),
   },
   {
-    id: 'laundry',
-    title: 'Laundry & Fabric Care',
-    description: 'Essentials for keeping clothes fresh and clean.',
-    image: '/images/essentials/cat-laundry.jpg',
+    id: 'pet-care',
+    title: 'Pet Care & Nutrition',
+    description: 'Nutritious pet foods, treats, grooming shampoos, and playful pet essentials.',
+    image: '/images/essentials/cat-pet-care.jpg',
+    brands: ['Purina Pro Plan', 'Pedigree', 'Whiskas', 'Royal Canin', 'Himalaya Pet', 'Furminator', 'Greenies', 'Fancy Feast'],
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'home-essentials',
-    title: 'Home & Hygiene Essentials',
-    description: 'Everyday necessities for a comfortable, clean home.',
-    image: '/images/essentials/cat-home-essentials.jpg',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h8" />
-        <path d="M12 8v8" />
+        <circle cx="11" cy="4" r="2" />
+        <circle cx="18" cy="8" r="2" />
+        <circle cx="4" cy="8" r="2" />
+        <path d="M12 10a4 4 0 0 0-4 4c0 3 4 7 4 7s4-4 4-7a4 4 0 0 0-4-4z" />
       </svg>
     ),
   },
@@ -177,54 +188,7 @@ export const EssentialsPage: React.FC = () => {
         });
       }
 
-      // 3. Promise Section progressive reveal
-      const promiseTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.essentials-promise-section',
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-        defaults: { ease: 'power3.out' },
-      });
-
-      promiseTimeline
-        .fromTo(
-          '.promise-title-anim',
-          { opacity: 0, y: 22 },
-          { opacity: 1, y: 0, duration: 0.6 }
-        )
-        .fromTo(
-          '.promise-benefit-anim',
-          { opacity: 0, x: -25 },
-          { opacity: 1, x: 0, duration: 0.55, stagger: 0.12 },
-          '-=0.3'
-        )
-        .fromTo(
-          '.promise-visual-anim',
-          { opacity: 0, scale: 0.93, y: 20 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.8 },
-          '-=0.5'
-        );
-
-      // 4. Vision Section reveal
-      gsap.fromTo(
-        '.essentials-vision-card',
-        { opacity: 0, y: 30, scale: 0.98 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '.essentials-vision-section',
-            start: 'top 82%',
-            toggleActions: 'play none none none',
-          },
-        }
-      );
-
-      // 5. Closing CTA banner reveal
+      // 3. Closing CTA banner reveal
       gsap.fromTo(
         '.essentials-closing-banner',
         { opacity: 0, y: 24 },
@@ -362,8 +326,8 @@ export const EssentialsPage: React.FC = () => {
             <div className="essentials-hero-glow" aria-hidden="true" />
             <div className="essentials-hero-media-wrap">
               <img
-                src="/images/essentials/hero-essentials.png"
-                alt="BOGO Essentials household and personal care products including cleaning supplies and bath essentials"
+                src="/images/essentials/hero-essentials.jpg"
+                alt="BOGO Essentials daily household food, beverage, and grocery necessities"
                 className="essentials-hero-img"
                 loading="eager"
                 width="660"
@@ -426,6 +390,16 @@ export const EssentialsPage: React.FC = () => {
                   <div className="cat-card-text">
                     <h3 className="cat-title">{cat.title}</h3>
                     <p className="cat-desc">{cat.description}</p>
+                    <div className="cat-brands-list">
+                      <span className="cat-brands-label">Featuring:</span>
+                      <div className="cat-brands-chips">
+                        {cat.brands.map((brand) => (
+                          <span key={brand} className="cat-brand-chip">
+                            {brand}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                   <div className="cat-arrow-cue" aria-hidden="true">
                     <span>→</span>
@@ -437,121 +411,7 @@ export const EssentialsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION C — OUR PROMISE */}
-      <section className="essentials-promise-section" aria-labelledby="promise-heading">
-        <div className="essentials-section-container">
-          <div className="essentials-promise-card-shell">
-            <div className="essentials-promise-grid">
-              {/* Left Column: Benefits List */}
-              <div className="essentials-promise-content">
-                <div className="promise-title-anim">
-                  <span className="essentials-kicker">OUR PROMISE</span>
-                  <h2 id="promise-heading" className="essentials-promise-title">
-                    Why Choose BOGO Essentials?
-                  </h2>
-                </div>
-
-                <div className="essentials-benefits-list">
-                  <div className="benefit-item promise-benefit-anim">
-                    <div className="benefit-icon-box" aria-hidden="true">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                      </svg>
-                    </div>
-                    <div className="benefit-text-box">
-                      <h3 className="benefit-headline">Trusted Everyday Brands</h3>
-                      <p className="benefit-copy">
-                        A carefully selected range of reliable brands.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="benefit-item promise-benefit-anim">
-                    <div className="benefit-icon-box" aria-hidden="true">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
-                        <line x1="7" y1="7" x2="7.01" y2="7" />
-                      </svg>
-                    </div>
-                    <div className="benefit-text-box">
-                      <h3 className="benefit-headline">Value for Every Household</h3>
-                      <p className="benefit-copy">
-                        Everyday essentials at competitive prices.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="benefit-item promise-benefit-anim">
-                    <div className="benefit-icon-box" aria-hidden="true">
-                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                        <polyline points="9 22 9 12 15 12 15 22" />
-                      </svg>
-                    </div>
-                    <div className="benefit-text-box">
-                      <h3 className="benefit-headline">Always Within Reach</h3>
-                      <p className="benefit-copy">
-                        Keeping household necessities accessible for everyday family needs.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Visual Imagery & Callout */}
-              <div className="essentials-promise-visual-side promise-visual-anim">
-                <div className="promise-handwritten-note">
-                  <span>Simple choices.</span>
-                  <span>A healthier, happier home.</span>
-                </div>
-                <div className="promise-image-frame">
-                  <img
-                    src="/images/essentials/promise-basket.png"
-                    alt="Woven basket with daily personal care and hygiene essentials"
-                    className="promise-art-img"
-                    loading="lazy"
-                    width="600"
-                    height="400"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION D — OUR VISION */}
-      <section className="essentials-vision-section" aria-labelledby="vision-heading">
-        <div className="essentials-section-container">
-          <div className="essentials-vision-card">
-            {/* Left: Family Lifestyle Imagery */}
-            <div className="vision-image-col">
-              <img
-                src="/images/essentials/vision-family.png"
-                alt="A warm family with fresh laundry towels embracing quality home living"
-                className="vision-lifestyle-img"
-                loading="lazy"
-                width="520"
-                height="325"
-              />
-            </div>
-
-            {/* Right: Vision Copy */}
-            <div className="vision-text-col">
-              <span className="essentials-kicker">OUR VISION</span>
-              <h2 id="vision-heading" className="essentials-vision-title">
-                Everyday Essentials for Stronger Families.
-              </h2>
-              <p className="essentials-vision-desc">
-                To become every household's trusted destination for daily essentials by delivering
-                quality, convenience, and value in every shopping experience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION E — CLOSING CTA */}
+      {/* SECTION C — CLOSING CTA */}
       <section className="essentials-closing-section" aria-label="Explore BOGO Essentials">
         <div className="essentials-closing-banner">
           {/* Decorative subtle leaf motifs on outer edges */}
@@ -578,16 +438,6 @@ export const EssentialsPage: React.FC = () => {
 
           {/* Right: Actions */}
           <div className="closing-actions-group">
-            <button
-              type="button"
-              className="essentials-primary-cta"
-              onClick={handleScrollToCategories}
-              aria-label="Explore Essentials categories"
-            >
-              <span>Explore Essentials</span>
-              <span className="cta-arrow" aria-hidden="true">→</span>
-            </button>
-
             <button
               type="button"
               className="closing-secondary-link"

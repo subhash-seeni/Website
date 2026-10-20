@@ -411,7 +411,49 @@
   font-size: 0.84rem;
   line-height: 1.45;
   color: #6b7280;
-  margin: 0;
+  margin: 0 0 10px 0;
+}
+
+.cat-brands-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.cat-brands-label {
+  font-family: var(--font-family-mono, monospace);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ea580c;
+}
+
+.cat-brands-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.cat-brand-chip {
+  display: inline-block;
+  padding: 2.5px 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #0e294e;
+  background: rgba(14, 41, 78, 0.04);
+  border: 1px solid rgba(14, 41, 78, 0.08);
+  border-radius: 4px;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  transition: all 0.2s ease;
+}
+
+.essentials-category-card:hover .cat-brand-chip {
+  background: rgba(247, 134, 52, 0.08);
+  border-color: rgba(247, 134, 52, 0.2);
+  color: #e65100;
 }
 
 .cat-arrow-cue {
