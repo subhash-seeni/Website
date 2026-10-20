@@ -69,7 +69,7 @@
   color: #0e294e;
   text-decoration: none;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   background: rgba(14, 41, 78, 0.04);
   transition: all 0.2s ease;
 }
@@ -93,7 +93,7 @@
   align-items: center;
   gap: 7px;
   padding: 5px 12px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: rgba(255, 247, 237, 0.9);
   border: 1px solid rgba(247, 134, 52, 0.25);
   font-family: var(--font-family-mono, monospace);
@@ -183,7 +183,7 @@
   align-items: center;
   gap: 10px;
   padding: 13px 26px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: linear-gradient(135deg, #f78634 0%, #e65100 100%);
   color: #ffffff;
   font-family: var(--font-family-sans, 'Plus Jakarta Sans', sans-serif);
@@ -224,7 +224,7 @@
   position: relative;
   width: 100%;
   max-width: 580px;
-  border-radius: 24px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 20px 48px rgba(14, 41, 78, 0.09), 0 4px 16px rgba(0, 0, 0, 0.03);
   background: #ffffff;
@@ -331,7 +331,7 @@
 .essentials-category-card {
   position: relative;
   background: #ffffff;
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   border: 1px solid rgba(14, 41, 78, 0.08);
   box-shadow: 0 4px 18px rgba(14, 41, 78, 0.035);
@@ -377,7 +377,7 @@
 .cat-icon-badge {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
+  border-radius: 8px;
   background: rgba(247, 134, 52, 0.12);
   color: #ea580c;
   display: flex;
@@ -417,7 +417,7 @@
 .cat-arrow-cue {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 6px;
   background: rgba(14, 41, 78, 0.04);
   color: #0e294e;
   display: flex;
@@ -447,7 +447,7 @@
 
 .essentials-promise-card-shell {
   background: linear-gradient(135deg, #fffaf5 0%, #fff6ee 100%);
-  border-radius: 28px;
+  border-radius: 12px;
   border: 1px solid rgba(247, 134, 52, 0.18);
   padding: clamp(36px, 5vw, 64px);
   box-shadow: 0 16px 44px rgba(14, 41, 78, 0.04);
@@ -485,7 +485,7 @@
   align-items: flex-start;
   gap: 18px;
   padding: 12px 14px;
-  border-radius: 16px;
+  border-radius: 8px;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -497,7 +497,7 @@
 .benefit-icon-box {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 8px;
   background: #ffffff;
   border: 1px solid rgba(247, 134, 52, 0.25);
   box-shadow: 0 4px 12px rgba(247, 134, 52, 0.1);
@@ -560,7 +560,7 @@
   position: relative;
   width: 100%;
   max-width: 520px;
-  border-radius: 24px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(14, 41, 78, 0.08);
   border: 1px solid rgba(247, 134, 52, 0.15);
@@ -595,7 +595,7 @@
   max-width: 1280px;
   margin: 0 auto;
   background: #ffffff;
-  border-radius: 28px;
+  border-radius: 12px;
   border: 1px solid rgba(14, 41, 78, 0.08);
   padding: clamp(28px, 4vw, 48px);
   box-shadow: 0 12px 36px rgba(14, 41, 78, 0.035);
@@ -606,7 +606,7 @@
 }
 
 .vision-image-col {
-  border-radius: 20px;
+  border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(14, 41, 78, 0.07);
 }
@@ -661,7 +661,7 @@
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
-  border-radius: 24px;
+  border-radius: 12px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border: 1px solid rgba(247, 134, 52, 0.22);
   padding: clamp(28px, 3.5vw, 40px) clamp(24px, 4vw, 48px);
@@ -703,7 +703,7 @@
 .closing-icon-badge {
   width: 48px;
   height: 48px;
-  border-radius: 14px;
+  border-radius: 8px;
   background: rgba(247, 134, 52, 0.15);
   color: #ea580c;
   display: flex;
@@ -739,7 +739,7 @@
   color: #0e294e;
   text-decoration: none;
   padding: 10px 18px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: rgba(255, 255, 255, 0.7);
   border: 1px solid rgba(14, 41, 78, 0.12);
   transition: all 0.22s ease;
@@ -831,7 +831,7 @@
 
   .essentials-promise-card-shell {
     padding: 24px 18px;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   .essentials-vision-section {
@@ -840,7 +840,7 @@
 
   .essentials-vision-card {
     padding: 22px 18px;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   .essentials-closing-section {

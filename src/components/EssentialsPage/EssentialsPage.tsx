@@ -19,7 +19,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'bath-body',
     title: 'Bath & Body Care',
     description: 'Everyday bathing and body-care necessities.',
-    image: '/images/essentials/cat-bath-body.png',
+    image: '/images/essentials/cat-bath-body.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
@@ -30,7 +30,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'hair-care',
     title: 'Hair Care',
     description: 'Products for everyday hair-care routines.',
-    image: '/images/essentials/cat-hair-care.png',
+    image: '/images/essentials/cat-hair-care.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M7 3v18" />
@@ -44,7 +44,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'oral-care',
     title: 'Oral Care',
     description: 'Daily oral-hygiene essentials.',
-    image: '/images/essentials/cat-oral-care.png',
+    image: '/images/essentials/cat-oral-care.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2C8 2 6 5 6 9c0 5 2 13 6 13s6-8 6-13c0-4-2-7-6-7z" />
@@ -56,7 +56,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'cleaning',
     title: 'Household Cleaning',
     description: 'Cleaning products for everyday home care.',
-    image: '/images/essentials/cat-cleaning.png',
+    image: '/images/essentials/cat-cleaning.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -68,7 +68,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'laundry',
     title: 'Laundry & Fabric Care',
     description: 'Essentials for keeping clothes fresh and clean.',
-    image: '/images/essentials/cat-laundry.png',
+    image: '/images/essentials/cat-laundry.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
@@ -79,7 +79,7 @@ const CATEGORIES: CategoryItem[] = [
     id: 'home-essentials',
     title: 'Home & Hygiene Essentials',
     description: 'Everyday necessities for a comfortable, clean home.',
-    image: '/images/essentials/cat-home-essentials.png',
+    image: '/images/essentials/cat-home-essentials.jpg',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
