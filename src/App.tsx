@@ -13,7 +13,8 @@ import { BogoFooter } from './components/BogoFooter/BogoFooter';
 import { BogoMenu } from './components/Navigation/BogoMenu';
 import { ScrollProgressIndicator } from './components/Navigation/ScrollProgressIndicator';
 import { BrandsPage } from './components/BrandsPage/BrandsPage';
-import { isBrandsPath, ROUTE_CHANGE_EVENT } from './config/navigation';
+import { EssentialsPage } from './components/EssentialsPage/EssentialsPage';
+import { isBrandsPath, isEssentialsPath, ROUTE_CHANGE_EVENT } from './config/navigation';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() =>
@@ -45,12 +46,15 @@ function App() {
   }, []);
 
   const isBrands = isBrandsPath(currentPath);
+  const isEssentials = isEssentialsPath(currentPath);
 
   return (
     <div className="bogo-app">
-      <ScrollProgressIndicator isBrandsPage={isBrands} />
+      <ScrollProgressIndicator isBrandsPage={isBrands || isEssentials} />
       <BogoMenu currentPath={currentPath} />
-      {isBrands ? (
+      {isEssentials ? (
+        <EssentialsPage />
+      ) : isBrands ? (
         <BrandsPage />
       ) : (
         <>

@@ -225,12 +225,21 @@ export const isBrandsPath = (pathname: string = typeof window !== 'undefined' ? 
 };
 
 /**
+ * Checks whether a given pathname corresponds to the BOGO Essentials brand page.
+ */
+export const isEssentialsPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  const clean = pathname.toLowerCase().replace(/\/$/, '');
+  return clean === '/brands/essentials' || clean === '/collection/essentials';
+};
+
+/**
  * Global navigation helper to smoothly navigate and scroll to destinations
  * while updating browser history cleanly using unified Lenis physics.
  */
 export const navigateToDestination = (item: NavItem, onComplete?: () => void) => {
   const isTargetBrands = isBrandsPath(item.path) || item.id === 'eco-brands' || item.id === 'f-brands';
-  const wasOnBrands = typeof window !== 'undefined' && isBrandsPath(window.location.pathname);
+  const isTargetEssentials = isEssentialsPath(item.path) || item.id === 'brand-essentials';
+  const wasSubPage = typeof window !== 'undefined' && (isBrandsPath(window.location.pathname) || isEssentialsPath(window.location.pathname));
 
   // Update browser history path without page reload
   if (typeof window !== 'undefined' && window.history && window.history.pushState) {
@@ -238,8 +247,8 @@ export const navigateToDestination = (item: NavItem, onComplete?: () => void) =>
     window.dispatchEvent(new CustomEvent(ROUTE_CHANGE_EVENT, { detail: item }));
   }
 
-  // If navigating directly to Brands page
-  if (isTargetBrands) {
+  // If navigating directly to Brands page or Essentials page
+  if (isTargetBrands || isTargetEssentials) {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -247,8 +256,8 @@ export const navigateToDestination = (item: NavItem, onComplete?: () => void) =>
     return;
   }
 
-  // If navigating from Brands page back to a homepage section
-  if (wasOnBrands) {
+  // If navigating from a sub-page back to a homepage section
+  if (wasSubPage) {
     setTimeout(() => {
       const targetElement = document.getElementById(item.targetId);
       if (targetElement) {

@@ -78,16 +78,10 @@ export const BrandsPage: React.FC = () => {
           '-=0.5'
         )
         .fromTo(
-          '.brands-stat-item',
-          { opacity: 0, y: 16, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.08, ease: 'back.out(1.2)' },
-          '-=0.45'
-        )
-        .fromTo(
           '.brands-hero-visual',
           { opacity: 0, scale: 0.92 },
           { opacity: 1, scale: 1, duration: 0.9, ease: 'power2.out' },
-          '-=0.7'
+          '-=0.5'
         )
         .fromTo(
           '.brands-toolbar-wrap',
@@ -301,11 +295,29 @@ export const BrandsPage: React.FC = () => {
   };
 
   const handleExploreBrand = (brand: BrandCategoryItem) => {
+    if (brand.slug === 'essentials') {
+      navigateToDestination({
+        id: brand.id,
+        label: brand.name,
+        path: '/brands/essentials',
+        targetId: 'bogo-essentials-page',
+      });
+      return;
+    }
     setSelectedBrand(brand);
   };
 
   const handleNavigateToCollection = (brand: BrandCategoryItem) => {
     setSelectedBrand(null);
+    if (brand.slug === 'essentials') {
+      navigateToDestination({
+        id: brand.id,
+        label: brand.name,
+        path: '/brands/essentials',
+        targetId: 'bogo-essentials-page',
+      });
+      return;
+    }
     navigateToDestination({
       id: brand.id,
       label: brand.name,
@@ -389,29 +401,6 @@ export const BrandsPage: React.FC = () => {
             <p className="brands-hero-sub hero-anim">
               Explore a family of specialised brands designed to bring everyday essentials, wellness, beauty, learning, and lifestyle experiences together.
             </p>
-
-            {/* Architectural Telemetry Stats Row */}
-            <div className="brands-hero-stats-row hero-anim" role="region" aria-label="Ecosystem metrics">
-              <div className="brands-stat-item">
-                <span className="stat-number">11</span>
-                <span className="stat-label">Category Brands</span>
-              </div>
-              <div className="stat-divider" aria-hidden="true" />
-              <div className="brands-stat-item">
-                <span className="stat-number">100%</span>
-                <span className="stat-label">Quality Assured</span>
-              </div>
-              <div className="stat-divider" aria-hidden="true" />
-              <div className="brands-stat-item">
-                <span className="stat-number">3</span>
-                <span className="stat-label">Retail Formats</span>
-              </div>
-              <div className="stat-divider" aria-hidden="true" />
-              <div className="brands-stat-item">
-                <span className="stat-number">1</span>
-                <span className="stat-label">Unified Architecture</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Column: Architectural Ecosystem Orbit Visualizer */}
@@ -443,8 +432,15 @@ export const BrandsPage: React.FC = () => {
                   const x = Math.round(Math.cos(rad) * radius);
                   const y = Math.round(Math.sin(rad) * radius);
                   const isHovered = hoveredOrbitBrand?.id === brand.id;
-                  // Always position the popover pointing outwards (away from center hub) so it never covers the BOGO center hub
-                  const placementClass = y <= 0 ? 'placement-outward-top' : 'placement-outward-bottom';
+                  // Position popover intelligently so it never collides with top header or center hub:
+                  // For top/bottom extremes (|y| > 85), project sideways into open lateral space
+                  // Otherwise project vertically away from center hub
+                  let placementClass = 'placement-outward-top';
+                  if (Math.abs(y) > 85) {
+                    placementClass = x <= 0 ? 'placement-outward-left' : 'placement-outward-right';
+                  } else {
+                    placementClass = y <= 0 ? 'placement-outward-top' : 'placement-outward-bottom';
+                  }
 
                   return (
                     <div
@@ -643,12 +639,6 @@ export const BrandsPage: React.FC = () => {
               {/* Card Content Information */}
               <div className="card-body">
                 <div className="card-identity-row">
-                  <img
-                    src={brand.logo}
-                    alt={`${brand.name} Wordmark`}
-                    className="card-brand-logo"
-                    loading="lazy"
-                  />
                   <h2 className="card-brand-name">{brand.name}</h2>
                 </div>
 
@@ -743,11 +733,6 @@ export const BrandsPage: React.FC = () => {
             {/* Modal Body */}
             <div className="modal-body">
               <div className="modal-identity">
-                <img
-                  src={selectedBrand.logo}
-                  alt={`${selectedBrand.name} Logo`}
-                  className="modal-brand-logo"
-                />
                 <h3 id="modal-brand-title" className="modal-title">
                   {selectedBrand.name}
                 </h3>
