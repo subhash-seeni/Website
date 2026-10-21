@@ -363,8 +363,13 @@
   border: 1px solid rgba(14, 41, 78, 0.08);
   box-shadow: 0 4px 20px rgba(14, 41, 78, 0.04);
   backdrop-filter: blur(10px);
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-  will-change: transform, opacity;
+  cursor: pointer;
+  outline: none;
+}
+
+.bogo-brand-tile:focus-visible {
+  outline: 2px solid #e26b18;
+  outline-offset: 3px;
 }
 
 .bogo-brand-tile:hover {

@@ -233,6 +233,14 @@ export const isEssentialsPath = (pathname: string = typeof window !== 'undefined
 };
 
 /**
+ * Checks whether a given pathname corresponds to the BOGO Daily brand page.
+ */
+export const isDailyPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  const clean = pathname.toLowerCase().replace(/\/$/, '');
+  return clean === '/brands/daily' || clean === '/collection/daily';
+};
+
+/**
  * Checks whether a given pathname corresponds to any of the 4 Programmes.
  */
 export const isProgrammePath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): string | null => {

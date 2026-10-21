@@ -14,6 +14,7 @@ import { BogoMenu } from './components/Navigation/BogoMenu';
 import { ScrollProgressIndicator } from './components/Navigation/ScrollProgressIndicator';
 import { BrandsPage } from './components/BrandsPage/BrandsPage';
 import { EssentialsPage } from './components/EssentialsPage/EssentialsPage';
+import { DailyPage } from './components/DailyPage/DailyPage';
 import { LifePage } from './components/LifePage/LifePage';
 import { CompanionPage } from './components/CompanionPage/CompanionPage';
 import { AffairsPage } from './components/AffairsPage/AffairsPage';
@@ -21,6 +22,7 @@ import { PartnerPage } from './components/PartnerPage/PartnerPage';
 import {
   isBrandsPath,
   isEssentialsPath,
+  isDailyPath,
   isProgrammePath,
   ROUTE_CHANGE_EVENT,
 } from './config/navigation';
@@ -56,14 +58,17 @@ function App() {
 
   const isBrands = isBrandsPath(currentPath);
   const isEssentials = isEssentialsPath(currentPath);
+  const isDaily = isDailyPath(currentPath);
   const progType = isProgrammePath(currentPath);
-  const isSubPage = isBrands || isEssentials || progType !== null;
+  const isSubPage = isBrands || isEssentials || isDaily || progType !== null;
 
   return (
     <div className="bogo-app">
       <ScrollProgressIndicator isBrandsPage={isSubPage} />
       <BogoMenu currentPath={currentPath} />
-      {isEssentials ? (
+      {isDaily ? (
+        <DailyPage />
+      ) : isEssentials ? (
         <EssentialsPage />
       ) : isBrands ? (
         <BrandsPage />

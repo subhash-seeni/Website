@@ -1,5 +1,6 @@
 import React from 'react';
 import type { BrandItem } from './types';
+import { navigateToDestination } from '../../config/navigation';
 
 interface BrandTileProps {
   brand: BrandItem;
@@ -8,8 +9,50 @@ interface BrandTileProps {
 }
 
 export const BrandTile: React.FC<BrandTileProps> = ({ brand, itemIndex, totalInSet }) => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (brand.id === 'essentials') {
+      navigateToDestination({
+        id: 'brand-essentials',
+        label: 'BOGO Essentials',
+        path: '/brands/essentials',
+        targetId: 'bogo-essentials-page',
+      });
+      return;
+    }
+    if (brand.id === 'daily') {
+      navigateToDestination({
+        id: 'brand-daily',
+        label: 'BOGO Daily',
+        path: '/brands/daily',
+        targetId: 'bogo-daily-page',
+      });
+      return;
+    }
+    // For other brands, navigate to the Brands directory
+    navigateToDestination({
+      id: 'eco-brands',
+      label: 'Brands',
+      path: '/ecosystem/brands',
+      targetId: 'bogo-brands-page',
+    });
+  };
+
   return (
-    <div className={`bogo-brand-tile tile-${brand.id}`} data-brand-id={brand.id}>
+    <div
+      className={`bogo-brand-tile tile-${brand.id} is-clickable`}
+      data-brand-id={brand.id}
+      onClick={handleClick}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick(e as unknown as React.MouseEvent);
+        }
+      }}
+      aria-label={`View details for ${brand.name}`}
+    >
       {/* Subtle brand color hairline accent */}
       <div
         className="bogo-tile-accent-line"
@@ -61,3 +104,4 @@ export const BrandTile: React.FC<BrandTileProps> = ({ brand, itemIndex, totalInS
     </div>
   );
 };
+

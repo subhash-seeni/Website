@@ -304,6 +304,15 @@ export const BrandsPage: React.FC = () => {
       });
       return;
     }
+    if (brand.slug === 'daily') {
+      navigateToDestination({
+        id: brand.id,
+        label: brand.name,
+        path: '/brands/daily',
+        targetId: 'bogo-daily-page',
+      });
+      return;
+    }
     setSelectedBrand(brand);
   };
 
@@ -315,6 +324,15 @@ export const BrandsPage: React.FC = () => {
         label: brand.name,
         path: '/brands/essentials',
         targetId: 'bogo-essentials-page',
+      });
+      return;
+    }
+    if (brand.slug === 'daily') {
+      navigateToDestination({
+        id: brand.id,
+        label: brand.name,
+        path: '/brands/daily',
+        targetId: 'bogo-daily-page',
       });
       return;
     }
