@@ -156,28 +156,28 @@ export const navigationConfig: NavigationStructure = {
       id: 'prog-life',
       label: 'BOGO Life',
       path: '/programmes/life',
-      targetId: 'bogo-programs-section',
+      targetId: 'bogo-life-page',
       subtitle: 'Lifestyle & Wellness Initiatives',
     },
     {
       id: 'prog-companion',
       label: 'BOGO Companion',
       path: '/programmes/companion',
-      targetId: 'bogo-programs-section',
+      targetId: 'bogo-companion-page',
       subtitle: 'Personalized Member Experience',
     },
     {
       id: 'prog-affairs',
       label: 'BOGO Affairs',
       path: '/programmes/affairs',
-      targetId: 'bogo-programs-section',
+      targetId: 'bogo-affairs-page',
       subtitle: 'Community & Cultural Events',
     },
     {
       id: 'prog-partner',
       label: 'BOGO Partner',
-      path: '/ecosystem/partnerships',
-      targetId: 'bogo-programs-section',
+      path: '/programmes/partner',
+      targetId: 'bogo-partner-page',
       subtitle: 'Strategic Supplier Collaboration',
     },
   ],
@@ -233,13 +233,43 @@ export const isEssentialsPath = (pathname: string = typeof window !== 'undefined
 };
 
 /**
+ * Checks whether a given pathname corresponds to any of the 4 Programmes.
+ */
+export const isProgrammePath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): string | null => {
+  const clean = pathname.toLowerCase().replace(/\/$/, '');
+  if (clean === '/programmes/life') return 'life';
+  if (clean === '/programmes/companion') return 'companion';
+  if (clean === '/programmes/affairs') return 'affairs';
+  if (clean === '/programmes/partner') return 'partner';
+  return null;
+};
+
+export const isLifePath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  return isProgrammePath(pathname) === 'life';
+};
+
+export const isCompanionPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  return isProgrammePath(pathname) === 'companion';
+};
+
+export const isAffairsPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  return isProgrammePath(pathname) === 'affairs';
+};
+
+export const isPartnerPath = (pathname: string = typeof window !== 'undefined' ? window.location.pathname : '/'): boolean => {
+  return isProgrammePath(pathname) === 'partner';
+};
+
+/**
  * Global navigation helper to smoothly navigate and scroll to destinations
  * while updating browser history cleanly using unified Lenis physics.
  */
 export const navigateToDestination = (item: NavItem, onComplete?: () => void) => {
   const isTargetBrands = isBrandsPath(item.path) || item.id === 'eco-brands' || item.id === 'f-brands';
   const isTargetEssentials = isEssentialsPath(item.path) || item.id === 'brand-essentials';
-  const wasSubPage = typeof window !== 'undefined' && (isBrandsPath(window.location.pathname) || isEssentialsPath(window.location.pathname));
+  const targetProgramme = isProgrammePath(item.path);
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const wasSubPage = typeof window !== 'undefined' && (isBrandsPath(currentPath) || isEssentialsPath(currentPath) || isProgrammePath(currentPath) !== null);
 
   // Update browser history path without page reload
   if (typeof window !== 'undefined' && window.history && window.history.pushState) {
@@ -247,8 +277,8 @@ export const navigateToDestination = (item: NavItem, onComplete?: () => void) =>
     window.dispatchEvent(new CustomEvent(ROUTE_CHANGE_EVENT, { detail: item }));
   }
 
-  // If navigating directly to Brands page or Essentials page
-  if (isTargetBrands || isTargetEssentials) {
+  // If navigating directly to a dedicated sub-page (Brands, Essentials, or Programmes)
+  if (isTargetBrands || isTargetEssentials || targetProgramme) {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }

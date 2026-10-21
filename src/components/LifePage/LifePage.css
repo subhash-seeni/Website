@@ -1,0 +1,586 @@
+/* ===================================================================
+   BOGO LIFE STANDALONE PAGE STYLES (WARM PURPLE & CORAL WELLNESS)
+   Mild rounded aesthetic: 10px cards, 6px buttons/badges
+   =================================================================== */
+
+.bogo-life-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0b0716;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Top Breadcrumb Nav */
+.life-top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  width: 100%;
+  background: rgba(11, 7, 22, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.life-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.life-nav-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.life-crumb-link {
+  color: #a855f7;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.life-crumb-link:hover {
+  color: #f97316;
+}
+
+.life-crumb-sep {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.life-crumb-current {
+  color: #fff;
+}
+
+.life-back-btn {
+  background: transparent;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #e9d5ff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.life-back-btn:hover {
+  background: rgba(168, 85, 247, 0.2);
+  border-color: #a855f7;
+  color: #fff;
+}
+
+/* Hero Section */
+.life-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.life-hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.life-hero-glow {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.28) 0%, rgba(249, 115, 22, 0.18) 45%, transparent 70%);
+  filter: blur(60px);
+}
+
+.life-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.life-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 6px;
+  color: #d8b4fe;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  margin-bottom: 2rem;
+}
+
+.life-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f97316;
+  box-shadow: 0 0 8px #f97316;
+}
+
+.life-logo-display {
+  margin-bottom: 1.75rem;
+}
+
+.life-hero-logo-img {
+  max-height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(168, 85, 247, 0.35));
+}
+
+.life-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.life-title-gradient {
+  background: linear-gradient(120deg, #c084fc 0%, #f97316 60%, #fdba74 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.life-hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: #cbd5e1;
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+}
+
+.life-hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.life-primary-btn {
+  background: linear-gradient(135deg, #9333ea, #f97316);
+  color: #fff;
+  padding: 0.85rem 1.85rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 24px rgba(147, 51, 234, 0.35);
+}
+
+.life-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.45);
+}
+
+.life-secondary-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #e2e8f0;
+  padding: 0.85rem 1.85rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.life-secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #a855f7;
+  color: #fff;
+}
+
+/* Section Header Shared */
+.life-section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.life-section-kicker {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #f97316;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.life-section-title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.life-section-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+/* Pillars Section */
+.life-pillars-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.life-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+.life-pillar-card {
+  background: rgba(22, 14, 38, 0.7);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.life-pillar-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(168, 85, 247, 0.18);
+}
+
+.life-pillar-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.life-pillar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.life-pillar-card:hover .life-pillar-img {
+  transform: scale(1.05);
+}
+
+.life-pillar-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(11, 7, 22, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #f97316;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.life-pillar-pts {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(147, 51, 234, 0.85);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.life-pillar-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.life-pillar-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.life-pillar-subtitle {
+  font-size: 0.8rem;
+  color: #c084fc;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.life-pillar-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: #94a3b8;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.life-pillar-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+.life-pillar-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+}
+
+.life-feature-check {
+  color: #22c55e;
+  font-weight: 900;
+}
+
+/* Tier Structure Section */
+.life-tiers-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  background: radial-gradient(ellipse at bottom, rgba(168, 85, 247, 0.12) 0%, transparent 60%);
+}
+
+.life-tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.life-tier-card {
+  background: rgba(22, 14, 38, 0.7);
+  border: 1px solid var(--tier-accent, rgba(168, 85, 247, 0.3));
+  border-radius: 10px;
+  padding: 2.25rem;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.life-tier-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 28px var(--tier-accent);
+}
+
+.life-tier-top {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.life-tier-kicker {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--tier-accent);
+}
+
+.life-tier-name {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+.life-tier-range {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.life-tier-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.life-tier-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.life-perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+}
+
+.life-perk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tier-accent);
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+}
+
+/* Corporate Strip */
+.life-corporate-strip {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.life-corporate-inner {
+  background: linear-gradient(135deg, rgba(88, 28, 135, 0.45), rgba(194, 65, 12, 0.35));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 10px;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.life-corporate-text {
+  max-width: 720px;
+}
+
+.life-corp-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #fb923c;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.life-corp-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.life-corp-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.life-corp-btn {
+  background: #f97316;
+  color: #fff;
+  padding: 0.85rem 1.65rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.life-corp-btn:hover {
+  background: #ea580c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.4);
+}
+
+/* Closing Banner */
+.life-closing-banner {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: #07040e;
+  border-top: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+.life-closing-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.life-closing-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.life-closing-desc {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.life-closing-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.life-closing-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .life-corporate-inner {
+    padding: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

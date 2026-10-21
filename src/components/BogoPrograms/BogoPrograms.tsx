@@ -6,6 +6,7 @@ import lifeLogoImg from '../../assets/Life.png';
 import partnerLogoImg from '../../assets/Partner.png';
 import companionLogoImg from '../../assets/Companion.png';
 import affairsLogoImg from '../../assets/Affairs.png';
+import { navigateToDestination } from '../../config/navigation';
 import './BogoPrograms.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -242,7 +243,20 @@ export const BogoPrograms: React.FC = () => {
             </svg>
 
             {/* 1. BOGO PARTNER (upper left) */}
-            <div className="bogo-prog-logo-item bogo-prog-item-partner">
+            <a
+              href="/programmes/partner"
+              className="bogo-prog-logo-item bogo-prog-item-partner bogo-prog-interactive-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToDestination({
+                  id: 'prog-partner',
+                  label: 'BOGO Partner',
+                  path: '/programmes/partner',
+                  targetId: 'bogo-partner-page',
+                });
+              }}
+              title="Explore BOGO Partner"
+            >
               <div className="bogo-prog-artwork-wrap">
                 <img
                   src={partnerLogoImg}
@@ -254,10 +268,24 @@ export const BogoPrograms: React.FC = () => {
               <p className="bogo-prog-desc desc-partner">
                 Helping emerging regional brands scale through direct store shelf access and shared logistics.
               </p>
-            </div>
+              <span className="bogo-prog-explore-hint">EXPLORE PROGRAMME →</span>
+            </a>
 
             {/* 2. BOGO LIFE (upper right) */}
-            <div className="bogo-prog-logo-item bogo-prog-item-life">
+            <a
+              href="/programmes/life"
+              className="bogo-prog-logo-item bogo-prog-item-life bogo-prog-interactive-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToDestination({
+                  id: 'prog-life',
+                  label: 'BOGO Life',
+                  path: '/programmes/life',
+                  targetId: 'bogo-life-page',
+                });
+              }}
+              title="Explore BOGO Life"
+            >
               <div className="bogo-prog-artwork-wrap">
                 <img
                   src={lifeLogoImg}
@@ -269,10 +297,24 @@ export const BogoPrograms: React.FC = () => {
               <p className="bogo-prog-desc desc-life">
                 Exclusive wellness benefits and corporate pantry solutions tailored for forward-thinking workplaces.
               </p>
-            </div>
+              <span className="bogo-prog-explore-hint">EXPLORE PROGRAMME →</span>
+            </a>
 
             {/* 3. BOGO COMPANION (lower left) */}
-            <div className="bogo-prog-logo-item bogo-prog-item-companion">
+            <a
+              href="/programmes/companion"
+              className="bogo-prog-logo-item bogo-prog-item-companion bogo-prog-interactive-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToDestination({
+                  id: 'prog-companion',
+                  label: 'BOGO Companion',
+                  path: '/programmes/companion',
+                  targetId: 'bogo-companion-page',
+                });
+              }}
+              title="Explore BOGO Companion"
+            >
               <div className="bogo-prog-artwork-wrap">
                 <img
                   src={companionLogoImg}
@@ -284,10 +326,24 @@ export const BogoPrograms: React.FC = () => {
               <p className="bogo-prog-desc desc-companion">
                 One unified membership unlocking member pricing, priority events, and free deliveries across all brands.
               </p>
-            </div>
+              <span className="bogo-prog-explore-hint">EXPLORE PROGRAMME →</span>
+            </a>
 
             {/* 4. BOGO AFFAIRS (lower right) */}
-            <div className="bogo-prog-logo-item bogo-prog-item-affairs">
+            <a
+              href="/programmes/affairs"
+              className="bogo-prog-logo-item bogo-prog-item-affairs bogo-prog-interactive-link"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateToDestination({
+                  id: 'prog-affairs',
+                  label: 'BOGO Affairs',
+                  path: '/programmes/affairs',
+                  targetId: 'bogo-affairs-page',
+                });
+              }}
+              title="Explore BOGO Affairs"
+            >
               <div className="bogo-prog-artwork-wrap">
                 <img
                   src={affairsLogoImg}
@@ -299,7 +355,8 @@ export const BogoPrograms: React.FC = () => {
               <p className="bogo-prog-desc desc-affairs">
                 Community dialogues, cultural forums, and transparent consumer insights keeping the ecosystem connected.
               </p>
-            </div>
+              <span className="bogo-prog-explore-hint">EXPLORE PROGRAMME →</span>
+            </a>
 
             {/* Central Convergence: Subtle BOGO Infinity Motif */}
             <div className="bogo-prog-center-convergence" aria-hidden="true">

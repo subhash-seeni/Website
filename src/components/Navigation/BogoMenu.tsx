@@ -320,18 +320,22 @@ export const BogoMenu: React.FC<BogoMenuProps> = ({
               <div className="bogo-menu-subcol">
                 <span className="bogo-menu-col-kicker">PROGRAMMES</span>
                 <ul className="bogo-menu-sublist">
-                  {navigationConfig.programmes.map((item) => (
-                    <li key={item.id} className="bogo-menu-subitem">
-                      <a
-                        href={`#${item.targetId}`}
-                        className="bogo-menu-sublink"
-                        onClick={(e) => handleItemClick(e, item)}
-                      >
-                        <span className="bogo-sublink-title">{item.label}</span>
-                        <span className="bogo-sublink-arrow">→</span>
-                      </a>
-                    </li>
-                  ))}
+                  {navigationConfig.programmes.map((item) => {
+                    const isProgActive = currentPath === item.path;
+                    return (
+                      <li key={item.id} className="bogo-menu-subitem">
+                        <a
+                          href={item.path}
+                          className={`bogo-menu-sublink ${isProgActive ? 'is-active' : ''}`}
+                          onClick={(e) => handleItemClick(e, item)}
+                          aria-current={isProgActive ? 'page' : undefined}
+                        >
+                          <span className="bogo-sublink-title">{item.label}</span>
+                          <span className="bogo-sublink-arrow">→</span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>
