@@ -176,7 +176,7 @@
 .aff-hero-section {
   position: relative;
   z-index: 2;
-  padding: clamp(4.5rem, 7vw, 7rem) 2rem clamp(3.5rem, 5.5vw, 5rem);
+  padding: clamp(3rem, 5vw, 4.5rem) 2rem clamp(2.5rem, 4vw, 3.5rem);
   text-align: center;
 }
 
@@ -192,7 +192,7 @@
   position: relative;
   width: 170px;
   height: 170px;
-  margin: 0 auto 2.25rem;
+  margin: 0 auto 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,7 +243,7 @@
   line-height: 1.12;
   letter-spacing: -0.035em;
   color: var(--aff-color-navy-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   max-width: 880px;
 }
 
@@ -252,7 +252,7 @@
   line-height: 1.68;
   color: var(--aff-color-navy-mid);
   max-width: 780px;
-  margin-bottom: 2.75rem;
+  margin-bottom: 2rem;
 }
 
 /* Interactive Navigation Dock in Hero */
@@ -323,7 +323,7 @@
 .aff-section-header {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto clamp(2.5rem, 4.5vw, 3.8rem);
+  margin: 0 auto clamp(1.8rem, 3.2vw, 2.5rem);
 }
 
 .aff-section-kicker {
@@ -333,7 +333,7 @@
   font-weight: 800;
   letter-spacing: 0.18em;
   color: var(--aff-color-amber-accent);
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 .aff-section-heading {
@@ -342,7 +342,7 @@
   letter-spacing: -0.03em;
   color: var(--aff-color-navy-dark);
   line-height: 1.18;
-  margin-bottom: 0.85rem;
+  margin-bottom: 0.65rem;
 }
 
 .aff-section-sub {
@@ -357,7 +357,7 @@
 .aff-pillars-section {
   position: relative;
   z-index: 2;
-  padding: clamp(4.5rem, 7vw, 6.5rem) 0;
+  padding: clamp(3.2rem, 5vw, 4.5rem) 0;
   background: linear-gradient(180deg, rgba(237, 242, 249, 0.5) 0%, rgba(245, 247, 252, 0.95) 100%);
   border-top: 1px solid var(--aff-border-navy-subtle);
   border-bottom: 1px solid var(--aff-border-navy-subtle);
@@ -390,7 +390,7 @@
   gap: 1.5rem;
   position: relative;
   z-index: 1;
-  margin-bottom: 2.25rem;
+  margin-bottom: 0;
 }
 
 .aff-pillar-interactive-card {
@@ -400,7 +400,7 @@
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--aff-border-navy-subtle);
   border-radius: 12px;
-  padding: 2.2rem 1.6rem 1.8rem;
+  padding: 2rem 1.5rem 1.6rem;
   display: flex;
   flex-direction: column;
   transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -421,16 +421,14 @@
   transition: opacity 0.3s ease;
 }
 
-.aff-pillar-interactive-card:hover,
-.aff-pillar-interactive-card.is-selected-pillar {
+.aff-pillar-interactive-card:hover {
   transform: translateY(-8px);
   background: #ffffff;
   border-color: var(--aff-color-amber-accent);
   box-shadow: var(--aff-shadow-card-hover), 0 0 28px rgba(253, 114, 17, 0.12);
 }
 
-.aff-pillar-interactive-card:hover .aff-card-accent-rail,
-.aff-pillar-interactive-card.is-selected-pillar .aff-card-accent-rail {
+.aff-pillar-interactive-card:hover .aff-card-accent-rail {
   opacity: 1;
 }
 
@@ -558,98 +556,7 @@
   color: var(--aff-color-amber-accent);
 }
 
-/* Spotlight Deep-Dive Box */
-.aff-pillar-spotlight-display {
-  background: var(--aff-color-bg-surface);
-  border: 1px solid var(--aff-border-navy-active);
-  border-radius: 12px;
-  padding: 1.75rem 2rem;
-  box-shadow: var(--aff-shadow-card);
-  will-change: transform, opacity, border-color, box-shadow;
-}
-
-.aff-spotlight-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.aff-spotlight-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-family-mono, monospace);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--aff-color-navy-primary);
-}
-
-.aff-spotlight-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--aff-color-amber-accent);
-}
-
-.aff-spotlight-layer-tag {
-  font-family: var(--font-family-mono, monospace);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--aff-color-amber-accent);
-  background: var(--aff-color-bg-tint-amber);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-}
-
-.aff-spotlight-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.aff-spotlight-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--aff-color-navy-dark);
-  margin-bottom: 0.4rem;
-}
-
-.aff-spotlight-lead {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--aff-color-navy-mid);
-}
-
-.aff-spotlight-pills-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.aff-spotlight-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  background: var(--aff-color-bg-tint-navy);
-  border: 1px solid var(--aff-border-navy-subtle);
-  border-radius: 6px;
-  padding: 0.45rem 0.85rem;
-  font-size: 0.82rem;
-  color: var(--aff-color-navy-dark);
-  font-weight: 600;
-}
-
-.aff-chip-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--aff-color-navy-bright);
-}
+/* Spotlight Deep-Dive Box Removed */
 
 /* --------------------------------------------------------------------------
    4. FEATURED EDITORIAL CONTENT (SPOTLIGHT) WITH PARALLAX GLOW
@@ -981,7 +888,7 @@
 .aff-timeline-section {
   position: relative;
   z-index: 2;
-  padding: clamp(4.5rem, 7vw, 6.5rem) 0 clamp(5rem, 8vw, 7rem);
+  padding: clamp(3.2rem, 5vw, 4.5rem) 0 clamp(4rem, 6vw, 5.5rem);
   background: linear-gradient(180deg, rgba(237, 242, 249, 0.4) 0%, #ffffff 100%);
   border-top: 1px solid var(--aff-border-navy-subtle);
 }
@@ -991,7 +898,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.35rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .aff-horizon-pill {
